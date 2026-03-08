@@ -8,6 +8,7 @@ import { toTemplateResumeData } from "./domain/resume.adapter";
 import { createInitialResume } from "./domain/resume.factory";
 import type { Resume } from "./domain/resume.types";
 import { templates } from "./data/templates";
+import { exportReactPdf, supportsReactPdf } from "./pdf/templates";
 import type { TemplateId } from "./types/resume";
 
 export default function App() {
@@ -32,16 +33,21 @@ export default function App() {
   });
 
   const handleExportPdf = async () => {
+    const fileName = `${resume.header.firstName}-${resume.header.lastName || "curriculo"}`
+      .trim()
+      .replace(/\s+/g, "-")
+      .toLowerCase();
+
+    if (supportsReactPdf(currentTemplateId)) {
+      await exportReactPdf(currentTemplateId, previewData, fileName);
+      return;
+    }
+
     if (!printRef.current) {
       return;
     }
 
     const exportWidth = 794;
-    const exportHeight = 1123;
-    const fileName = `${resume.header.firstName}-${resume.header.lastName || "curriculo"}`
-      .trim()
-      .replace(/\s+/g, "-")
-      .toLowerCase();
     const sourceNode = (printRef.current.firstElementChild as HTMLElement | null) ?? printRef.current;
     const exportNode = sourceNode.cloneNode(true) as HTMLDivElement;
     const sandbox = document.createElement("div");
@@ -50,21 +56,18 @@ export default function App() {
     sandbox.style.left = "-99999px";
     sandbox.style.top = "0";
     sandbox.style.width = `${exportWidth}px`;
-    sandbox.style.height = `${exportHeight}px`;
     sandbox.style.background = "#ffffff";
     sandbox.style.padding = "0";
     sandbox.style.margin = "0";
-    sandbox.style.overflow = "hidden";
+    sandbox.style.overflow = "visible";
 
     exportNode.style.width = `${exportWidth}px`;
     exportNode.style.minWidth = `${exportWidth}px`;
     exportNode.style.maxWidth = `${exportWidth}px`;
-    exportNode.style.height = `${exportHeight}px`;
-    exportNode.style.minHeight = `${exportHeight}px`;
     exportNode.style.background = "#ffffff";
     exportNode.style.margin = "0";
     exportNode.style.padding = "0";
-    exportNode.style.overflow = "hidden";
+    exportNode.style.overflow = "visible";
     exportNode.style.borderRadius = "0";
     exportNode.style.boxShadow = "none";
 
@@ -84,14 +87,15 @@ export default function App() {
     document.body.appendChild(sandbox);
 
     try {
+      const contentHeight = Math.ceil(exportNode.scrollHeight);
       const canvas = await html2canvas(exportNode, {
         scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff",
         width: exportWidth,
-        height: exportHeight,
+        height: contentHeight,
         windowWidth: exportWidth,
-        windowHeight: exportHeight,
+        windowHeight: contentHeight,
       });
 
       const pdf = new jsPDF({
@@ -101,16 +105,31 @@ export default function App() {
         compress: true,
       });
 
-      pdf.addImage(
-        canvas.toDataURL("image/png"),
-        "PNG",
-        0,
-        0,
-        210,
-        297,
-        undefined,
-        "FAST",
-      );
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const renderWidth = pdfWidth;
+      const renderHeight = (imgHeight * pdfWidth) / imgWidth;
+      const imageData = canvas.toDataURL("image/png");
+      const totalPages = Math.max(1, Math.ceil(renderHeight / pdfHeight));
+
+      for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
+        if (pageIndex > 0) {
+          pdf.addPage();
+        }
+
+        pdf.addImage(
+          imageData,
+          "PNG",
+          0,
+          -pageIndex * pdfHeight,
+          renderWidth,
+          renderHeight,
+          undefined,
+          "FAST",
+        );
+      }
       pdf.save(`${fileName}.pdf`);
     } finally {
       document.body.removeChild(sandbox);
