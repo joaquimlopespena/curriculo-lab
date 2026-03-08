@@ -18,8 +18,10 @@ const styles = StyleSheet.create({
   page: {
     backgroundColor: "#ffffff",
     color: "#0f172a",
-    fontSize: 9,
+    fontSize: 10,
     fontFamily: "Helvetica",
+    width: "210mm",
+    height: "297mm",
   },
   header: {
     paddingHorizontal: 20,
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
   },
   profileLabel: {
-    fontSize: 8,
+    fontSize: 9,
     letterSpacing: 2.8,
     textTransform: "uppercase",
     opacity: 0.85,
@@ -56,41 +58,54 @@ const styles = StyleSheet.create({
     width: "40%",
     alignItems: "flex-end",
     gap: 3,
-    fontSize: 8.6,
+    fontSize: 9.5,
   },
   body: {
     flexDirection: "row",
+    flex: 1,
     paddingHorizontal: 20,
-    paddingVertical: 14,
-    gap: 12,
+    paddingVertical: 16,
+    gap: 14,
   },
   main: {
-    width: "61%",
+    width: "65%",
+    flexDirection: "column",
   },
   aside: {
-    width: "39%",
+    width: "35%",
+    flexDirection: "column",
+    justifyContent: "flex-start",
     gap: 10,
   },
   section: {
     marginBottom: 12,
   },
+  summarySection: {
+    marginBottom: 16,
+  },
+  experienceSection: {
+    flexDirection: "column",
+  },
+  experienceList: {
+    flexDirection: "column",
+  },
   sectionTitle: {
-    fontSize: 8.2,
+    fontSize: 9.5,
     letterSpacing: 3,
     textTransform: "uppercase",
     color: "#64748b",
     fontWeight: 700,
-    marginBottom: 6,
+    marginBottom: 8,
   },
   paragraph: {
     color: "#475569",
-    lineHeight: 1.4,
-    fontSize: 8.5,
+    lineHeight: 1.5,
+    fontSize: 10.5,
   },
   experienceItem: {
     borderLeftWidth: 3,
-    paddingLeft: 8,
-    marginBottom: 9,
+    paddingLeft: 10,
+    marginBottom: 30,
   },
   experienceHeader: {
     flexDirection: "row",
@@ -99,25 +114,25 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   experienceRole: {
-    fontSize: 9.6,
+    fontSize: 11.5,
     fontWeight: 800,
     color: "#0f172a",
   },
   experienceCompany: {
-    fontSize: 8.4,
+    fontSize: 10,
     fontWeight: 700,
     marginTop: 1,
   },
   experiencePeriod: {
-    fontSize: 8.1,
+    fontSize: 9.5,
     color: "#64748b",
   },
   sideCard: {
-    borderRadius: 12,
-    padding: 10,
+    borderRadius: 8,
+    padding: 12,
   },
   sideCardTitle: {
-    fontSize: 8.1,
+    fontSize: 9,
     letterSpacing: 3,
     textTransform: "uppercase",
     color: "#64748b",
@@ -125,21 +140,24 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   listItem: {
-    fontSize: 8.3,
+    fontSize: 9.5,
     color: "#475569",
     lineHeight: 1.35,
     marginBottom: 3,
   },
   educationDegree: {
-    fontSize: 8.8,
+    fontSize: 10,
     fontWeight: 800,
     color: "#0f172a",
-    marginBottom: 1,
+    marginBottom: 2,
   },
   educationLine: {
-    fontSize: 8.1,
+    fontSize: 9,
     color: "#475569",
-    marginBottom: 1,
+    marginBottom: 2,
+  },
+  educationItem: {
+    marginBottom: 8,
   },
 });
 
@@ -156,7 +174,7 @@ export function ExecutivePdfDocument({
           <Text style={styles.profileLabel}>Perfil profissional</Text>
           <View style={styles.headerRow}>
             <View style={styles.titleBlock}>
-              <Text style={{ ...styles.name, fontFamily: serifName ? "Times-Bold" : "Helvetica-Bold" }}>
+              <Text style={{ ...styles.name, fontFamily: serifName ? "Times-BoldItalic" : "Helvetica-Bold" }}>
                 {data.personal.fullName}
               </Text>
               <Text style={styles.role}>{data.personal.title}</Text>
@@ -174,25 +192,27 @@ export function ExecutivePdfDocument({
 
         <View style={styles.body}>
           <View style={styles.main}>
-            <View style={styles.section}>
+            <View style={styles.summarySection}>
               <Text style={styles.sectionTitle}>Resumo / Objetivo</Text>
               <Text style={styles.paragraph}>{data.summary}</Text>
             </View>
 
-            <View style={styles.section}>
+            <View style={styles.experienceSection}>
               <Text style={styles.sectionTitle}>Experiencia Profissional</Text>
-              {data.experience.map((item) => (
-                <View key={`${item.role}-${item.company}`} style={{ ...styles.experienceItem, borderLeftColor: accentColor }}>
-                  <View style={styles.experienceHeader}>
-                    <View style={{ width: "68%" }}>
-                      <Text style={styles.experienceRole}>{item.role}</Text>
-                      <Text style={{ ...styles.experienceCompany, color: accentColor }}>{item.company}</Text>
+              <View style={styles.experienceList}>
+                {data.experience.map((item) => (
+                  <View key={`${item.role}-${item.company}`} style={{ ...styles.experienceItem, borderLeftColor: accentColor }}>
+                    <View style={styles.experienceHeader}>
+                      <View style={{ width: "68%" }}>
+                        <Text style={styles.experienceRole}>{item.role}</Text>
+                        <Text style={{ ...styles.experienceCompany, color: accentColor }}>{item.company}</Text>
+                      </View>
+                      <Text style={styles.experiencePeriod}>{item.period}</Text>
                     </View>
-                    <Text style={styles.experiencePeriod}>{item.period}</Text>
+                    <Text style={styles.paragraph}>{item.description}</Text>
                   </View>
-                  <Text style={styles.paragraph}>{item.description}</Text>
-                </View>
-              ))}
+                ))}
+              </View>
             </View>
           </View>
 
@@ -209,7 +229,7 @@ export function ExecutivePdfDocument({
             <View style={{ ...styles.sideCard, backgroundColor: sideBackground }}>
               <Text style={styles.sideCardTitle}>Formacao academica</Text>
               {data.education.map((item) => (
-                <View key={`${item.degree}-${item.institution}`} style={{ marginBottom: 6 }}>
+                <View key={`${item.degree}-${item.institution}`} style={styles.educationItem}>
                   <Text style={styles.educationDegree}>{item.degree}</Text>
                   <Text style={styles.educationLine}>{item.institution}</Text>
                   <Text style={styles.educationLine}>Conclusao: {item.conclusion}</Text>

@@ -1,5 +1,5 @@
 import type { StepComponentProps } from "../../domain/resume.types";
-import { FloatingLabelTextarea, FormSectionShell, PillButton } from "./shared";
+import { FloatingLabelTextarea, FormSectionShell } from "./shared";
 
 const SUGGESTIONS = [
   "Responsabilidade no transito",
@@ -55,15 +55,12 @@ export function SkillsForm({ resume, onChange, onFocusAreaChange }: StepComponen
                 }
                 className="flex w-full items-center gap-3 rounded-2xl border border-[#91a0b9] bg-[#e7edf3] px-4 py-3 text-left text-[#20376a]"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#cfd8e6] text-xl text-[#314f92]">✓</span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#cfd8e6] text-2xl text-[#314f92]">+</span>
                 {item}
               </button>
             ))}
           </div>
         </aside>
-      </div>
-      <div className="mt-6">
-        <PillButton type="button">Dicas</PillButton>
       </div>
     </FormSectionShell>
   );

@@ -213,8 +213,8 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
 );
 
 const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
-  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden rounded-[22px] bg-white shadow-paper grid-cols-[242px_552px]">
-    <aside className="flex h-full flex-col bg-sky-700 px-8 py-10 text-white">
+  <div className="grid h-full w-full grid-cols-[1fr_2fr] overflow-hidden bg-white p-0 m-0">
+    <aside className="sidebar flex h-full flex-col bg-sky-700 px-8 py-10 text-white">
       <img
         src={data.photoUrl}
         alt={data.personal.fullName}
@@ -519,8 +519,8 @@ function createPhotoVariantPreview(config: {
 }) {
   return function PhotoVariantPreview({ data }: { data: PhotoResumeData }) {
     return (
-      <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden bg-white grid-cols-[248px_546px]">
-        <aside className={`flex h-full flex-col px-8 py-10 text-white ${config.asideClass}`}>
+      <div className="grid h-full w-full grid-cols-[1fr_2fr] overflow-hidden bg-white p-0 m-0">
+        <aside className={`sidebar flex h-full flex-col px-8 py-10 text-white ${config.asideClass}`}>
           <div className={`inline-flex rounded-full p-1 ${config.pillClass ?? "bg-white/20"}`}>
             <img
               src={data.photoUrl}

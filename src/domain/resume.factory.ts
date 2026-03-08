@@ -7,8 +7,8 @@ const DEFAULT_PROFILE_PHOTO =
 export const STEP_ORDER: StepMeta[] = [
   {
     id: "CONTACT",
-    title: "Cabecalho",
-    shortTitle: "Dados de contato",
+    title: "Contato",
+    shortTitle: "Contato",
     description: "Nome, endereco, localizacao e contatos principais.",
   },
   {
@@ -37,7 +37,7 @@ export const STEP_ORDER: StepMeta[] = [
   },
   {
     id: "EXTRAS",
-    title: "Secoes Extras",
+    title: "Ativacao de Secoes Extras",
     shortTitle: "Extras",
     description: "Certificacoes, idiomas e blocos adicionais.",
   },

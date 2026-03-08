@@ -32,19 +32,6 @@ const STEP_COMPONENTS: Record<Exclude<ResumeStepId, "FINALIZE">, ComponentType<S
   EXTRAS: ExtrasForm,
 };
 
-const TIPS_CONTENT = {
-  SKILLS: [
-    "Priorize habilidades tecnicas ou comportamentais diretamente observaveis.",
-    "Evite empilhar termos genericos sem conexao com o modelo escolhido.",
-    "Use a lista de sugestoes para acelerar preenchimento sem fugir do template.",
-  ],
-  OBJECTIVE: [
-    "Mantenha o texto curto, direto e sem repetir dados do cabecalho.",
-    "Explique funcao desejada, senioridade e contexto de valor.",
-    "Ajuste o tom conforme o template: executivo, academico, criativo ou ATS.",
-  ],
-} as const;
-
 export function MainStepper({
   resume,
   template,
@@ -161,20 +148,6 @@ export function MainStepper({
               );
             })()
           )}
-
-          {focusArea ? (
-            <aside className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-700">Dicas</p>
-              <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                {focusArea === "SKILLS" ? "Sugestoes para habilidades" : "Sugestoes para objetivo"}
-              </h3>
-              <div className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
-                {TIPS_CONTENT[focusArea].map((tip) => (
-                  <p key={tip}>{tip}</p>
-                ))}
-              </div>
-            </aside>
-          ) : null}
 
           <footer className="flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
             <button

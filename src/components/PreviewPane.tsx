@@ -24,9 +24,16 @@ export function PreviewPane({ data, template, printRef }: PreviewPaneProps) {
           Print
         </div>
       </div>
-      <div className="overflow-auto bg-[#d9d7c8]">
-        <div ref={printRef} className="mx-auto min-h-[1122px] w-[794px] bg-white">
-          <SelectedTemplate data={data} />
+      <div className="overflow-auto bg-[#d9d7c8] p-4">
+        <div className="flex min-w-fit justify-center">
+          <div className="origin-top scale-[0.62] sm:scale-[0.72] lg:scale-[0.82] xl:scale-[0.72] 2xl:scale-[0.84]">
+            <div
+              ref={printRef}
+              className="resume-sheet resume-sheet--screen w-[210mm] h-[297mm] min-w-[210mm] min-h-[297mm] overflow-hidden bg-white p-0 m-0"
+            >
+              <SelectedTemplate data={data} />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -27,7 +27,8 @@ export default function App() {
   const handlePrint = useReactToPrint({
     contentRef: printRef,
     documentTitle: `${resume.header.firstName}-${resume.header.lastName}-${currentTemplateId}`,
-    pageStyle: "@page { margin: 12mm; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }",
+    pageStyle:
+      "@page { size: A4; margin: 0; } html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #ffffff; }",
   });
 
   const handleExportPdf = async () => {
