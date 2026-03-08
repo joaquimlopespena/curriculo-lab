@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Creative Compact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-rose-50 px-4 py-8 text-slate-800 sm:px-6">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-rose-100 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Modelo 1</a>
+            <a href="./visual-modern.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Visual Modern</a>
+            <a href="./split-professional.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Split Professional</a>
+            <a href="./chronological-elegant.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Chronological Elegant</a>
+            <a href="./executive-clean.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Executive Clean</a>
+            <a href="./service-classic.html" class="rounded-full bg-rose-100 px-4 py-2 font-medium text-rose-700 transition hover:bg-rose-200">Service Classic</a>
+            <a href="./creative-compact.html" class="rounded-full bg-rose-600 px-4 py-2 font-semibold text-white">Creative Compact</a>
+          </nav>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white"
+          >
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <header class="bg-gradient-to-r from-rose-500 via-orange-400 to-amber-300 px-6 py-8 text-white sm:px-8">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-rose-50">Curriculo Criativo</p>
+            <h1 class="mt-3 text-4xl font-black sm:text-5xl">Camila Freitas</h1>
+            <p class="mt-2 text-lg font-semibold text-rose-50">Social Media e Conteudo</p>
+          </div>
+          <div class="grid gap-2 text-sm text-rose-50 sm:grid-cols-2">
+            <p>(81) 98882-3131</p>
+            <p>camila.freitas@email.com</p>
+            <p>linkedin.com/in/camilafreitas</p>
+            <p>Recife, PE</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid gap-8 px-6 py-8 md:grid-cols-[1fr_0.9fr] sm:px-8">
+        <div>
+          <section>
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">
+              Resumo / Objetivo
+            </h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              Profissional de conteudo com experiencia em planejamento editorial, producao
+              multiplataforma, cobertura de eventos, relacionamento com comunidade e crescimento
+              de canais digitais para marcas de consumo e servicos.
+            </p>
+          </section>
+
+          <section class="mt-8">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">
+              Experiencia Profissional
+            </h2>
+
+            <article class="break-inside-avoid mt-5 rounded-[24px] bg-rose-50 p-6">
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Analista de Conteudo</h3>
+                  <p class="text-sm font-semibold text-rose-600">Grupo Solar Turismo</p>
+                </div>
+                <p class="text-sm text-slate-500">Mar 2022 - Atual</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Planejamento de pauta e campanhas para redes sociais, blog e e-mail marketing.</li>
+                <li>Cobertura de eventos e acoes promocionais com foco em engajamento e alcance.</li>
+                <li>Interface com design, atendimento e comercial para cronogramas sazonais.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-[24px] bg-orange-50 p-6">
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Assistente de Marketing Digital</h3>
+                  <p class="text-sm font-semibold text-orange-600">Revista Nordeste Viva</p>
+                </div>
+                <p class="text-sm text-slate-500">Jan 2019 - Fev 2022</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Publicacao de conteudos, relacionamento com leitores e analise basica de metricas.</li>
+                <li>Apoio a entrevistas, roteiros e campanhas com parceiros culturais e comerciais.</li>
+                <li>Organizacao do calendario editorial e revisao de textos institucionais.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+
+        <aside class="space-y-6">
+          <section class="rounded-[24px] border border-rose-100 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">
+              Formacao Academica
+            </h2>
+            <div class="mt-4 space-y-4 text-sm text-slate-600">
+              <div>
+                <h3 class="font-bold text-slate-900">Bacharelado em Jornalismo</h3>
+                <p>UNICAP</p>
+                <p>Conclusao: 2018</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Curso de Marketing de Conteudo</h3>
+                <p>EBAC</p>
+                <p>Conclusao: 2021</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[24px] border border-rose-100 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">
+              Competencias
+            </h2>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="rounded-full bg-rose-100 px-3 py-2 text-rose-700">Redacao</span>
+              <span class="rounded-full bg-orange-100 px-3 py-2 text-orange-700">Planejamento Editorial</span>
+              <span class="rounded-full bg-amber-100 px-3 py-2 text-amber-700">Cobertura de Eventos</span>
+              <span class="rounded-full bg-rose-100 px-3 py-2 text-rose-700">Storytelling</span>
+              <span class="rounded-full bg-orange-100 px-3 py-2 text-orange-700">Instagram e TikTok</span>
+              <span class="rounded-full bg-amber-100 px-3 py-2 text-amber-700">Atendimento</span>
+            </div>
+          </section>
+
+          <section class="rounded-[24px] border border-rose-100 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">Idiomas</h2>
+            <div class="mt-4 space-y-2 text-sm text-slate-600">
+              <p>Portugues - Fluente</p>
+              <p>Ingles - Intermediario</p>
+              <p>Espanhol - Intermediario</p>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>

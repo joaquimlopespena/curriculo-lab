@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Visual Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-200 px-4 py-8 text-slate-800 antialiased sm:px-6">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Modelo 1</a>
+            <a href="./visual-modern.html" class="rounded-full bg-indigo-600 px-4 py-2 font-semibold text-white">Visual Modern</a>
+            <a href="./split-professional.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Split Professional</a>
+            <a href="./chronological-elegant.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Chronological Elegant</a>
+            <a href="./executive-clean.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Executive Clean</a>
+            <a href="./service-classic.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Service Classic</a>
+            <a href="./creative-compact.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Creative Compact</a>
+          </nav>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+          >
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <header class="bg-slate-50 px-6 py-8 sm:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center">
+          <div class="flex justify-center md:block">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23e2e8f0'/%3E%3Ccircle cx='80' cy='62' r='28' fill='%2394a3b8'/%3E%3Cpath d='M34 134c7-25 28-38 46-38s39 13 46 38' fill='%2394a3b8'/%3E%3C/svg%3E"
+              alt="Foto de perfil"
+              class="h-32 w-32 rounded-full border-4 border-white object-cover shadow-lg ring-4 ring-indigo-100"
+            />
+          </div>
+
+          <div class="flex-1 text-center md:text-left">
+            <span class="inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-700">
+              Curriculo Profissional
+            </span>
+            <h1 class="mt-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
+              Mariana Costa
+            </h1>
+            <p class="mt-2 text-lg font-semibold text-indigo-600 sm:text-xl">
+              Coordenadora de Marketing e Comunicacao
+            </p>
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+              Profissional com 8 anos de experiencia em planejamento de campanhas, branding,
+              eventos corporativos e comunicacao integrada, com foco em posicionamento de marca
+              e crescimento comercial.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex flex-col md:flex-row">
+        <aside class="bg-slate-900 px-6 py-8 text-slate-100 md:w-[34%] sm:px-8">
+          <section>
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-300">
+              Dados Pessoais
+            </h2>
+            <div class="mt-5 space-y-4 text-sm leading-6">
+              <div>
+                <p class="font-semibold text-white">Telefone</p>
+                <p>+55 11 99999-1234</p>
+              </div>
+              <div>
+                <p class="font-semibold text-white">E-mail</p>
+                <p>mariana.costa@email.com</p>
+              </div>
+              <div>
+                <p class="font-semibold text-white">LinkedIn</p>
+                <p>linkedin.com/in/marianacosta</p>
+              </div>
+              <div>
+                <p class="font-semibold text-white">Localizacao</p>
+                <p>Sao Paulo, SP</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-300">
+              Competencias
+            </h2>
+            <div class="mt-5 space-y-5">
+              <div>
+                <div class="mb-2 flex items-center justify-between text-sm">
+                  <span class="font-medium">Planejamento de Campanhas</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-slate-700">
+                  <div class="h-2 rounded-full bg-indigo-500" style="width: 95%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="mb-2 flex items-center justify-between text-sm">
+                  <span class="font-medium">Gestao de Marca</span>
+                  <span>90%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-slate-700">
+                  <div class="h-2 rounded-full bg-emerald-500" style="width: 90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="mb-2 flex items-center justify-between text-sm">
+                  <span class="font-medium">Eventos Corporativos</span>
+                  <span>98%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-slate-700">
+                  <div class="h-2 rounded-full bg-indigo-500" style="width: 98%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="mb-2 flex items-center justify-between text-sm">
+                  <span class="font-medium">Comunicacao</span>
+                  <span>92%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-slate-700">
+                  <div class="h-2 rounded-full bg-emerald-500" style="width: 92%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="mb-2 flex items-center justify-between text-sm">
+                  <span class="font-medium">Analise de Mercado</span>
+                  <span>88%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-slate-700">
+                  <div class="h-2 rounded-full bg-indigo-500" style="width: 88%"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-300">
+              Idiomas
+            </h2>
+            <div class="mt-5 space-y-3 text-sm">
+              <div class="flex items-center justify-between rounded-2xl bg-slate-800 px-4 py-3">
+                <span>Portugues</span>
+                <span class="font-semibold text-emerald-400">Fluente</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-slate-800 px-4 py-3">
+                <span>Ingles</span>
+                <span class="font-semibold text-indigo-300">Avancado</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-slate-800 px-4 py-3">
+                <span>Espanhol</span>
+                <span class="font-semibold text-indigo-300">Intermediario</span>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <div class="px-6 py-8 md:w-[66%] sm:px-8">
+          <section>
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">
+              Resumo / Objetivo
+            </h2>
+            <p class="mt-5 text-sm leading-7 text-slate-600">
+              Atuar em uma organizacao que valorize estrategia de marca, relacionamento com o
+              cliente e execucao multicanal, contribuindo para ampliar reconhecimento, gerar
+              demanda qualificada e fortalecer a comunicacao institucional.
+            </p>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">
+              Experiencia Profissional
+            </h2>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Coordenadora de Marketing</h3>
+                  <p class="text-sm font-semibold text-indigo-600">Grupo Horizonte Educacional</p>
+                </div>
+                <p class="text-sm font-medium text-slate-500">Jan 2022 - Atual</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Planejou campanhas institucionais e sazonais com crescimento de 27% em captacao.</li>
+                <li>Liderou calendario de comunicacao com time comercial, agencias e parceiros regionais.</li>
+                <li>Reestruturou eventos de relacionamento e fortalecimento de marca em 12 unidades.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Analista de Comunicacao Pleno</h3>
+                  <p class="text-sm font-semibold text-indigo-600">Rede Vitta Saude</p>
+                </div>
+                <p class="text-sm font-medium text-slate-500">Mar 2019 - Dez 2021</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Desenvolveu campanhas de endomarketing e comunicacao externa para 20 clinicas.</li>
+                <li>Organizou a producao de materiais impressos, digitais e roteiro de eventos internos.</li>
+                <li>Monitorou indicadores de audiencia e reputacao para ajustes de mensagem e canais.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Assistente de Marketing</h3>
+                  <p class="text-sm font-semibold text-indigo-600">Casa Bella Decor</p>
+                </div>
+                <p class="text-sm font-medium text-slate-500">Fev 2016 - Fev 2019</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Apoiou campanhas de varejo, vitrines promocionais e acoes com influenciadores locais.</li>
+                <li>Produziu pecas para catalogos, redes sociais, feiras e materiais de ponto de venda.</li>
+                <li>Deu suporte a negociacoes com fornecedores e cronogramas de lancamento de colecoes.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">
+              Formacao Academica
+            </h2>
+            <div class="mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-slate-900">Bacharelado em Publicidade e Propaganda</h3>
+              <p class="mt-1 text-sm font-semibold text-indigo-600">Universidade Anhembi Morumbi</p>
+              <p class="mt-2 text-sm text-slate-500">Conclusao: 2015</p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

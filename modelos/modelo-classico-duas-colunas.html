@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Modelo Classico Duas Colunas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-900 px-4 py-8 text-zinc-800 sm:px-6">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[24px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Modelo 1</a>
+            <a href="./modelo-editorial.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Editorial</a>
+            <a href="./modelo-sidebar-foto.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Sidebar Foto</a>
+            <a href="./modelo-corporativo-wave.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Wave</a>
+            <a href="./modelo-minimalista-premios.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Minimalista</a>
+            <a href="./modelo-classico-duas-colunas.html" class="rounded-full bg-slate-900 px-4 py-2 font-semibold text-white">Duas Colunas</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white">
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-[0.36fr_0.64fr]">
+        <aside class="bg-teal-700 px-6 py-10 text-white sm:px-8">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23d1fae5'/%3E%3Ccircle cx='80' cy='62' r='30' fill='%2394a3b8'/%3E%3Cpath d='M34 138c8-26 28-40 46-40s38 14 46 40' fill='%2394a3b8'/%3E%3C/svg%3E"
+            alt="Foto de perfil"
+            class="h-28 w-28 border-4 border-white object-cover shadow-lg"
+          />
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-teal-100">Contato</h2>
+            <div class="mt-4 space-y-2 text-sm leading-7 text-teal-50">
+              <p>andre.souza@email.com</p>
+              <p>linkedin.com/in/andresouza</p>
+              <p>(85) 98888-5050</p>
+              <p>Fortaleza, CE</p>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-teal-100">Habilidades e Competencias</h2>
+            <ul class="mt-4 space-y-2 text-sm leading-7 text-teal-50">
+              <li>Atendimento consultivo</li>
+              <li>Treinamento de equipes</li>
+              <li>Organizacao operacional</li>
+              <li>Negociacao com clientes</li>
+              <li>Pacote Office</li>
+            </ul>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-teal-100">Idiomas</h2>
+            <div class="mt-4 space-y-3 text-sm">
+              <div>
+                <div class="flex justify-between text-teal-50">
+                  <span>Portugues</span>
+                  <span>Fluente</span>
+                </div>
+                <div class="mt-2 h-2 rounded-full bg-teal-500">
+                  <div class="h-2 w-full rounded-full bg-white"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-teal-50">
+                  <span>Ingles</span>
+                  <span>Basico</span>
+                </div>
+                <div class="mt-2 h-2 rounded-full bg-teal-500">
+                  <div class="h-2 w-1/3 rounded-full bg-white"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <main class="bg-white px-6 py-10 sm:px-8">
+          <header class="border-b-4 border-zinc-900 pb-4">
+            <h1 class="text-4xl font-black text-teal-700 sm:text-5xl">Andre Cavalcanti Souza</h1>
+            <p class="mt-3 text-sm leading-7 text-zinc-600">
+              Supervisor comercial com experiencia em atendimento, performance de equipe,
+              fidelizacao de clientes e rotinas administrativas em servicos e varejo.
+            </p>
+          </header>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Resumo / Objetivo</h2>
+            <p class="mt-3 text-sm leading-7 text-zinc-700">
+              Atuar em operacoes comerciais ou de atendimento com foco em organizacao de processos,
+              qualidade de servico, relacionamento com clientes e suporte ao crescimento do negocio.
+            </p>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Experiencia Profissional</h2>
+            <div class="mt-4 space-y-6 text-sm leading-7 text-zinc-700">
+              <article class="break-inside-avoid">
+                <h3 class="font-semibold text-zinc-950">Supervisor de Loja</h3>
+                <p class="text-zinc-500">Casa Lar Utilidades | 2020 - Atual</p>
+                <p class="mt-2">
+                  Lideranca de equipe, definicao de metas, atendimento ao cliente, acompanhamento
+                  de indicadores e suporte a inventarios e campanhas promocionais.
+                </p>
+              </article>
+              <article class="break-inside-avoid">
+                <h3 class="font-semibold text-zinc-950">Consultor Comercial</h3>
+                <p class="text-zinc-500">Clinica Cuidar Saude | 2017 - 2020</p>
+                <p class="mt-2">
+                  Negociacao de servicos, orientacao ao cliente, acompanhamento de contratos e
+                  integracao com recepcao e area administrativa.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Formacao Academica</h2>
+            <div class="mt-4 text-sm leading-7 text-zinc-700">
+              <p class="font-semibold text-zinc-950">Tecnologo em Gestao Comercial</p>
+              <p>Universidade de Fortaleza</p>
+              <p>Conclusao: 2018</p>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Dados Pessoais</h2>
+            <div class="mt-4 grid gap-2 text-sm text-zinc-700 sm:grid-cols-2">
+              <p><span class="font-semibold text-zinc-950">Telefone:</span> (85) 98888-5050</p>
+              <p><span class="font-semibold text-zinc-950">E-mail:</span> andre.souza@email.com</p>
+              <p><span class="font-semibold text-zinc-950">LinkedIn:</span> andresouza</p>
+              <p><span class="font-semibold text-zinc-950">Localizacao:</span> Fortaleza, CE</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

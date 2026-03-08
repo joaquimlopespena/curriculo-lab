@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Modelo Sidebar Foto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-900 px-4 py-8 text-zinc-800 sm:px-6">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[24px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Modelo 1</a>
+            <a href="./modelo-editorial.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Editorial</a>
+            <a href="./modelo-sidebar-foto.html" class="rounded-full bg-slate-900 px-4 py-2 font-semibold text-white">Sidebar Foto</a>
+            <a href="./modelo-corporativo-wave.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Wave</a>
+            <a href="./modelo-minimalista-premios.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Minimalista</a>
+            <a href="./modelo-classico-duas-colunas.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700">Duas Colunas</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white">
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-[0.38fr_0.62fr]">
+        <aside class="bg-slate-100 px-6 py-10 sm:px-8">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23dbeafe'/%3E%3Ccircle cx='90' cy='68' r='34' fill='%2364748b'/%3E%3Cpath d='M30 152c11-29 35-45 60-45s49 16 60 45' fill='%2364748b'/%3E%3C/svg%3E"
+            alt="Foto de perfil"
+            class="h-28 w-28 border-4 border-white object-cover shadow-lg"
+          />
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">Contato</h2>
+            <div class="mt-4 space-y-2 text-sm text-slate-700">
+              <p>(11) 97771-2020</p>
+              <p>bruno.sousa@email.com</p>
+              <p>linkedin.com/in/brunosousa</p>
+              <p>Guarulhos, SP</p>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">Habilidades</h2>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>Lideranca operacional</li>
+              <li>Gestao de equipe</li>
+              <li>Planejamento de rotas</li>
+              <li>Indicadores de produtividade</li>
+              <li>Atendimento ao cliente</li>
+            </ul>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">Idiomas</h2>
+            <div class="mt-4 space-y-3 text-sm text-slate-700">
+              <div>
+                <div class="flex justify-between">
+                  <span>Portugues</span>
+                  <span>Fluente</span>
+                </div>
+                <div class="mt-2 h-2 bg-slate-300">
+                  <div class="h-2 w-full bg-slate-700"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between">
+                  <span>Ingles</span>
+                  <span>Basico</span>
+                </div>
+                <div class="mt-2 h-2 bg-slate-300">
+                  <div class="h-2 w-1/3 bg-slate-700"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">Informacoes Adicionais</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-700">
+              Disponibilidade para viagens, trabalho em campo e apoio a operacoes regionais.
+            </p>
+          </section>
+        </aside>
+
+        <main class="bg-white px-6 py-10 sm:px-8">
+          <div class="bg-slate-800 px-5 py-4 text-white">
+            <h1 class="text-3xl font-black uppercase tracking-wide">Breno Alves Sousa</h1>
+          </div>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Resumo</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-700">
+              Supervisor de operacoes com mais de 7 anos de experiencia em transporte, distribuicao,
+              acompanhamento de equipes externas e controle de entregas em ambiente de alta demanda.
+            </p>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Experiencia Profissional</h2>
+            <div class="mt-4 space-y-6 text-sm leading-7 text-slate-700">
+              <article class="break-inside-avoid">
+                <h3 class="font-semibold text-slate-950">Supervisor de Operacoes</h3>
+                <p class="text-slate-500">ViaLog Express | 2021 - Atual</p>
+                <p class="mt-2">
+                  Coordena equipes de campo, monitora prazos de coleta e entrega, acompanha
+                  indicadores de produtividade e executa planos de contingencia.
+                </p>
+              </article>
+              <article class="break-inside-avoid">
+                <h3 class="font-semibold text-slate-950">Lider de Distribuicao</h3>
+                <p class="text-slate-500">Rota Certa Transportes | 2017 - 2021</p>
+                <p class="mt-2">
+                  Atuacao na organizacao de rotas, suporte a motoristas, conferencias e interface
+                  com centros de distribuicao e clientes corporativos.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Formacao Academica</h2>
+            <div class="mt-4 text-sm leading-7 text-slate-700">
+              <p class="font-semibold text-slate-950">Tecnologo em Logistica</p>
+              <p>Universidade Cruzeiro do Sul</p>
+              <p>Conclusao: 2016</p>
+            </div>
+          </section>
+
+          <section class="mt-8 break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Dados Pessoais</h2>
+            <div class="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+              <p><span class="font-semibold text-slate-950">Telefone:</span> (11) 97771-2020</p>
+              <p><span class="font-semibold text-slate-950">E-mail:</span> bruno.sousa@email.com</p>
+              <p><span class="font-semibold text-slate-950">LinkedIn:</span> brunosousa</p>
+              <p><span class="font-semibold text-slate-950">Localizacao:</span> Guarulhos, SP</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

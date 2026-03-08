@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Executivo Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4; margin: 12mm; }
+      html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+    </style>
+  </head>
+  <body class="bg-slate-100 px-4 py-8 text-slate-800 sm:px-6">
+    <div class="mx-auto max-w-5xl rounded-[20px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Modelo 1</a>
+            <a href="./modelo-ats-clean.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">ATS Clean</a>
+            <a href="./modelo-executivo-timeline.html" class="rounded-full bg-slate-900 px-4 py-2 font-semibold text-white">Timeline</a>
+            <a href="./modelo-academico-serif.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Academico</a>
+            <a href="./modelo-premium-sidebar.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Premium</a>
+            <a href="./modelo-foto-compacto.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Foto</a>
+            <a href="./modelo-juridico-classico.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Juridico</a>
+            <a href="./modelo-corporativo-balanceado.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Balanceado</a>
+            <a href="./modelo-criativo-cards.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Cards</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white">Download / Imprimir</button>
+        </div>
+      </div>
+      <main class="px-8 py-10 sm:px-10">
+        <header class="border-b border-slate-200 pb-8">
+          <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Perfil Executivo</p>
+          <h1 class="mt-4 text-5xl font-black text-slate-950">Marcos Tadeu Fonseca</h1>
+          <p class="mt-2 text-lg font-semibold text-slate-700">Diretor de Operacoes</p>
+          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+            <p>Belo Horizonte, MG</p><p>(31) 99991-1010</p><p>marcos.fonseca@email.com</p><p>linkedin.com/in/marcosfonseca</p>
+          </div>
+        </header>
+        <section class="mt-8 break-inside-avoid">
+          <h2 class="text-xl font-bold text-slate-900">Resumo / Objetivo</h2>
+          <p class="mt-3 text-sm leading-7 text-slate-700">Executivo com ampla experiencia em expansao operacional, gestao multiunidade, melhoria de processos, negociacao com fornecedores e lideranca de times de alta performance.</p>
+        </section>
+        <section class="mt-10">
+          <h2 class="text-xl font-bold text-slate-900">Experiencia Profissional</h2>
+          <div class="mt-6 border-l-2 border-slate-300 pl-6">
+            <article class="break-inside-avoid relative pb-8">
+              <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full bg-slate-900"></span>
+              <p class="text-sm text-slate-500">2021 - Atual</p>
+              <h3 class="text-xl font-bold text-slate-950">Diretor de Operacoes</h3>
+              <p class="text-sm font-semibold text-slate-700">Grupo Altos Servicos</p>
+              <p class="mt-2 text-sm leading-7 text-slate-700">Responsavel por 14 unidades, planejamento de indicadores, revisão de custos, contratação de lideranças e padronização operacional.</p>
+            </article>
+            <article class="break-inside-avoid relative pb-8">
+              <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full bg-slate-900"></span>
+              <p class="text-sm text-slate-500">2016 - 2021</p>
+              <h3 class="text-xl font-bold text-slate-950">Gerente Regional</h3>
+              <p class="text-sm font-semibold text-slate-700">Nova Rede Varejo</p>
+              <p class="mt-2 text-sm leading-7 text-slate-700">Gestao de equipes, acompanhamento de metas, abertura de filiais e implantação de rotina gerencial.</p>
+            </article>
+            <article class="break-inside-avoid relative">
+              <span class="absolute -left-[33px] top-1 h-4 w-4 rounded-full bg-slate-900"></span>
+              <p class="text-sm text-slate-500">2010 - 2016</p>
+              <h3 class="text-xl font-bold text-slate-950">Coordenador Operacional</h3>
+              <p class="text-sm font-semibold text-slate-700">Rede Campo Forte</p>
+              <p class="mt-2 text-sm leading-7 text-slate-700">Coordenação de equipes de atendimento, logística interna, inventário e melhoria contínua.</p>
+            </article>
+          </div>
+        </section>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Formacao</h2><p class="mt-3 text-sm leading-7 text-slate-700">MBA em Gestao Empresarial<br />FGV<br />2019</p></section>
+          <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Competencias</h2><p class="mt-3 text-sm leading-7 text-slate-700">Lideranca, expansao, indicadores, negociacao, custos, processos.</p></section>
+          <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Idiomas</h2><p class="mt-3 text-sm leading-7 text-slate-700">Portugues - Fluente<br />Ingles - Intermediario</p></section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Foto Compacto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4; margin: 12mm; }
+      html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+    </style>
+  </head>
+  <body class="bg-sky-100 px-4 py-8 text-slate-800 sm:px-6">
+    <div class="mx-auto max-w-5xl rounded-[22px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Modelo 1</a>
+            <a href="./modelo-ats-clean.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">ATS Clean</a>
+            <a href="./modelo-executivo-timeline.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Timeline</a>
+            <a href="./modelo-academico-serif.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Academico</a>
+            <a href="./modelo-premium-sidebar.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Premium</a>
+            <a href="./modelo-foto-compacto.html" class="rounded-full bg-sky-700 px-4 py-2 font-semibold text-white">Foto</a>
+            <a href="./modelo-juridico-classico.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Juridico</a>
+            <a href="./modelo-corporativo-balanceado.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Balanceado</a>
+            <a href="./modelo-criativo-cards.html" class="rounded-full bg-slate-100 px-4 py-2 text-slate-700">Cards</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-sky-700 px-5 py-2 text-sm font-semibold text-white">Download / Imprimir</button>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-[0.3fr_0.7fr]">
+        <aside class="bg-sky-700 px-8 py-10 text-white">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23e0f2fe'/%3E%3Ccircle cx='80' cy='60' r='28' fill='%2364748b'/%3E%3Cpath d='M34 136c7-24 28-36 46-36s39 12 46 36' fill='%2364748b'/%3E%3C/svg%3E" alt="Foto" class="h-28 w-28 border-4 border-white object-cover shadow-lg" />
+          <h1 class="mt-6 text-3xl font-black">Raissa Barros Ferreira</h1>
+          <p class="mt-2 text-sky-100">Assistente Administrativa</p>
+          <div class="mt-6 space-y-2 text-sm text-sky-50"><p>(85) 98888-2229</p><p>raissa.ferreira@email.com</p><p>Fortaleza, CE</p><p>linkedin.com/in/raissaferreira</p></div>
+          <section class="mt-8 break-inside-avoid"><h2 class="text-xs uppercase tracking-[0.3em] text-sky-100">Competencias</h2><ul class="mt-4 space-y-2 text-sm text-sky-50"><li>Rotinas administrativas</li><li>Atendimento</li><li>Agendamento</li><li>Relatorios</li></ul></section>
+          <section class="mt-8 break-inside-avoid"><h2 class="text-xs uppercase tracking-[0.3em] text-sky-100">Idiomas</h2><p class="mt-4 text-sm leading-7 text-sky-50">Portugues - Fluente<br />Ingles - Basico</p></section>
+        </aside>
+        <main class="px-8 py-10">
+          <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Resumo / Objetivo</h2><p class="mt-3 text-sm leading-7 text-slate-700">Profissional organizada, com experiencia em suporte administrativo, atendimento, controle de documentos, acompanhamento de demandas e apoio a equipes internas.</p></section>
+          <section class="mt-8 break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Experiencia Profissional</h2><div class="mt-4 space-y-6 text-sm leading-7 text-slate-700"><article class="break-inside-avoid"><h3 class="font-bold text-slate-950">Assistente Administrativa</h3><p class="text-slate-500">Clinica Nova Vida | 2021 - Atual</p><p>Controle de agenda, recepcao, organizacao de prontuarios, atendimento telefonico e suporte a rotinas de faturamento.</p></article><article class="break-inside-avoid"><h3 class="font-bold text-slate-950">Auxiliar de Escritorio</h3><p class="text-slate-500">Grupo Fortaleza Servicos | 2018 - 2021</p><p>Cadastro de documentos, atendimento interno, apoio a compras e elaboracao de relatorios simples.</p></article></div></section>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Formacao Academica</h2><p class="mt-3 text-sm leading-7 text-slate-700"><span class="font-bold text-slate-950">Tecnico em Administracao</span><br />ETE Fortaleza<br />Conclusao: 2017</p></section>
+            <section class="break-inside-avoid"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">Dados Pessoais</h2><p class="mt-3 text-sm leading-7 text-slate-700">Contato e localizacao destacados na coluna lateral com leitura imediata.</p></section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

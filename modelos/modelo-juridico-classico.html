@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Juridico Classico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4; margin: 12mm; }
+      html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+    </style>
+  </head>
+  <body class="bg-stone-300 px-4 py-8 text-stone-800 sm:px-6">
+    <div class="mx-auto max-w-4xl rounded-[16px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-stone-200 px-6 py-4">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Modelo 1</a>
+            <a href="./modelo-ats-clean.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">ATS Clean</a>
+            <a href="./modelo-executivo-timeline.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Timeline</a>
+            <a href="./modelo-academico-serif.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Academico</a>
+            <a href="./modelo-premium-sidebar.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Premium</a>
+            <a href="./modelo-foto-compacto.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Foto</a>
+            <a href="./modelo-juridico-classico.html" class="rounded-full bg-stone-900 px-4 py-2 font-semibold text-white">Juridico</a>
+            <a href="./modelo-corporativo-balanceado.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Balanceado</a>
+            <a href="./modelo-criativo-cards.html" class="rounded-full bg-stone-100 px-4 py-2 text-stone-700">Cards</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-stone-900 px-5 py-2 text-sm font-semibold text-white">Download / Imprimir</button>
+        </div>
+      </div>
+      <main class="px-8 py-10 sm:px-10">
+        <header class="border-b border-stone-400 pb-6">
+          <h1 class="font-serif text-5xl text-stone-950">Dr. Eduardo Salles</h1>
+          <p class="mt-2 font-serif text-xl text-stone-700">Advogado Civel Empresarial</p>
+          <div class="mt-4 space-y-1 text-sm text-stone-600"><p>Curitiba, PR | (41) 99995-5551</p><p>eduardo.salles@email.com | linkedin.com/in/eduardosalles</p></div>
+        </header>
+        <section class="mt-6 break-inside-avoid"><h2 class="border-b border-stone-300 pb-2 font-serif text-2xl text-stone-950">Resumo / Objetivo</h2><p class="mt-3 text-sm leading-7 text-stone-700">Atuacao em contencioso civel, contratos empresariais, negociacoes, pareceres juridicos e acompanhamento processual para empresas de servicos e varejo.</p></section>
+        <section class="mt-8 break-inside-avoid"><h2 class="border-b border-stone-300 pb-2 font-serif text-2xl text-stone-950">Experiencia Profissional</h2><div class="mt-4 space-y-5 text-sm leading-7 text-stone-700"><article class="break-inside-avoid"><h3 class="font-semibold text-stone-950">Advogado Senior</h3><p class="text-stone-500">Salles & Prado Advocacia | 2020 - Atual</p><p>Elaboracao de contratos, pareceres, estratégias processuais e atendimento consultivo a clientes empresariais.</p></article><article class="break-inside-avoid"><h3 class="font-semibold text-stone-950">Advogado Pleno</h3><p class="text-stone-500">Pereira e Gama Advogados | 2016 - 2020</p><p>Atuacao em contencioso, audiências, prazos, petições e relacionamento com clientes e prepostos.</p></article></div></section>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <section class="break-inside-avoid"><h2 class="border-b border-stone-300 pb-2 font-serif text-2xl text-stone-950">Formacao Academica</h2><p class="mt-3 text-sm leading-7 text-stone-700">Graduacao em Direito<br />PUC-PR<br />Conclusao: 2015</p></section>
+          <section class="break-inside-avoid"><h2 class="border-b border-stone-300 pb-2 font-serif text-2xl text-stone-950">Idiomas</h2><p class="mt-3 text-sm leading-7 text-stone-700">Portugues - Fluente<br />Ingles - Intermediario</p></section>
+          <section class="break-inside-avoid md:col-span-2"><h2 class="border-b border-stone-300 pb-2 font-serif text-2xl text-stone-950">Competencias</h2><p class="mt-3 text-sm leading-7 text-stone-700">Contratos, contencioso civel, pareceres, negociacao, audiencias, analise documental e relacionamento com cliente.</p></section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

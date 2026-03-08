@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Criativo Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4; margin: 12mm; }
+      html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+    </style>
+  </head>
+  <body class="bg-amber-50 px-4 py-8 text-slate-800 sm:px-6">
+    <div class="mx-auto max-w-5xl rounded-[24px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-amber-100 px-6 py-4">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Modelo 1</a>
+            <a href="./modelo-ats-clean.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">ATS Clean</a>
+            <a href="./modelo-executivo-timeline.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Timeline</a>
+            <a href="./modelo-academico-serif.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Academico</a>
+            <a href="./modelo-premium-sidebar.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Premium</a>
+            <a href="./modelo-foto-compacto.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Foto</a>
+            <a href="./modelo-juridico-classico.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Juridico</a>
+            <a href="./modelo-corporativo-balanceado.html" class="rounded-full bg-amber-100 px-4 py-2 text-amber-800">Balanceado</a>
+            <a href="./modelo-criativo-cards.html" class="rounded-full bg-amber-500 px-4 py-2 font-semibold text-white">Cards</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white">Download / Imprimir</button>
+        </div>
+      </div>
+      <main class="px-8 py-10">
+        <header class="rounded-[24px] bg-gradient-to-r from-amber-400 to-rose-400 px-6 py-8 text-white">
+          <h1 class="text-5xl font-black">Camila Freitas</h1>
+          <p class="mt-2 text-xl font-semibold">Planejamento de Conteudo</p>
+          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm"><p>Recife, PE</p><p>(81) 98882-3131</p><p>camila.freitas@email.com</p><p>linkedin.com/in/camilafreitas</p></div>
+        </header>
+        <section class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="break-inside-avoid rounded-[24px] bg-rose-50 p-6"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">Resumo / Objetivo</h2><p class="mt-3 text-sm leading-7 text-slate-700">Profissional focada em conteúdo, campanhas sazonais, redes sociais, relacionamento com comunidade e storytelling para marcas de consumo.</p></article>
+          <article class="break-inside-avoid rounded-[24px] bg-amber-50 p-6"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-amber-600">Competencias</h2><p class="mt-3 text-sm leading-7 text-slate-700">Redacao, planejamento editorial, cobertura de eventos, campanhas, redes sociais e comunicacao.</p></article>
+          <article class="break-inside-avoid rounded-[24px] bg-orange-50 p-6 md:col-span-2"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-orange-600">Experiencia Profissional</h2><div class="mt-3 space-y-4 text-sm leading-7 text-slate-700"><p><span class="font-bold text-slate-950">Analista de Conteudo</span> - Grupo Solar Turismo - 2022 - Atual</p><p><span class="font-bold text-slate-950">Assistente de Marketing Digital</span> - Revista Nordeste Viva - 2019 - 2022</p></div></article>
+          <article class="break-inside-avoid rounded-[24px] bg-amber-50 p-6"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-amber-600">Formacao Academica</h2><p class="mt-3 text-sm leading-7 text-slate-700">Jornalismo - UNICAP - 2018<br />Marketing de Conteudo - 2021</p></article>
+          <article class="break-inside-avoid rounded-[24px] bg-rose-50 p-6"><h2 class="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">Idiomas</h2><p class="mt-3 text-sm leading-7 text-slate-700">Portugues - Fluente<br />Ingles - Intermediario<br />Espanhol - Intermediario</p></article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

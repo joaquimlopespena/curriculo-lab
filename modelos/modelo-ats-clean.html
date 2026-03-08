@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - ATS Clean</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4; margin: 12mm; }
+      html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+    </style>
+  </head>
+  <body class="bg-zinc-200 px-4 py-8 text-zinc-800 sm:px-6">
+    <div class="mx-auto max-w-4xl rounded-[18px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-zinc-200 px-6 py-4">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Modelo 1</a>
+            <a href="./modelo-ats-clean.html" class="rounded-full bg-zinc-900 px-4 py-2 font-semibold text-white">ATS Clean</a>
+            <a href="./modelo-executivo-timeline.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Timeline</a>
+            <a href="./modelo-academico-serif.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Academico</a>
+            <a href="./modelo-premium-sidebar.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Premium</a>
+            <a href="./modelo-foto-compacto.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Foto</a>
+            <a href="./modelo-juridico-classico.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Juridico</a>
+            <a href="./modelo-corporativo-balanceado.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Balanceado</a>
+            <a href="./modelo-criativo-cards.html" class="rounded-full bg-zinc-100 px-4 py-2 text-zinc-700">Cards</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white">Download / Imprimir</button>
+        </div>
+      </div>
+      <main class="px-8 py-10 sm:px-10">
+        <header class="border-b border-zinc-300 pb-6">
+          <h1 class="text-4xl font-black text-zinc-950">Patricia Monteiro Lima</h1>
+          <p class="mt-2 text-lg font-semibold text-zinc-700">Analista Financeira Senior</p>
+          <div class="mt-4 grid gap-2 text-sm text-zinc-600 sm:grid-cols-2">
+            <p>Sao Paulo, SP</p>
+            <p>(11) 98888-2211</p>
+            <p>patricia.lima@email.com</p>
+            <p>linkedin.com/in/patricialima</p>
+          </div>
+        </header>
+        <section class="mt-6 break-inside-avoid">
+          <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Resumo / Objetivo</h2>
+          <p class="mt-3 text-sm leading-7 text-zinc-700">Profissional com experiencia em planejamento financeiro, fechamento, analise de indicadores, controle orcamentario e suporte a decisao executiva em ambientes corporativos de medio e grande porte.</p>
+        </section>
+        <section class="mt-6 break-inside-avoid">
+          <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Experiencia Profissional</h2>
+          <div class="mt-4 space-y-5 text-sm leading-7 text-zinc-700">
+            <article class="break-inside-avoid">
+              <h3 class="font-bold text-zinc-950">Analista Financeira Senior</h3>
+              <p class="text-zinc-500">Grupo Vesper | 2022 - Atual</p>
+              <p>Responsavel por acompanhamento de fluxo de caixa, orçamento, DRE gerencial e relatorios de performance para diretorias.</p>
+            </article>
+            <article class="break-inside-avoid">
+              <h3 class="font-bold text-zinc-950">Analista de Controladoria</h3>
+              <p class="text-zinc-500">Orbe Servicos | 2018 - 2022</p>
+              <p>Consolidacao de indicadores, previsoes mensais, reconciliacoes contabeis e apoio ao fechamento.</p>
+            </article>
+          </div>
+        </section>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <section class="break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Formacao Academica</h2>
+            <div class="mt-3 text-sm leading-7 text-zinc-700">
+              <p class="font-bold text-zinc-950">Administracao de Empresas</p>
+              <p>Mackenzie</p>
+              <p>Conclusao: 2017</p>
+            </div>
+          </section>
+          <section class="break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Idiomas</h2>
+            <div class="mt-3 text-sm leading-7 text-zinc-700">
+              <p>Portugues - Fluente</p>
+              <p>Ingles - Avancado</p>
+              <p>Espanhol - Intermediario</p>
+            </div>
+          </section>
+          <section class="break-inside-avoid md:col-span-2">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Competencias</h2>
+            <p class="mt-3 text-sm leading-7 text-zinc-700">FP&A, orçamento, fluxo de caixa, Power BI, Excel avancado, controladoria, negociacao interna, comunicacao executiva e planejamento.</p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

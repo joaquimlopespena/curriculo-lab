@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Service Classic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-emerald-50 px-4 py-8 text-slate-800 sm:px-6">
+    <div class="mx-auto max-w-5xl rounded-[28px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-slate-200 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Modelo 1</a>
+            <a href="./visual-modern.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Visual Modern</a>
+            <a href="./split-professional.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Split Professional</a>
+            <a href="./chronological-elegant.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Chronological Elegant</a>
+            <a href="./executive-clean.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Executive Clean</a>
+            <a href="./service-classic.html" class="rounded-full bg-emerald-700 px-4 py-2 font-semibold text-white">Service Classic</a>
+            <a href="./creative-compact.html" class="rounded-full bg-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-300">Creative Compact</a>
+          </nav>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="rounded-full bg-emerald-700 px-5 py-2 text-sm font-semibold text-white"
+          >
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <header class="px-6 py-8 sm:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-emerald-700">Curriculo Profissional</p>
+            <h1 class="mt-3 text-4xl font-black text-slate-900">Juliana Ribeiro</h1>
+            <p class="mt-2 text-lg font-semibold text-slate-700">Enfermeira Assistencial</p>
+          </div>
+          <div class="grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+            <p>(71) 98881-4440</p>
+            <p>juliana.ribeiro@email.com</p>
+            <p>linkedin.com/in/julianaribeiro</p>
+            <p>Salvador, BA</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid gap-8 border-t border-slate-200 px-6 py-8 md:grid-cols-[0.85fr_1.15fr] sm:px-8">
+        <aside class="space-y-6">
+          <section class="rounded-3xl bg-emerald-50 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-800">
+              Resumo / Objetivo
+            </h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">
+              Enfermeira com experiencia em atendimento hospitalar, seguranca do paciente,
+              protocolos assistenciais e orientacao humanizada a familiares e equipes.
+            </p>
+          </section>
+
+          <section class="rounded-3xl bg-emerald-50 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-800">
+              Competencias
+            </h2>
+            <div class="mt-4 space-y-3 text-sm text-slate-600">
+              <p>Triagem e acolhimento</p>
+              <p>Administracao de medicamentos</p>
+              <p>Prontuario e registros</p>
+              <p>Biosseguranca</p>
+              <p>Comunicacao empatica</p>
+              <p>Trabalho em equipe</p>
+            </div>
+          </section>
+
+          <section class="rounded-3xl bg-emerald-50 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-800">
+              Formacao Academica
+            </h2>
+            <div class="mt-4 space-y-4 text-sm text-slate-600">
+              <div>
+                <h3 class="font-bold text-slate-900">Bacharelado em Enfermagem</h3>
+                <p>UFBA</p>
+                <p>Conclusao: 2018</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Especializacao em Urgencia e Emergencia</h3>
+                <p>Faculdade Unyleya</p>
+                <p>Conclusao: 2022</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-3xl bg-emerald-50 p-6">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-emerald-800">Idiomas</h2>
+            <div class="mt-4 space-y-2 text-sm text-slate-600">
+              <p>Portugues - Fluente</p>
+              <p>Ingles - Basico</p>
+              <p>Espanhol - Basico</p>
+            </div>
+          </section>
+        </aside>
+
+        <div>
+          <section>
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-slate-500">
+              Experiencia Profissional
+            </h2>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <h3 class="text-xl font-bold text-slate-900">Enfermeira Assistencial</h3>
+              <p class="mt-1 text-sm font-semibold text-emerald-700">Hospital Vida Plena</p>
+              <p class="mt-2 text-sm text-slate-500">Fev 2021 - Atual</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Atendimento a pacientes clinicos e pos-cirurgicos em unidade de internacao.</li>
+                <li>Controle de evolucoes, medicacao e orientacoes a acompanhantes.</li>
+                <li>Participacao em treinamentos de seguranca do paciente e qualidade assistencial.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-slate-200 p-6 shadow-sm">
+              <h3 class="text-xl font-bold text-slate-900">Enfermeira de Pronto Atendimento</h3>
+              <p class="mt-1 text-sm font-semibold text-emerald-700">UPA Costa Azul</p>
+              <p class="mt-2 text-sm text-slate-500">Jan 2019 - Jan 2021</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                <li>Triagem, classificacao de risco e apoio a equipe medica em rotinas emergenciais.</li>
+                <li>Registro de prontuarios, observacao clinica e encaminhamentos assistenciais.</li>
+                <li>Atuacao em protocolos de biosseguranca e acolhimento humanizado.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Chronological Elegant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-100 px-4 py-8 text-stone-800 sm:px-6">
+    <div class="mx-auto max-w-4xl rounded-[28px] bg-white p-6 shadow-2xl print:rounded-none print:p-0 print:shadow-none sm:p-10">
+      <div class="print:hidden mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <nav class="flex flex-wrap gap-2 text-sm">
+          <a href="./index.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Inicio</a>
+          <a href="./modelo-1.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Modelo 1</a>
+          <a href="./visual-modern.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Visual Modern</a>
+          <a href="./split-professional.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Split Professional</a>
+          <a href="./chronological-elegant.html" class="rounded-full bg-stone-900 px-4 py-2 font-semibold text-white">Chronological Elegant</a>
+          <a href="./executive-clean.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Executive Clean</a>
+          <a href="./service-classic.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Service Classic</a>
+          <a href="./creative-compact.html" class="rounded-full bg-stone-200 px-4 py-2 font-medium text-stone-700 transition hover:bg-stone-300">Creative Compact</a>
+        </nav>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="rounded-full bg-stone-900 px-5 py-2 text-sm font-semibold text-white"
+        >
+          Download / Imprimir
+        </button>
+      </div>
+
+      <header class="border-b border-stone-200 pb-8">
+        <p class="font-serif text-sm uppercase tracking-[0.3em] text-stone-500">Curriculo Executivo</p>
+        <h1 class="mt-4 font-serif text-5xl text-stone-900">Helena Duarte</h1>
+        <p class="mt-3 text-lg font-semibold text-stone-700">Diretora Pedagogica</p>
+        <div class="mt-5 grid gap-3 text-sm text-stone-600 sm:grid-cols-2">
+          <p>(21) 97777-2233</p>
+          <p>helena.duarte@email.com</p>
+          <p>linkedin.com/in/helenaduarte</p>
+          <p>Rio de Janeiro, RJ</p>
+        </div>
+      </header>
+
+      <section class="mt-8">
+        <h2 class="font-serif text-2xl text-stone-900">Resumo / Objetivo</h2>
+        <p class="mt-4 text-sm leading-7 text-stone-600">
+          Gestora educacional com longa trajetoria em coordenacao pedagogica, formacao docente,
+          desenvolvimento curricular e relacionamento com familias e equipes academicas.
+        </p>
+      </section>
+
+      <section class="mt-10">
+        <h2 class="font-serif text-2xl text-stone-900">Experiencia Profissional</h2>
+        <div class="mt-6 border-l-2 border-stone-300 pl-6">
+          <article class="break-inside-avoid relative pb-8">
+            <span class="absolute -left-[33px] top-2 h-4 w-4 rounded-full border-4 border-white bg-stone-800"></span>
+            <p class="text-sm text-stone-500">2020 - Atual</p>
+            <h3 class="mt-1 font-serif text-xl text-stone-900">Diretora Pedagogica</h3>
+            <p class="text-sm font-semibold text-stone-700">Colegio Horizonte</p>
+            <ul class="mt-3 space-y-2 text-sm leading-7 text-stone-600">
+              <li>Coordenacao do planejamento anual, metas pedagogicas e avaliacao institucional.</li>
+              <li>Formacao continuada de professores e acompanhamento de praticas em sala.</li>
+              <li>Interface com familias, conselho escolar e processos de autorizacao academica.</li>
+            </ul>
+          </article>
+
+          <article class="break-inside-avoid relative pb-8">
+            <span class="absolute -left-[33px] top-2 h-4 w-4 rounded-full border-4 border-white bg-stone-800"></span>
+            <p class="text-sm text-stone-500">2014 - 2020</p>
+            <h3 class="mt-1 font-serif text-xl text-stone-900">Coordenadora Academica</h3>
+            <p class="text-sm font-semibold text-stone-700">Instituto Saber</p>
+            <ul class="mt-3 space-y-2 text-sm leading-7 text-stone-600">
+              <li>Implementacao de projetos de leitura, desempenho escolar e acompanhamento docente.</li>
+              <li>Organizacao de calendario, reunioes pedagógicas e indicadores de aprendizagem.</li>
+              <li>Atendimento a familias e suporte a processos de inclusao educacional.</li>
+            </ul>
+          </article>
+
+          <article class="break-inside-avoid relative">
+            <span class="absolute -left-[33px] top-2 h-4 w-4 rounded-full border-4 border-white bg-stone-800"></span>
+            <p class="text-sm text-stone-500">2008 - 2014</p>
+            <h3 class="mt-1 font-serif text-xl text-stone-900">Professora de Lingua Portuguesa</h3>
+            <p class="text-sm font-semibold text-stone-700">Rede Particular de Ensino Viva</p>
+            <ul class="mt-3 space-y-2 text-sm leading-7 text-stone-600">
+              <li>Docencia para Ensino Fundamental II e Ensino Medio com foco em producao textual.</li>
+              <li>Elaboracao de planos de aula, projetos interdisciplinares e olimpíadas de leitura.</li>
+              <li>Participacao ativa em conselhos de classe e acompanhamento de desempenho.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        <section class="break-inside-avoid">
+          <h2 class="font-serif text-2xl text-stone-900">Formacao Academica</h2>
+          <div class="mt-4 space-y-4 text-sm text-stone-600">
+            <div>
+              <h3 class="font-semibold text-stone-900">Mestrado em Educacao</h3>
+              <p>UERJ</p>
+              <p>Conclusao: 2013</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-stone-900">Licenciatura em Letras</h3>
+              <p>UFRJ</p>
+              <p>Conclusao: 2007</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="break-inside-avoid">
+          <h2 class="font-serif text-2xl text-stone-900">Competencias</h2>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm text-stone-700">
+            <span class="rounded-full bg-stone-100 px-3 py-2">Gestao Escolar</span>
+            <span class="rounded-full bg-stone-100 px-3 py-2">Formacao Docente</span>
+            <span class="rounded-full bg-stone-100 px-3 py-2">Curriculo</span>
+            <span class="rounded-full bg-stone-100 px-3 py-2">Comunicacao Institucional</span>
+            <span class="rounded-full bg-stone-100 px-3 py-2">Mediacao de Conflitos</span>
+          </div>
+        </section>
+
+        <section class="break-inside-avoid">
+          <h2 class="font-serif text-2xl text-stone-900">Idiomas</h2>
+          <div class="mt-4 space-y-2 text-sm text-stone-600">
+            <p>Portugues - Fluente</p>
+            <p>Ingles - Intermediario</p>
+            <p>Frances - Basico</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

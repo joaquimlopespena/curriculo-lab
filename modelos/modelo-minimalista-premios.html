@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Modelo Minimalista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-200 px-4 py-8 text-zinc-800 sm:px-6">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[20px] bg-zinc-100 shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-zinc-300 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Modelo 1</a>
+            <a href="./modelo-editorial.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Editorial</a>
+            <a href="./modelo-sidebar-foto.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Sidebar Foto</a>
+            <a href="./modelo-corporativo-wave.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Wave</a>
+            <a href="./modelo-minimalista-premios.html" class="rounded-full bg-zinc-900 px-4 py-2 font-semibold text-white">Minimalista</a>
+            <a href="./modelo-classico-duas-colunas.html" class="rounded-full bg-white px-4 py-2 font-medium text-zinc-700">Duas Colunas</a>
+          </nav>
+          <button type="button" onclick="window.print()" class="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white">
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <main class="px-6 py-10 sm:px-10">
+        <div class="grid gap-10 md:grid-cols-[0.34fr_0.66fr]">
+          <aside>
+            <h1 class="text-5xl font-black leading-none text-zinc-950">
+              Helena<br />
+              Martines
+            </h1>
+            <p class="mt-4 text-3xl font-semibold text-orange-500">Diretora de Branding</p>
+
+            <div class="mt-14 space-y-12">
+              <section class="break-inside-avoid">
+                <div class="flex items-center gap-4">
+                  <span class="text-4xl text-zinc-950">-</span>
+                  <h2 class="text-2xl font-bold text-zinc-950">Competencias</h2>
+                </div>
+              </section>
+              <section class="break-inside-avoid">
+                <div class="flex items-center gap-4">
+                  <span class="text-4xl text-zinc-950">-</span>
+                  <h2 class="text-2xl font-bold text-zinc-950">Experiencia</h2>
+                </div>
+              </section>
+              <section class="break-inside-avoid">
+                <div class="flex items-center gap-4">
+                  <span class="text-4xl text-zinc-950">-</span>
+                  <h2 class="text-2xl font-bold text-zinc-950">Formacao</h2>
+                </div>
+              </section>
+              <section class="break-inside-avoid">
+                <div class="flex items-center gap-4">
+                  <span class="text-4xl text-zinc-950">-</span>
+                  <h2 class="text-2xl font-bold text-zinc-950">Premios</h2>
+                </div>
+              </section>
+            </div>
+          </aside>
+
+          <div class="space-y-12">
+            <section class="break-inside-avoid border-t-4 border-zinc-950 pt-3">
+              <h2 class="text-2xl font-bold text-zinc-950">Helena Martines</h2>
+              <p class="mt-2 text-lg text-zinc-700">Alameda das Acacias, 123</p>
+              <p class="text-lg text-zinc-700">Belo Horizonte, MG 30130-110</p>
+              <p class="mt-4 text-lg text-orange-500">(31) 98888-4455</p>
+              <p class="text-lg text-orange-500">helena.martines@email.com</p>
+            </section>
+
+            <section class="break-inside-avoid border-t-4 border-zinc-950 pt-4">
+              <p class="text-lg leading-8 text-zinc-700">
+                Estrategia de marca, posicionamento, direcao criativa, lideranca multidisciplinar,
+                campanhas 360, relacionamento com clientes e desenvolvimento de identidades para
+                empresas de varejo, educacao e servicos.
+              </p>
+            </section>
+
+            <section class="break-inside-avoid border-t-4 border-zinc-950 pt-4">
+              <article class="mb-8">
+                <h3 class="text-2xl font-semibold text-zinc-950">Estudio Aurora / Diretora de Branding</h3>
+                <p class="mt-1 text-sm uppercase tracking-wide text-zinc-500">Desde janeiro de 2021, Belo Horizonte</p>
+                <p class="mt-3 text-lg leading-8 text-zinc-700">
+                  Lidera projetos de posicionamento, campanhas institucionais e rebranding para
+                  empresas de medio porte. Coordena equipe criativa, aprova conceitos visuais e
+                  conduz apresentacoes para diretorias e clientes-chave.
+                </p>
+              </article>
+              <article class="mb-8">
+                <h3 class="text-2xl font-semibold text-zinc-950">Casa Viva Comunicacao / Gerente de Conteudo e Marca</h3>
+                <p class="mt-1 text-sm uppercase tracking-wide text-zinc-500">Março de 2017 - dezembro de 2020, Sao Paulo</p>
+                <p class="mt-3 text-lg leading-8 text-zinc-700">
+                  Planejou campanhas sazonais, estruturou linguagem de marca e integrou times de
+                  conteudo, design e atendimento para entregas digitais e impressas.
+                </p>
+              </article>
+              <article>
+                <h3 class="text-2xl font-semibold text-zinc-950">Revista Ponto / Diretora de Arte</h3>
+                <p class="mt-1 text-sm uppercase tracking-wide text-zinc-500">Fevereiro de 2013 - fevereiro de 2017, Rio de Janeiro</p>
+                <p class="mt-3 text-lg leading-8 text-zinc-700">
+                  Desenvolveu projetos editoriais, capas especiais, campanhas de assinaturas e
+                  materiais promocionais com foco em identidade visual e narrativa.
+                </p>
+              </article>
+            </section>
+
+            <section class="break-inside-avoid border-t-4 border-zinc-950 pt-4">
+              <article class="mb-8">
+                <h3 class="text-2xl font-semibold text-zinc-950">PUC Minas / Bacharelado em Publicidade e Propaganda</h3>
+                <p class="mt-1 text-sm uppercase tracking-wide text-zinc-500">2008 - 2012, Belo Horizonte</p>
+                <p class="mt-3 text-lg leading-8 text-zinc-700">
+                  Formacao com enfase em direcao de arte, planejamento de campanhas, redacao
+                  publicitaria e construcao de marca.
+                </p>
+              </article>
+              <article>
+                <h3 class="text-2xl font-semibold text-zinc-950">Miami Ad School / Especializacao em Branding</h3>
+                <p class="mt-1 text-sm uppercase tracking-wide text-zinc-500">2019, Sao Paulo</p>
+                <p class="mt-3 text-lg leading-8 text-zinc-700">
+                  Especializacao intensiva em estrategia, narrativa visual, experiencia de marca e
+                  processos criativos colaborativos.
+                </p>
+              </article>
+            </section>
+
+            <section class="break-inside-avoid border-t-4 border-zinc-950 pt-4">
+              <p class="text-lg leading-8 text-zinc-700">
+                Premio Aberje Regional 2022 por campanha institucional, destaque em direcao de arte
+                no Festival Colunistas 2021 e mencao honrosa em projeto de reposicionamento de
+                marca para organizacao educacional em 2020.
+              </p>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

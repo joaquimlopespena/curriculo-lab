@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - The Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        /* Garantia de proporção A4 na tela */
+        .page-a4 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-zinc-100 font-sans antialiased px-4 py-8 sm:px-6">
+
+    <div class="mx-auto mb-6 max-w-[210mm] no-print">
+        <div class="flex flex-col gap-4 rounded-[20px] bg-white px-6 py-4 shadow-lg lg:flex-row lg:items-center lg:justify-between">
+            <nav class="flex flex-wrap gap-2 text-sm">
+                <a href="./index.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Inicio</a>
+                <a href="./modelo-1.html" class="rounded-full bg-slate-900 px-4 py-2 font-semibold text-white">Modelo 1</a>
+                <a href="./visual-modern.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Visual Modern</a>
+                <a href="./split-professional.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Split Professional</a>
+                <a href="./chronological-elegant.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Chronological Elegant</a>
+                <a href="./executive-clean.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Executive Clean</a>
+                <a href="./service-classic.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Service Classic</a>
+                <a href="./creative-compact.html" class="rounded-full bg-slate-100 px-4 py-2 font-medium text-slate-700 transition hover:bg-slate-200">Creative Compact</a>
+            </nav>
+            <button onclick="window.print()" class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">
+                Imprimir PDF
+            </button>
+        </div>
+    </div>
+
+    <main class="page-a4 shadow-2xl print:shadow-none">
+        
+        <aside class="w-1/3 bg-slate-800 text-slate-100 p-8 flex flex-col gap-8 print:bg-slate-800">
+            
+            <div class="flex flex-col items-center gap-4">
+                <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center text-3xl font-bold border-4 border-slate-700">
+                    JD
+                </div>
+                <div class="text-center">
+                    <h1 class="text-2xl font-extrabold uppercase tracking-tighter">John Doe</h1>
+                    <p class="text-slate-400 text-sm font-medium uppercase tracking-widest">Backend Developer</p>
+                </div>
+            </div>
+
+            <hr class="border-slate-700">
+
+            <section>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Contato</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="flex items-center gap-2">
+                        <span class="text-slate-400">📧</span> j.doe@email.com
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-slate-400">📱</span> +55 (11) 99999-9999
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-slate-400">🔗</span> linkedin.com/in/jdoe
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-slate-400">📍</span> São Paulo, SP
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Hard Skills</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">PHP / Laravel</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">Node.js</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">Python</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">Docker</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">PostgreSQL</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">REST APIs</span>
+                    <span class="bg-slate-700 px-2 py-1 rounded text-xs font-medium">AWS</span>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Idiomas</h3>
+                <ul class="text-sm space-y-2">
+                    <li class="flex justify-between">
+                        <span>Português</span>
+                        <span class="text-slate-500 italic text-xs">Nativo</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Inglês</span>
+                        <span class="text-slate-500 italic text-xs">Avançado</span>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <article class="w-2/3 p-12 bg-white flex flex-col gap-10">
+            
+            <section>
+                <h2 class="text-xl font-bold uppercase tracking-wide text-slate-800 border-b-2 border-slate-100 pb-2 mb-4">Sobre Mim</h2>
+                <p class="text-sm leading-relaxed text-slate-600">
+                    Desenvolvedor Backend com foco em arquitetura escalável e integração de sistemas. Experiência sólida em ecossistemas PHP e JavaScript, atuando na otimização de fluxos de dados e infraestrutura em nuvem. Apaixonado por código limpo e resolução de problemas complexos.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold uppercase tracking-wide text-slate-800 border-b-2 border-slate-100 pb-2 mb-6">Experiência Profissional</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="text-base font-bold text-slate-800">Senior Backend Developer</h3>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">JAN 2024 — ATUAL</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-700 mb-3">Tech Solutions Inc.</p>
+                        <ul class="list-disc ml-4 text-sm text-slate-600 space-y-1">
+                            <li>Liderança técnica na migração de microserviços de PHP 7.4 para 8.3.</li>
+                            <li>Otimização de consultas SQL reduzindo tempo de resposta em 40%.</li>
+                            <li>Implementação de pipelines de CI/CD utilizando GitHub Actions e Docker.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="text-base font-bold text-slate-800">Fullstack Developer</h3>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">MAI 2021 — DEZ 2023</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-700 mb-3">Creative Digital Agency</p>
+                        <ul class="list-disc ml-4 text-sm text-slate-600 space-y-1">
+                            <li>Desenvolvimento de dashboards financeiros com React e Node.js.</li>
+                            <li>Integração de gateways de pagamento (Stripe/Pagar.me) e conciliação bancária.</li>
+                            <li>Manutenção de servidores Nginx em ambientes Ubuntu Linux.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold uppercase tracking-wide text-slate-800 border-b-2 border-slate-100 pb-2 mb-4">Projetos em Destaque</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="border border-slate-100 p-4 rounded-lg">
+                        <h4 class="text-sm font-bold text-slate-800">Tasknex Manager</h4>
+                        <p class="text-xs text-slate-600 mt-1 italic">Ferramenta de gestão de projetos com módulos de tracking e registro de clientes.</p>
+                    </div>
+                    <div class="border border-slate-100 p-4 rounded-lg">
+                        <h4 class="text-sm font-bold text-slate-800">StatsGenerator</h4>
+                        <p class="text-xs text-slate-600 mt-1 italic">Algoritmo de análise estatística para geração de tendências baseadas em históricos volumosos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold uppercase tracking-wide text-slate-800 border-b-2 border-slate-100 pb-2 mb-4">Educação</h2>
+                <div class="flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-800">Bacharelado em Ciências Contábeis</h3>
+                        <p class="text-xs text-slate-600 italic">Universidade Exemplo (Em andamento)</p>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-400">2024 — 2028</span>
+                </div>
+            </section>
+
+        </article>
+    </main>
+</body>
+</html>

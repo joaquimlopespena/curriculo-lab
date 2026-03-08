@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculo - Split Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html,
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .break-inside-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-200 px-4 py-8 text-zinc-800 sm:px-6">
+    <div class="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-white shadow-2xl print:rounded-none print:shadow-none">
+      <div class="print:hidden border-b border-zinc-200 px-6 py-4 sm:px-8">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <nav class="flex flex-wrap gap-2 text-sm">
+            <a href="./index.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Inicio</a>
+            <a href="./modelo-1.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Modelo 1</a>
+            <a href="./visual-modern.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Visual Modern</a>
+            <a href="./split-professional.html" class="rounded-full bg-zinc-900 px-4 py-2 font-semibold text-white">Split Professional</a>
+            <a href="./chronological-elegant.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Chronological Elegant</a>
+            <a href="./executive-clean.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Executive Clean</a>
+            <a href="./service-classic.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Service Classic</a>
+            <a href="./creative-compact.html" class="rounded-full bg-zinc-200 px-4 py-2 font-medium text-zinc-700 transition hover:bg-zinc-300">Creative Compact</a>
+          </nav>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white"
+          >
+            Download / Imprimir
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row">
+        <aside class="bg-zinc-100 px-6 py-8 md:w-1/2 sm:px-8">
+          <header class="rounded-3xl bg-white p-6 shadow-sm">
+            <p class="text-sm uppercase tracking-[0.25em] text-zinc-500">Dados Pessoais</p>
+            <h1 class="mt-3 text-4xl font-black text-zinc-900">Ricardo Almeida</h1>
+            <p class="mt-2 text-lg font-semibold text-amber-700">Gerente Administrativo</p>
+            <div class="mt-5 grid gap-3 text-sm text-zinc-600 sm:grid-cols-2">
+              <p>(31) 98888-4321</p>
+              <p>ricardo.almeida@email.com</p>
+              <p>linkedin.com/in/ricardoalmeida</p>
+              <p>Belo Horizonte, MG</p>
+            </div>
+          </header>
+
+          <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">
+              Resumo / Objetivo
+            </h2>
+            <p class="mt-4 text-sm leading-7 text-zinc-600">
+              Executivo administrativo com experiencia em rotinas financeiras, gestao de equipes,
+              padronizacao de processos e suporte operacional para unidades de negocio em
+              crescimento.
+            </p>
+          </section>
+
+          <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">
+              Formacao Academica
+            </h2>
+            <div class="mt-4 space-y-4 text-sm text-zinc-600">
+              <div>
+                <h3 class="font-bold text-zinc-900">MBA em Gestao Empresarial</h3>
+                <p>FGV</p>
+                <p>Conclusao: 2020</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-zinc-900">Bacharelado em Administracao</h3>
+                <p>PUC Minas</p>
+                <p>Conclusao: 2014</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">Idiomas</h2>
+            <div class="mt-4 space-y-3 text-sm text-zinc-600">
+              <div class="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
+                <span>Portugues</span>
+                <span class="font-semibold text-zinc-900">Fluente</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
+                <span>Ingles</span>
+                <span class="font-semibold text-zinc-900">Avancado</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
+                <span>Espanhol</span>
+                <span class="font-semibold text-zinc-900">Basico</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">
+              Competencias
+            </h2>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="rounded-full bg-amber-100 px-3 py-2 text-amber-800">Gestao de Processos</span>
+              <span class="rounded-full bg-zinc-200 px-3 py-2 text-zinc-700">Lideranca</span>
+              <span class="rounded-full bg-zinc-200 px-3 py-2 text-zinc-700">Controles Financeiros</span>
+              <span class="rounded-full bg-zinc-200 px-3 py-2 text-zinc-700">Negociacao</span>
+              <span class="rounded-full bg-zinc-200 px-3 py-2 text-zinc-700">Indicadores</span>
+              <span class="rounded-full bg-zinc-200 px-3 py-2 text-zinc-700">ERP</span>
+            </div>
+          </section>
+
+          <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm break-inside-avoid">
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">
+              Referencias
+            </h2>
+            <div class="mt-4 space-y-4 text-sm text-zinc-600">
+              <div>
+                <p class="font-bold text-zinc-900">Patricia Moura</p>
+                <p>Diretora Financeira - Grupo Sercon</p>
+                <p>(31) 97777-2001</p>
+              </div>
+              <div>
+                <p class="font-bold text-zinc-900">Leandro Tavares</p>
+                <p>Superintendente Operacional - MinasLog</p>
+                <p>(31) 96666-8840</p>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <main class="bg-white px-6 py-8 md:w-1/2 sm:px-8">
+          <section>
+            <h2 class="text-sm font-bold uppercase tracking-[0.25em] text-zinc-500">
+              Experiencia Profissional
+            </h2>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-zinc-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-zinc-900">Gerente Administrativo</h3>
+                  <p class="text-sm font-semibold text-amber-700">Grupo Sercon</p>
+                </div>
+                <p class="text-sm text-zinc-500">Abr 2021 - Atual</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-zinc-600">
+                <li>Coordenacao das rotinas administrativas, compras, contratos e apoio financeiro.</li>
+                <li>Implantacao de indicadores de desempenho com reducao de 19% em custos indiretos.</li>
+                <li>Gestao de equipe multidisciplinar com 24 colaboradores em 3 unidades.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-zinc-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-zinc-900">Coordenador de Operacoes</h3>
+                  <p class="text-sm font-semibold text-amber-700">MinasLog Distribuicao</p>
+                </div>
+                <p class="text-sm text-zinc-500">Jan 2017 - Mar 2021</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-zinc-600">
+                <li>Revisou fluxos de atendimento, faturamento e controle documental de contratos.</li>
+                <li>Negociou fornecedores e transportadores com melhoria no prazo medio de entrega.</li>
+                <li>Atuou em auditorias internas e padronizacao de processos entre filiais.</li>
+              </ul>
+            </article>
+
+            <article class="break-inside-avoid mt-5 rounded-3xl border border-zinc-200 p-6 shadow-sm">
+              <div class="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-zinc-900">Analista Administrativo</h3>
+                  <p class="text-sm font-semibold text-amber-700">Hospital Santa Helena</p>
+                </div>
+                <p class="text-sm text-zinc-500">Fev 2014 - Dez 2016</p>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-zinc-600">
+                <li>Controlou contratos, pagamentos e documentacao de prestadores de servico.</li>
+                <li>Apoiou fechamento mensal, relatorios gerenciais e planejamento orcamentario.</li>
+                <li>Participou da reorganizacao do arquivo fisico e digital da area administrativa.</li>
+              </ul>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
