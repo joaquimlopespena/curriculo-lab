@@ -167,7 +167,7 @@ function TinyText({
   return <p className={`leading-tight ${className}`}>{children}</p>;
 }
 
-function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
+function TemplateThumbnail({ template }: { template: TemplateDefinition<any> }) {
   const style = THUMBNAIL_STYLES[template.id];
 
   return (

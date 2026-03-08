@@ -1,6 +1,4 @@
 import { useRef, useState } from "react";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
 import { useReactToPrint } from "react-to-print";
 import { TemplateCatalog } from "./components/catalog/TemplateCatalog";
 import { MainStepper } from "./components/MainStepper";
@@ -9,7 +7,7 @@ import { createInitialResume } from "./domain/resume.factory";
 import type { Resume } from "./domain/resume.types";
 import { templates } from "./data/templates";
 import { exportReactPdf, supportsReactPdf } from "./pdf/templates";
-import type { TemplateId } from "./types/resume";
+import type { TemplateDefinition, TemplateId } from "./types/resume";
 
 export default function App() {
   const [currentTemplateId, setCurrentTemplateId] = useState<TemplateId>("executive-clean");
@@ -17,7 +15,7 @@ export default function App() {
   const [resume, setResume] = useState<Resume>(() => createInitialResume("executive-clean"));
   const printRef = useRef<HTMLDivElement>(null);
 
-  const selectedTemplate = templates[currentTemplateId];
+  const selectedTemplate = templates[currentTemplateId] as TemplateDefinition<any>;
   const previewData = toTemplateResumeData(resume);
 
   const handleTemplateChange = (templateId: TemplateId) => {
@@ -38,102 +36,11 @@ export default function App() {
       .replace(/\s+/g, "-")
       .toLowerCase();
 
-    if (supportsReactPdf(currentTemplateId)) {
-      await exportReactPdf(currentTemplateId, previewData, fileName);
-      return;
+    if (!supportsReactPdf(currentTemplateId)) {
+      throw new Error(`Template ${currentTemplateId} sem renderer de PDF configurado.`);
     }
 
-    if (!printRef.current) {
-      return;
-    }
-
-    const exportWidth = 794;
-    const sourceNode = (printRef.current.firstElementChild as HTMLElement | null) ?? printRef.current;
-    const exportNode = sourceNode.cloneNode(true) as HTMLDivElement;
-    const sandbox = document.createElement("div");
-
-    sandbox.style.position = "fixed";
-    sandbox.style.left = "-99999px";
-    sandbox.style.top = "0";
-    sandbox.style.width = `${exportWidth}px`;
-    sandbox.style.background = "#ffffff";
-    sandbox.style.padding = "0";
-    sandbox.style.margin = "0";
-    sandbox.style.overflow = "visible";
-
-    exportNode.style.width = `${exportWidth}px`;
-    exportNode.style.minWidth = `${exportWidth}px`;
-    exportNode.style.maxWidth = `${exportWidth}px`;
-    exportNode.style.background = "#ffffff";
-    exportNode.style.margin = "0";
-    exportNode.style.padding = "0";
-    exportNode.style.overflow = "visible";
-    exportNode.style.borderRadius = "0";
-    exportNode.style.boxShadow = "none";
-
-    exportNode.querySelectorAll("*").forEach((element) => {
-      const htmlElement = element as HTMLElement;
-      htmlElement.style.boxShadow = "none";
-      htmlElement.style.filter = "none";
-      htmlElement.style.printColorAdjust = "exact";
-      htmlElement.style.webkitPrintColorAdjust = "exact";
-    });
-
-    const exportRoot = exportNode as HTMLElement;
-    exportRoot.style.transform = "none";
-    exportRoot.style.maxWidth = "none";
-
-    sandbox.appendChild(exportNode);
-    document.body.appendChild(sandbox);
-
-    try {
-      const contentHeight = Math.ceil(exportNode.scrollHeight);
-      const canvas = await html2canvas(exportNode, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff",
-        width: exportWidth,
-        height: contentHeight,
-        windowWidth: exportWidth,
-        windowHeight: contentHeight,
-      });
-
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-        compress: true,
-      });
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const renderWidth = pdfWidth;
-      const renderHeight = (imgHeight * pdfWidth) / imgWidth;
-      const imageData = canvas.toDataURL("image/png");
-      const totalPages = Math.max(1, Math.ceil(renderHeight / pdfHeight));
-
-      for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
-        if (pageIndex > 0) {
-          pdf.addPage();
-        }
-
-        pdf.addImage(
-          imageData,
-          "PNG",
-          0,
-          -pageIndex * pdfHeight,
-          renderWidth,
-          renderHeight,
-          undefined,
-          "FAST",
-        );
-      }
-      pdf.save(`${fileName}.pdf`);
-    } finally {
-      document.body.removeChild(sandbox);
-    }
+    await exportReactPdf(currentTemplateId, previewData, fileName);
   };
 
   return (

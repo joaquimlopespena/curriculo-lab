@@ -14,7 +14,7 @@ import type { ResumeData, TemplateDefinition } from "../types/resume";
 
 interface MainStepperProps {
   resume: Resume;
-  template: TemplateDefinition;
+  template: TemplateDefinition<any>;
   previewData: ResumeData;
   onResumeChange: (updater: (resume: Resume) => Resume) => void;
   onPrint: () => void;
