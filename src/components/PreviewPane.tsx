@@ -25,7 +25,7 @@ export function PreviewPane({ data, template, printRef }: PreviewPaneProps) {
         </div>
       </div>
       <div className="mt-4 overflow-auto rounded-2xl bg-[#e9e7d5] p-4">
-        <div ref={printRef}>
+        <div ref={printRef} className="mx-auto min-h-[1123px] w-[794px] bg-white">
           <SelectedTemplate data={data} />
         </div>
       </div>

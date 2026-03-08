@@ -35,30 +35,80 @@ export default function App() {
     }
 
     const html2pdf = (await import("html2pdf.js")).default;
+    const pageWidth = 794;
+    const pageHeight = 1122;
     const fileName = `${resume.header.firstName}-${resume.header.lastName || "curriculo"}`
       .trim()
       .replace(/\s+/g, "-")
       .toLowerCase();
+    const sourceNode = printRef.current;
+    const exportNode = sourceNode.cloneNode(true) as HTMLDivElement;
+    const sandbox = document.createElement("div");
 
-    await html2pdf()
-      .set({
-        margin: [8, 8, 8, 8],
-        filename: `${fileName}.pdf`,
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: "#ffffff",
-        },
-        jsPDF: {
-          unit: "mm",
-          format: "a4",
-          orientation: "portrait",
-        },
-        pagebreak: { mode: ["css", "legacy"] },
-      })
-      .from(printRef.current)
-      .save();
+    sandbox.style.position = "fixed";
+    sandbox.style.left = "-99999px";
+    sandbox.style.top = "0";
+    sandbox.style.width = `${pageWidth}px`;
+    sandbox.style.height = `${pageHeight}px`;
+    sandbox.style.background = "#ffffff";
+    sandbox.style.padding = "0";
+    sandbox.style.margin = "0";
+    sandbox.style.overflow = "hidden";
+
+    exportNode.style.width = `${pageWidth}px`;
+    exportNode.style.minHeight = `${pageHeight}px`;
+    exportNode.style.height = `${pageHeight}px`;
+    exportNode.style.background = "#ffffff";
+    exportNode.style.margin = "0";
+    exportNode.style.padding = "0";
+    exportNode.style.overflow = "hidden";
+    exportNode.style.borderRadius = "0";
+    exportNode.style.boxShadow = "none";
+
+    const exportRoot = exportNode.firstElementChild as HTMLElement | null;
+    if (exportRoot) {
+      exportRoot.style.borderRadius = "0";
+      exportRoot.style.boxShadow = "none";
+      exportRoot.style.margin = "0";
+      exportRoot.style.width = `${pageWidth}px`;
+      exportRoot.style.minHeight = `${pageHeight}px`;
+      exportRoot.style.height = `${pageHeight}px`;
+    }
+
+    exportNode.querySelectorAll("*").forEach((element) => {
+      const htmlElement = element as HTMLElement;
+      htmlElement.style.boxShadow = "none";
+      htmlElement.style.filter = "none";
+    });
+
+    sandbox.appendChild(exportNode);
+    document.body.appendChild(sandbox);
+
+    try {
+      await html2pdf()
+        .set({
+          margin: [0, 0, 0, 0],
+          filename: `${fileName}.pdf`,
+          image: { type: "jpeg", quality: 1 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: "#ffffff",
+            width: pageWidth,
+            height: pageHeight,
+          },
+          jsPDF: {
+            unit: "px",
+            format: [pageWidth, pageHeight],
+            orientation: "portrait",
+          },
+          pagebreak: { mode: ["avoid-all"] },
+        })
+        .from(exportNode)
+        .save();
+    } finally {
+      document.body.removeChild(sandbox);
+    }
   };
 
   return (

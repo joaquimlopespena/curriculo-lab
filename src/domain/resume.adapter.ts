@@ -75,6 +75,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
         ...base,
         templateId: "foto-compacto",
         photoUrl:
+          resume.header.photoUrl ??
           "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23e0f2fe'/%3E%3Ccircle cx='80' cy='60' r='28' fill='%2364748b'/%3E%3Cpath d='M34 136c7-24 28-36 46-36s39 12 46 36' fill='%2364748b'/%3E%3C/svg%3E",
         sidebarNote: "Dados adicionais, contato rapido e leitura lateral objetiva.",
       };

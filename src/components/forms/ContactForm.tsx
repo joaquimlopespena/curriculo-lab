@@ -1,3 +1,4 @@
+import type { ChangeEvent } from "react";
 import type { Resume, StepComponentProps } from "../../domain/resume.types";
 import { FloatingLabelInput, FormSectionShell, PillButton } from "./shared";
 
@@ -10,12 +11,22 @@ const OPTIONAL_FIELD_CONFIG = {
 
 type OptionalFieldKey = keyof Resume["header"]["optionalFields"];
 
+const PHOTO_TEMPLATE_IDS = new Set<Resume["templateId"]>([
+  "foto-compacto",
+  "visual-modern",
+  "modelo-sidebar-foto",
+  "modelo-premium-sidebar",
+  "modelo-classico-duas-colunas",
+  "curriculo-joao-roberto",
+]);
+
 function isFilled(value: string) {
   return value.trim().length > 1;
 }
 
 export function ContactForm({ resume, onChange }: StepComponentProps) {
   const { header } = resume;
+  const hasPhoto = PHOTO_TEMPLATE_IDS.has(resume.templateId);
 
   const updateHeader =
     <K extends keyof Resume["header"]>(key: K) =>
@@ -47,6 +58,24 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
     }
 
     updateOptionalField(field, "");
+  };
+
+  const handlePhotoUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      if (typeof result !== "string") {
+        return;
+      }
+
+      updateHeader("photoUrl")(result);
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -122,6 +151,28 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
           onChange={(event) => updateHeader("email")(event.target.value)}
         />
       </div>
+
+      {hasPhoto ? (
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Foto do curriculo</p>
+          <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center">
+            <img
+              src={header.photoUrl}
+              alt={`${header.firstName} ${header.lastName}`}
+              className="h-28 w-28 rounded-2xl object-cover shadow-sm"
+            />
+            <div className="space-y-3">
+              <label className="inline-flex cursor-pointer rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white">
+                Upload de arquivo
+                <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} />
+              </label>
+              <p className="text-sm text-slate-500">
+                Use JPG ou PNG. A imagem enviada passa a ser usada no preview e no PDF dos modelos com foto.
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <div className="mt-10">
         <p className="text-2xl font-semibold text-[#152a5b]">

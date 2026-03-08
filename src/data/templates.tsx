@@ -28,7 +28,7 @@ const SectionTitle = ({ children, muted = false }: { children: ReactNode; muted?
 );
 
 const AtsPreview = ({ data }: { data: AtsResumeData }) => (
-  <div className="mx-auto w-[794px] max-w-full rounded-3xl bg-white p-10 shadow-paper">
+  <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col rounded-3xl bg-white p-10 shadow-paper">
     <header className="border-b border-zinc-300 pb-6">
       <h1 className="text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
       <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
@@ -85,7 +85,7 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
 );
 
 const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
-  <div className="mx-auto w-[794px] max-w-full rounded-[30px] bg-white shadow-paper">
+  <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col rounded-[30px] bg-white shadow-paper">
     <header className="bg-sky-700 px-8 py-10 text-white">
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div>
@@ -101,7 +101,7 @@ const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
         </div>
       </div>
     </header>
-    <main className="grid gap-8 px-8 py-8 md:grid-cols-[1.15fr_0.85fr]">
+    <main className="grid flex-1 gap-8 px-8 py-8 md:grid-cols-[1.15fr_0.85fr]">
       <div>
         <section>
           <SectionTitle>Resumo / Objetivo</SectionTitle>
@@ -160,7 +160,7 @@ const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
 );
 
 const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
-  <div className="mx-auto w-[794px] max-w-full rounded-3xl bg-white p-10 shadow-paper">
+  <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col rounded-3xl bg-white p-10 shadow-paper">
     <header className="border-b border-stone-300 pb-6">
       <h1 className="font-serif text-5xl text-stone-950">{data.personal.fullName}</h1>
       <p className="mt-2 font-serif text-xl text-stone-700">{data.personal.title}</p>
@@ -213,8 +213,8 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
 );
 
 const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
-  <div className="mx-auto grid w-[794px] max-w-full overflow-hidden rounded-[22px] bg-white shadow-paper md:grid-cols-[0.3fr_0.7fr]">
-    <aside className="bg-sky-700 px-8 py-10 text-white">
+  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden rounded-[22px] bg-white shadow-paper md:grid-cols-[0.3fr_0.7fr]">
+    <aside className="h-full bg-sky-700 px-8 py-10 text-white">
       <img
         src={data.photoUrl}
         alt={data.personal.fullName}
@@ -275,7 +275,7 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
 );
 
 const MinimalAwardsPreview = ({ data }: { data: MinimalAwardsResumeData }) => (
-  <div className="mx-auto grid w-[794px] max-w-full gap-10 rounded-[20px] bg-zinc-100 px-10 py-10 shadow-paper md:grid-cols-[0.34fr_0.66fr]">
+  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full gap-10 rounded-[20px] bg-zinc-100 px-10 py-10 shadow-paper md:grid-cols-[0.34fr_0.66fr]">
     <aside>
       <h1 className="text-5xl font-black leading-none text-zinc-950">{data.personal.fullName}</h1>
       <p className="mt-4 text-3xl font-semibold text-orange-500">{data.personal.title}</p>
@@ -312,7 +312,7 @@ const MinimalAwardsPreview = ({ data }: { data: MinimalAwardsResumeData }) => (
 );
 
 const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
-  <div className="mx-auto w-[794px] max-w-full rounded-[24px] bg-white p-8 shadow-paper">
+  <div className="mx-auto min-h-[1123px] w-[794px] max-w-full rounded-[24px] bg-white p-8 shadow-paper">
     <header className="rounded-[24px] bg-gradient-to-r from-amber-400 to-rose-400 px-6 py-8 text-white">
       <h1 className="text-5xl font-black">{data.personal.fullName}</h1>
       <p className="mt-2 text-xl font-semibold">{data.personal.title}</p>
@@ -353,6 +353,255 @@ const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
     </section>
   </div>
 );
+
+function createAtsVariantPreview(config: {
+  headerAccent: string;
+  surface: string;
+  sectionTone: string;
+}) {
+  return function AtsVariantPreview({ data }: { data: AtsResumeData }) {
+    return (
+      <div className={`mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col ${config.surface} p-10`}>
+        <header className={`border-b pb-6 ${config.sectionTone}`}>
+          <div className={`h-2 w-28 rounded-full ${config.headerAccent}`} />
+          <h1 className="mt-5 text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
+          <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
+          <div className="mt-4 grid gap-2 text-sm text-zinc-600 sm:grid-cols-2">
+            <p>{data.personal.city}, {data.personal.state}</p>
+            <p>{data.personal.phone}</p>
+            <p>{data.personal.email}</p>
+            <p>{data.personal.linkedin}</p>
+          </div>
+        </header>
+        <div className="mt-8 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-8">
+            <section>
+              <SectionTitle>Resumo / Objetivo</SectionTitle>
+              <p className="mt-3 text-sm leading-7 text-zinc-700">{data.summary}</p>
+            </section>
+            <section>
+              <SectionTitle>Experiencia Profissional</SectionTitle>
+              <div className="mt-4 space-y-5 text-sm leading-7 text-zinc-700">
+                {data.experience.map((item) => (
+                  <article key={`${item.role}-${item.company}`}>
+                    <h3 className="font-bold text-zinc-950">{item.role}</h3>
+                    <p className="text-zinc-500">{item.company} | {item.period}</p>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+          <aside className="space-y-6">
+            <section className={`rounded-3xl p-5 ${config.sectionTone}`}>
+              <SectionTitle>Formacao Academica</SectionTitle>
+              <div className="mt-3 space-y-3 text-sm leading-7 text-zinc-700">
+                {data.education.map((item) => (
+                  <div key={`${item.degree}-${item.institution}`}>
+                    <p className="font-bold text-zinc-950">{item.degree}</p>
+                    <p>{item.institution}</p>
+                    <p>Conclusao: {item.conclusion}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className={`rounded-3xl p-5 ${config.sectionTone}`}>
+              <SectionTitle>Competencias</SectionTitle>
+              <p className="mt-3 text-sm leading-7 text-zinc-700">{data.skills.join(", ")}.</p>
+            </section>
+          </aside>
+        </div>
+      </div>
+    );
+  };
+}
+
+function createExecutiveVariantPreview(config: {
+  headerClass: string;
+  accentClass: string;
+  sideSurfaceClass: string;
+  titleClass?: string;
+}) {
+  return function ExecutiveVariantPreview({ data }: { data: ExecutiveResumeData }) {
+    return (
+      <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col bg-white">
+        <header className={`px-8 py-10 text-white ${config.headerClass}`}>
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-white/80">Perfil Profissional</p>
+              <h1 className={`mt-3 text-5xl font-black ${config.titleClass ?? ""}`}>{data.personal.fullName}</h1>
+              <p className="mt-2 text-lg font-semibold text-white/85">{data.personal.title}</p>
+            </div>
+            <div className="grid gap-2 text-sm text-white/90 md:text-right">
+              <p>{data.personal.phone}</p>
+              <p>{data.personal.email}</p>
+              <p>{data.personal.linkedin}</p>
+              <p>{data.personal.city}, {data.personal.state}</p>
+            </div>
+          </div>
+        </header>
+        <main className="grid flex-1 gap-8 px-8 py-8 md:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <section>
+              <SectionTitle>Resumo / Objetivo</SectionTitle>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{data.summary}</p>
+            </section>
+            <section className="mt-8">
+              <SectionTitle>Experiencia Profissional</SectionTitle>
+              <div className="mt-5 space-y-6">
+                {data.experience.map((item) => (
+                  <article key={`${item.role}-${item.company}`} className={`border-l-4 pl-5 ${config.accentClass}`}>
+                    <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900">{item.role}</h3>
+                        <p className={`text-sm font-semibold ${config.accentClass.replace("border-", "text-")}`}>
+                          {item.company}
+                        </p>
+                      </div>
+                      <p className="text-sm text-slate-500">{item.period}</p>
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+          <aside className="space-y-6">
+            <section className={`rounded-3xl p-6 ${config.sideSurfaceClass}`}>
+              <SectionTitle>Resumo de Qualificacoes</SectionTitle>
+              <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                {data.qualifications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+            <section className={`rounded-3xl p-6 ${config.sideSurfaceClass}`}>
+              <SectionTitle>Formacao Academica</SectionTitle>
+              <div className="mt-4 space-y-4 text-sm text-slate-600">
+                {data.education.map((item) => (
+                  <div key={`${item.degree}-${item.institution}`}>
+                    <h3 className="font-bold text-slate-900">{item.degree}</h3>
+                    <p>{item.institution}</p>
+                    <p>Conclusao: {item.conclusion}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </aside>
+        </main>
+      </div>
+    );
+  };
+}
+
+function createPhotoVariantPreview(config: {
+  asideClass: string;
+  bodyClass: string;
+  pillClass?: string;
+}) {
+  return function PhotoVariantPreview({ data }: { data: PhotoResumeData }) {
+    return (
+      <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden bg-white md:grid-cols-[0.32fr_0.68fr]">
+        <aside className={`h-full px-8 py-10 text-white ${config.asideClass}`}>
+          <div className={`inline-flex rounded-full p-1 ${config.pillClass ?? "bg-white/20"}`}>
+            <img
+              src={data.photoUrl}
+              alt={data.personal.fullName}
+              className="h-28 w-28 rounded-full border-4 border-white object-cover"
+            />
+          </div>
+          <h1 className="mt-6 text-3xl font-black">{data.personal.fullName}</h1>
+          <p className="mt-2 text-white/85">{data.personal.title}</p>
+          <div className="mt-6 space-y-2 text-sm text-white/90">
+            <p>{data.personal.phone}</p>
+            <p>{data.personal.email}</p>
+            <p>{data.personal.city}, {data.personal.state}</p>
+            <p>{data.personal.linkedin}</p>
+          </div>
+          <section className="mt-8">
+            <h2 className="text-xs uppercase tracking-[0.3em] text-white/70">Competencias</h2>
+            <ul className="mt-4 space-y-2 text-sm text-white/90">
+              {data.skills.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        </aside>
+        <main className={`px-8 py-10 ${config.bodyClass}`}>
+          <section>
+            <SectionTitle>Resumo / Objetivo</SectionTitle>
+            <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
+          </section>
+          <section className="mt-8">
+            <SectionTitle>Experiencia Profissional</SectionTitle>
+            <div className="mt-4 space-y-6 text-sm leading-7 text-slate-700">
+              {data.experience.map((item) => (
+                <article key={`${item.role}-${item.company}`}>
+                  <h3 className="font-bold text-slate-950">{item.role}</h3>
+                  <p className="text-slate-500">{item.company} | {item.period}</p>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="mt-8">
+            <SectionTitle>Formacao Academica</SectionTitle>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+              {data.education.map((item) => (
+                <div key={`${item.degree}-${item.institution}`}>
+                  <p className="font-bold text-slate-950">{item.degree}</p>
+                  <p>{item.institution}</p>
+                  <p>Conclusao: {item.conclusion}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </main>
+      </div>
+    );
+  };
+}
+
+function createCreativeVariantPreview(config: {
+  headerClass: string;
+  blockA: string;
+  blockB: string;
+  blockC: string;
+}) {
+  return function CreativeVariantPreview({ data }: { data: CreativeCardsResumeData }) {
+    return (
+      <div className="mx-auto min-h-[1123px] w-[794px] max-w-full bg-white p-8">
+        <header className={`rounded-[24px] px-6 py-8 text-white ${config.headerClass}`}>
+          <h1 className="text-5xl font-black">{data.personal.fullName}</h1>
+          <p className="mt-2 text-xl font-semibold">{data.personal.title}</p>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <p>{data.personal.city}, {data.personal.state}</p>
+            <p>{data.personal.phone}</p>
+            <p>{data.personal.email}</p>
+          </div>
+        </header>
+        <section className="mt-8 grid gap-6 md:grid-cols-2">
+          <article className={`rounded-[24px] p-6 ${config.blockA}`}>
+            <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Resumo / Objetivo</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
+          </article>
+          <article className={`rounded-[24px] p-6 ${config.blockB}`}>
+            <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Competencias</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-700">{data.skills.join(", ")}.</p>
+          </article>
+          <article className={`rounded-[24px] p-6 md:col-span-2 ${config.blockC}`}>
+            <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Projetos em Destaque</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
+              {data.featuredProjects.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </section>
+      </div>
+    );
+  };
+}
 
 const atsInitialData = (): AtsResumeData => ({
   templateId: "ats-clean",
@@ -807,6 +1056,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Essencial",
     description: "Versao base para curriculos diretos e montagem inicial.",
     sourceModel: "modelos/modelo-1.html",
+    Preview: createAtsVariantPreview({
+      headerAccent: "bg-slate-700",
+      surface: "bg-white",
+      sectionTone: "border-slate-200 bg-slate-50",
+    }),
   },
   "split-professional": {
     ...coreTemplates["ats-clean"],
@@ -815,6 +1069,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Profissional",
     description: "Estrutura objetiva com leitura clara e ritmo corporativo.",
     sourceModel: "modelos/split-professional.html",
+    Preview: createAtsVariantPreview({
+      headerAccent: "bg-blue-700",
+      surface: "bg-slate-50",
+      sectionTone: "border-blue-100 bg-white",
+    }),
   },
   "service-classic": {
     ...coreTemplates["ats-clean"],
@@ -823,6 +1082,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Servicos",
     description: "Modelo funcional para atendimento, saude e operacoes.",
     sourceModel: "modelos/service-classic.html",
+    Preview: createAtsVariantPreview({
+      headerAccent: "bg-emerald-700",
+      surface: "bg-emerald-50",
+      sectionTone: "border-emerald-100 bg-white",
+    }),
   },
   "chronological-elegant": {
     ...coreTemplates["executive-clean"],
@@ -832,6 +1096,12 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     description: "Linha cronologica refinada para trajetorias longas.",
     sourceModel: "modelos/chronological-elegant.html",
     pageStyle: { pageMargin: "12mm", fontFamily: "Cormorant Garamond" },
+    Preview: createExecutiveVariantPreview({
+      headerClass: "bg-stone-800",
+      accentClass: "border-stone-700",
+      sideSurfaceClass: "bg-stone-50",
+      titleClass: "font-serif",
+    }),
   },
   "modelo-executivo-timeline": {
     ...coreTemplates["executive-clean"],
@@ -840,6 +1110,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Executivo",
     description: "Timeline para cargos de gestao e progressao de carreira.",
     sourceModel: "modelos/modelo-executivo-timeline.html",
+    Preview: createExecutiveVariantPreview({
+      headerClass: "bg-slate-900",
+      accentClass: "border-slate-900",
+      sideSurfaceClass: "bg-slate-50",
+    }),
   },
   "modelo-corporativo-balanceado": {
     ...coreTemplates["executive-clean"],
@@ -848,6 +1123,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Corporativo",
     description: "Composicao equilibrada para perfis administrativos e executivos.",
     sourceModel: "modelos/modelo-corporativo-balanceado.html",
+    Preview: createExecutiveVariantPreview({
+      headerClass: "bg-blue-800",
+      accentClass: "border-blue-700",
+      sideSurfaceClass: "bg-blue-50",
+    }),
   },
   "modelo-corporativo-wave": {
     ...coreTemplates["executive-clean"],
@@ -856,6 +1136,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Corporativo",
     description: "Cabecalho forte e visual formal para perfis de negocios.",
     sourceModel: "modelos/modelo-corporativo-wave.html",
+    Preview: createExecutiveVariantPreview({
+      headerClass: "bg-cyan-700",
+      accentClass: "border-cyan-700",
+      sideSurfaceClass: "bg-cyan-50",
+    }),
   },
   "modelo-juridico-classico": {
     ...coreTemplates["executive-clean"],
@@ -864,6 +1149,12 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Tradicional",
     description: "Versao formal para advocacia, consultoria e setores conservadores.",
     sourceModel: "modelos/modelo-juridico-classico.html",
+    Preview: createExecutiveVariantPreview({
+      headerClass: "bg-amber-900",
+      accentClass: "border-amber-800",
+      sideSurfaceClass: "bg-amber-50",
+      titleClass: "font-serif",
+    }),
   },
   "visual-modern": {
     ...coreTemplates["foto-compacto"],
@@ -872,6 +1163,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Visual",
     description: "Destaque visual com foto e leitura lateral de competencias.",
     sourceModel: "modelos/visual-modern.html",
+    Preview: createPhotoVariantPreview({
+      asideClass: "bg-indigo-700",
+      bodyClass: "bg-white",
+      pillClass: "bg-white/15",
+    }),
   },
   "modelo-sidebar-foto": {
     ...coreTemplates["foto-compacto"],
@@ -880,6 +1176,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Foto",
     description: "Sidebar com foto e bloco principal para experiencia.",
     sourceModel: "modelos/modelo-sidebar-foto.html",
+    Preview: createPhotoVariantPreview({
+      asideClass: "bg-rose-700",
+      bodyClass: "bg-rose-50/30",
+      pillClass: "bg-white/15",
+    }),
   },
   "modelo-premium-sidebar": {
     ...coreTemplates["foto-compacto"],
@@ -888,6 +1189,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Premium",
     description: "Layout premium com coluna lateral marcante.",
     sourceModel: "modelos/modelo-premium-sidebar.html",
+    Preview: createPhotoVariantPreview({
+      asideClass: "bg-slate-950",
+      bodyClass: "bg-slate-50/60",
+      pillClass: "bg-white/10",
+    }),
   },
   "modelo-classico-duas-colunas": {
     ...coreTemplates["foto-compacto"],
@@ -896,6 +1202,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Classico",
     description: "Composicao em duas colunas com leitura tradicional.",
     sourceModel: "modelos/modelo-classico-duas-colunas.html",
+    Preview: createPhotoVariantPreview({
+      asideClass: "bg-violet-700",
+      bodyClass: "bg-violet-50/20",
+      pillClass: "bg-white/15",
+    }),
   },
   "curriculo-joao-roberto": {
     ...coreTemplates["foto-compacto"],
@@ -904,6 +1215,11 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Personalizado",
     description: "Modelo personalizado preservado como template selecionavel.",
     sourceModel: "modelos/curriculo_joao_roberto.html",
+    Preview: createPhotoVariantPreview({
+      asideClass: "bg-amber-700",
+      bodyClass: "bg-amber-50/20",
+      pillClass: "bg-white/15",
+    }),
   },
   "creative-compact": {
     ...coreTemplates["criativo-cards"],
@@ -912,6 +1228,12 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Criativo",
     description: "Versao compacta para conteudo, marca pessoal e portfolio.",
     sourceModel: "modelos/creative-compact.html",
+    Preview: createCreativeVariantPreview({
+      headerClass: "bg-gradient-to-r from-orange-500 to-pink-500",
+      blockA: "bg-orange-50",
+      blockB: "bg-pink-50",
+      blockC: "bg-amber-50",
+    }),
   },
   "modelo-editorial": {
     ...coreTemplates["criativo-cards"],
@@ -920,6 +1242,12 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
     category: "Editorial",
     description: "Blocos fortes e composicao inspirada em diagramacao editorial.",
     sourceModel: "modelos/modelo-editorial.html",
+    Preview: createCreativeVariantPreview({
+      headerClass: "bg-slate-900",
+      blockA: "bg-stone-100",
+      blockB: "bg-slate-100",
+      blockC: "bg-neutral-100",
+    }),
   },
 };
 

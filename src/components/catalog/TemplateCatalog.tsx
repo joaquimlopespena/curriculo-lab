@@ -157,6 +157,16 @@ function TextLines({ count, compact = false }: { count: number; compact?: boolea
   );
 }
 
+function TinyText({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <p className={`leading-tight ${className}`}>{children}</p>;
+}
+
 function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
   const style = THUMBNAIL_STYLES[template.id];
 
@@ -167,22 +177,35 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
           <div className="h-full p-3">
             <div className={`h-6 rounded-sm ${style.accent}`} />
             <div className={`mt-3 rounded-sm p-2 ${style.panel}`}>
-              <div className="h-2 w-20 rounded-full bg-slate-700/70" />
-              <div className="mt-1 h-1.5 w-14 rounded-full bg-slate-400/70" />
+              <TinyText className="text-[7px] font-bold uppercase tracking-wide text-slate-800">
+                Laura Moretti
+              </TinyText>
+              <TinyText className="mt-1 text-[5px] text-slate-500">Analista financeira senior</TinyText>
             </div>
-            <div className="mt-3">
-              <TextLines count={4} />
+            <div className="mt-3 space-y-1 text-[5px] text-slate-600">
+              <TinyText className="font-semibold uppercase tracking-wide text-slate-500">Resumo</TinyText>
+              <TinyText>Planejamento financeiro, fechamento e indicadores.</TinyText>
+              <TinyText>Controle orcamentario e apoio a diretoria.</TinyText>
             </div>
-            <div className="mt-4">
-              <div className="mb-2 h-1.5 w-12 rounded-full bg-slate-500" />
-              <TextLines count={3} compact />
+            <div className="mt-4 space-y-1 text-[5px] text-slate-600">
+              <TinyText className="font-semibold uppercase tracking-wide text-slate-500">Experiencia</TinyText>
+              <TinyText>Grupo Vesper | 2022 - Atual</TinyText>
+              <TinyText>Orbe Servicos | 2018 - 2022</TinyText>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2">
               <div className={`rounded-sm p-2 ${style.panel}`}>
-                <TextLines count={3} compact />
+                <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                  Formacao
+                </TinyText>
+                <TinyText className="mt-1 text-[5px] text-slate-600">Administracao</TinyText>
+                <TinyText className="text-[5px] text-slate-500">Mackenzie</TinyText>
               </div>
               <div className={`rounded-sm p-2 ${style.panel}`}>
-                <TextLines count={3} compact />
+                <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                  Idiomas
+                </TinyText>
+                <TinyText className="mt-1 text-[5px] text-slate-600">Portugues</TinyText>
+                <TinyText className="text-[5px] text-slate-500">Ingles</TinyText>
               </div>
             </div>
           </div>
@@ -192,27 +215,35 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
           <div className="grid h-full grid-cols-[0.34fr_0.66fr]">
             <div className={`${style.accent} p-2.5 text-white`}>
               <div className="mx-auto h-8 w-8 rounded-full bg-white/70" />
-              <div className="mt-3 h-2 w-10 rounded-full bg-white/80" />
-              <div className="mt-1 h-2 w-8 rounded-full bg-white/60" />
-              <div className="mt-3 space-y-1">
-                <div className="h-1.5 w-10 rounded-full bg-white/70" />
-                <div className="h-1.5 w-8 rounded-full bg-white/60" />
-                <div className="h-1.5 w-9 rounded-full bg-white/60" />
+              <TinyText className="mt-3 text-[6px] font-bold leading-tight text-white">Joao Roberto</TinyText>
+              <TinyText className="text-[5px] text-white/75">Supervisor operacional</TinyText>
+              <div className="mt-3 space-y-1 text-[5px] text-white/80">
+                <TinyText>(41) 98709-7886</TinyText>
+                <TinyText>joaorobertoluz1960@gmail.com</TinyText>
+                <TinyText>Piraquara, PR</TinyText>
               </div>
-              <div className="mt-4 space-y-1">
-                <div className="h-1.5 w-9 rounded-full bg-white/70" />
-                <div className="h-1.5 w-7 rounded-full bg-white/60" />
+              <div className="mt-4 space-y-1 text-[5px] text-white/80">
+                <TinyText className="font-semibold uppercase tracking-wide text-white/60">Skills</TinyText>
+                <TinyText>Seguranca</TinyText>
+                <TinyText>Rotas</TinyText>
               </div>
             </div>
             <div className="p-3">
-              <div className="h-2 w-20 rounded-full bg-slate-700/70" />
-              <div className="mt-1 h-1.5 w-12 rounded-full bg-slate-400/70" />
-              <div className="mt-4">
-                <TextLines count={4} compact />
+              <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                Resumo
+              </TinyText>
+              <TinyText className="mt-1 text-[5px] text-slate-600">
+                Experiencia em operacoes, disciplina e manutencao.
+              </TinyText>
+              <div className="mt-4 space-y-1 text-[5px] text-slate-600">
+                <TinyText className="font-semibold uppercase tracking-wide text-slate-500">Experiencia</TinyText>
+                <TinyText>Sales e Siqueira | 2021 - Atual</TinyText>
+                <TinyText>Rodocampo | 2017 - 2020</TinyText>
               </div>
-              <div className="mt-4">
-                <div className="mb-2 h-1.5 w-12 rounded-full bg-slate-500" />
-                <TextLines count={3} compact />
+              <div className="mt-4 space-y-1 text-[5px] text-slate-600">
+                <TinyText className="font-semibold uppercase tracking-wide text-slate-500">Formacao</TinyText>
+                <TinyText>Tecnico em Logistica</TinyText>
+                <TinyText>SENAI</TinyText>
               </div>
             </div>
           </div>
@@ -222,20 +253,30 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
           <div className="grid h-full grid-cols-2 gap-0">
             <div className={`${style.panel} p-3`}>
               <div className={`h-2 w-16 rounded-full ${style.accent}`} />
-              <div className="mt-3">
-                <TextLines count={6} compact />
+              <TinyText className="mt-3 text-[6px] font-bold text-slate-800">Juliana Silva</TinyText>
+              <TinyText className="mt-1 text-[5px] text-slate-500">Administracao</TinyText>
+              <div className="mt-3 space-y-1 text-[5px] text-slate-600">
+                <TinyText>Objetivo bem definido</TinyText>
+                <TinyText>Experiencia administrativa</TinyText>
+                <TinyText>Boa comunicacao</TinyText>
+                <TinyText>Processos e rotina</TinyText>
               </div>
             </div>
             <div className="p-3">
-              <div className="h-2 w-14 rounded-full bg-slate-700/70" />
-              <div className="mt-3">
-                <TextLines count={5} compact />
+              <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                Experiencia
+              </TinyText>
+              <div className="mt-2 space-y-1 text-[5px] text-slate-600">
+                <TinyText>Assistente administrativo</TinyText>
+                <TinyText>Controle de agenda</TinyText>
+                <TinyText>Atendimento e planilhas</TinyText>
               </div>
               <div className="mt-4">
-                <div className={`h-1.5 w-10 rounded-full ${style.accent}`} />
-                <div className="mt-2">
-                  <TextLines count={3} compact />
-                </div>
+                <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                  Formacao
+                </TinyText>
+                <TinyText className="mt-1 text-[5px] text-slate-600">Gestao Comercial</TinyText>
+                <TinyText className="text-[5px] text-slate-500">Universidade Positivo</TinyText>
               </div>
             </div>
           </div>
@@ -248,9 +289,19 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
               {Array.from({ length: 4 }).map((_, index) => (
                 <div key={index} className="relative mb-4">
                   <span className={`absolute -left-[18px] top-1 h-2.5 w-2.5 rounded-full ${style.accent}`} />
-                  <div className="h-1.5 w-12 rounded-full bg-slate-600" />
-                  <div className="mt-1 h-1.5 w-16 rounded-full bg-slate-300" />
-                  <div className="mt-1 h-1.5 w-14 rounded-full bg-slate-300" />
+                  <TinyText className="text-[5px] font-semibold text-slate-700">
+                    {["2024", "2021", "2018", "2014"][index]}
+                  </TinyText>
+                  <TinyText className="mt-1 text-[5px] text-slate-600">
+                    {
+                      [
+                        "Diretor de operacoes",
+                        "Gerente regional",
+                        "Coordenador operacional",
+                        "Supervisor de base",
+                      ][index]
+                    }
+                  </TinyText>
                 </div>
               ))}
             </div>
@@ -260,16 +311,25 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition }) {
         {style.layout === "cards" ? (
           <div className="h-full p-3">
             <div className={`rounded-md p-2 text-white ${style.accent}`}>
-              <div className="h-2 w-16 rounded-full bg-white/80" />
-              <div className="mt-1 h-1.5 w-12 rounded-full bg-white/60" />
+              <TinyText className="text-[6px] font-bold text-white">Camila Freitas</TinyText>
+              <TinyText className="mt-1 text-[5px] text-white/80">Planejamento de conteudo</TinyText>
             </div>
             <div className="mt-3 grid gap-2">
               {Array.from({ length: 4 }).map((_, index) => (
                 <div key={index} className={`rounded-md p-2 ${style.panel}`}>
-                  <div className="h-1.5 w-14 rounded-full bg-slate-500" />
-                  <div className="mt-2">
-                    <TextLines count={2} compact />
-                  </div>
+                  <TinyText className="text-[5px] font-semibold uppercase tracking-wide text-slate-500">
+                    {["Resumo", "Competencias", "Experiencia", "Projetos"][index]}
+                  </TinyText>
+                  <TinyText className="mt-1 text-[5px] text-slate-600">
+                    {
+                      [
+                        "Storytelling e campanhas sazonais.",
+                        "Redacao, social media e planejamento.",
+                        "Grupo Solar Turismo.",
+                        "Calendario editorial integrado.",
+                      ][index]
+                    }
+                  </TinyText>
                 </div>
               ))}
             </div>

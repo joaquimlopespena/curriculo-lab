@@ -12,6 +12,7 @@ export type ResumeStepId =
 export interface IResumeHeader {
   firstName: string;
   lastName: string;
+  photoUrl?: string;
   address: string;
   city: string;
   state: string;
