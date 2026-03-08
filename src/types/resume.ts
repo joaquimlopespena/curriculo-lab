@@ -1,12 +1,27 @@
 import type { ComponentType } from "react";
 
 export type TemplateId =
+  | "modelo-1"
   | "ats-clean"
+  | "split-professional"
+  | "service-classic"
   | "executive-clean"
+  | "chronological-elegant"
+  | "modelo-executivo-timeline"
+  | "modelo-corporativo-balanceado"
+  | "modelo-corporativo-wave"
+  | "modelo-juridico-classico"
   | "academico-serif"
   | "foto-compacto"
+  | "visual-modern"
+  | "modelo-sidebar-foto"
+  | "modelo-premium-sidebar"
+  | "modelo-classico-duas-colunas"
+  | "curriculo-joao-roberto"
   | "minimalista-premios"
-  | "criativo-cards";
+  | "criativo-cards"
+  | "creative-compact"
+  | "modelo-editorial";
 
 export interface PersonalInfo {
   fullName: string;
@@ -94,12 +109,27 @@ export type ResumeData =
   | CreativeCardsResumeData;
 
 export type ResumeDataByTemplate = {
+  "modelo-1": AtsResumeData;
   "ats-clean": AtsResumeData;
+  "split-professional": AtsResumeData;
+  "service-classic": AtsResumeData;
   "executive-clean": ExecutiveResumeData;
+  "chronological-elegant": ExecutiveResumeData;
+  "modelo-executivo-timeline": ExecutiveResumeData;
+  "modelo-corporativo-balanceado": ExecutiveResumeData;
+  "modelo-corporativo-wave": ExecutiveResumeData;
+  "modelo-juridico-classico": ExecutiveResumeData;
   "academico-serif": AcademicResumeData;
   "foto-compacto": PhotoResumeData;
+  "visual-modern": PhotoResumeData;
+  "modelo-sidebar-foto": PhotoResumeData;
+  "modelo-premium-sidebar": PhotoResumeData;
+  "modelo-classico-duas-colunas": PhotoResumeData;
+  "curriculo-joao-roberto": PhotoResumeData;
   "minimalista-premios": MinimalAwardsResumeData;
   "criativo-cards": CreativeCardsResumeData;
+  "creative-compact": CreativeCardsResumeData;
+  "modelo-editorial": CreativeCardsResumeData;
 };
 
 export type FieldType =

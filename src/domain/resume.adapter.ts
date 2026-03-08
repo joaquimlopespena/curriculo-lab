@@ -45,6 +45,11 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
   } as const;
 
   switch (resume.templateId) {
+    case "chronological-elegant":
+    case "modelo-executivo-timeline":
+    case "modelo-corporativo-balanceado":
+    case "modelo-corporativo-wave":
+    case "modelo-juridico-classico":
     case "executive-clean":
       return {
         ...base,
@@ -60,6 +65,11 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
         ),
         researchLines: resume.skills.slice(0, 3).map((item) => item.name),
       };
+    case "visual-modern":
+    case "modelo-sidebar-foto":
+    case "modelo-premium-sidebar":
+    case "modelo-classico-duas-colunas":
+    case "curriculo-joao-roberto":
     case "foto-compacto":
       return {
         ...base,
@@ -79,6 +89,8 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
           year: item.year,
         })),
       };
+    case "creative-compact":
+    case "modelo-editorial":
     case "criativo-cards":
       return {
         ...base,
@@ -87,6 +99,9 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
           ? resume.extras.customSections
           : resume.extras.certifications.map((item) => item.name),
       };
+    case "modelo-1":
+    case "split-professional":
+    case "service-classic":
     case "ats-clean":
     default:
       return {

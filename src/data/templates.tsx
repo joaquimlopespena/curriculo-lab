@@ -554,7 +554,7 @@ const creativeInitialData = (): CreativeCardsResumeData => ({
   ],
 });
 
-export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
+const coreTemplates = {
   "ats-clean": {
     id: "ats-clean",
     name: "ATS Clean",
@@ -788,6 +788,138 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
         ],
       },
     ],
+  },
+} satisfies {
+  "ats-clean": TemplateDefinition<"ats-clean">;
+  "executive-clean": TemplateDefinition<"executive-clean">;
+  "academico-serif": TemplateDefinition<"academico-serif">;
+  "foto-compacto": TemplateDefinition<"foto-compacto">;
+  "minimalista-premios": TemplateDefinition<"minimalista-premios">;
+  "criativo-cards": TemplateDefinition<"criativo-cards">;
+};
+
+export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
+  ...coreTemplates,
+  "modelo-1": {
+    ...coreTemplates["ats-clean"],
+    id: "modelo-1",
+    name: "Modelo 1",
+    category: "Essencial",
+    description: "Versao base para curriculos diretos e montagem inicial.",
+    sourceModel: "modelos/modelo-1.html",
+  },
+  "split-professional": {
+    ...coreTemplates["ats-clean"],
+    id: "split-professional",
+    name: "Split Professional",
+    category: "Profissional",
+    description: "Estrutura objetiva com leitura clara e ritmo corporativo.",
+    sourceModel: "modelos/split-professional.html",
+  },
+  "service-classic": {
+    ...coreTemplates["ats-clean"],
+    id: "service-classic",
+    name: "Service Classic",
+    category: "Servicos",
+    description: "Modelo funcional para atendimento, saude e operacoes.",
+    sourceModel: "modelos/service-classic.html",
+  },
+  "chronological-elegant": {
+    ...coreTemplates["executive-clean"],
+    id: "chronological-elegant",
+    name: "Chronological Elegant",
+    category: "Executivo",
+    description: "Linha cronologica refinada para trajetorias longas.",
+    sourceModel: "modelos/chronological-elegant.html",
+    pageStyle: { pageMargin: "12mm", fontFamily: "Cormorant Garamond" },
+  },
+  "modelo-executivo-timeline": {
+    ...coreTemplates["executive-clean"],
+    id: "modelo-executivo-timeline",
+    name: "Executivo Timeline",
+    category: "Executivo",
+    description: "Timeline para cargos de gestao e progressao de carreira.",
+    sourceModel: "modelos/modelo-executivo-timeline.html",
+  },
+  "modelo-corporativo-balanceado": {
+    ...coreTemplates["executive-clean"],
+    id: "modelo-corporativo-balanceado",
+    name: "Corporativo Balanceado",
+    category: "Corporativo",
+    description: "Composicao equilibrada para perfis administrativos e executivos.",
+    sourceModel: "modelos/modelo-corporativo-balanceado.html",
+  },
+  "modelo-corporativo-wave": {
+    ...coreTemplates["executive-clean"],
+    id: "modelo-corporativo-wave",
+    name: "Corporativo Wave",
+    category: "Corporativo",
+    description: "Cabecalho forte e visual formal para perfis de negocios.",
+    sourceModel: "modelos/modelo-corporativo-wave.html",
+  },
+  "modelo-juridico-classico": {
+    ...coreTemplates["executive-clean"],
+    id: "modelo-juridico-classico",
+    name: "Juridico Classico",
+    category: "Tradicional",
+    description: "Versao formal para advocacia, consultoria e setores conservadores.",
+    sourceModel: "modelos/modelo-juridico-classico.html",
+  },
+  "visual-modern": {
+    ...coreTemplates["foto-compacto"],
+    id: "visual-modern",
+    name: "Visual Modern",
+    category: "Visual",
+    description: "Destaque visual com foto e leitura lateral de competencias.",
+    sourceModel: "modelos/visual-modern.html",
+  },
+  "modelo-sidebar-foto": {
+    ...coreTemplates["foto-compacto"],
+    id: "modelo-sidebar-foto",
+    name: "Sidebar Foto",
+    category: "Foto",
+    description: "Sidebar com foto e bloco principal para experiencia.",
+    sourceModel: "modelos/modelo-sidebar-foto.html",
+  },
+  "modelo-premium-sidebar": {
+    ...coreTemplates["foto-compacto"],
+    id: "modelo-premium-sidebar",
+    name: "Premium Sidebar",
+    category: "Premium",
+    description: "Layout premium com coluna lateral marcante.",
+    sourceModel: "modelos/modelo-premium-sidebar.html",
+  },
+  "modelo-classico-duas-colunas": {
+    ...coreTemplates["foto-compacto"],
+    id: "modelo-classico-duas-colunas",
+    name: "Classico Duas Colunas",
+    category: "Classico",
+    description: "Composicao em duas colunas com leitura tradicional.",
+    sourceModel: "modelos/modelo-classico-duas-colunas.html",
+  },
+  "curriculo-joao-roberto": {
+    ...coreTemplates["foto-compacto"],
+    id: "curriculo-joao-roberto",
+    name: "Joao Roberto",
+    category: "Personalizado",
+    description: "Modelo personalizado preservado como template selecionavel.",
+    sourceModel: "modelos/curriculo_joao_roberto.html",
+  },
+  "creative-compact": {
+    ...coreTemplates["criativo-cards"],
+    id: "creative-compact",
+    name: "Creative Compact",
+    category: "Criativo",
+    description: "Versao compacta para conteudo, marca pessoal e portfolio.",
+    sourceModel: "modelos/creative-compact.html",
+  },
+  "modelo-editorial": {
+    ...coreTemplates["criativo-cards"],
+    id: "modelo-editorial",
+    name: "Modelo Editorial",
+    category: "Editorial",
+    description: "Blocos fortes e composicao inspirada em diagramacao editorial.",
+    sourceModel: "modelos/modelo-editorial.html",
   },
 };
 
