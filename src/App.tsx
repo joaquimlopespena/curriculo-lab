@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import { useReactToPrint } from "react-to-print";
 import { TemplateCatalog } from "./components/catalog/TemplateCatalog";
 import { MainStepper } from "./components/MainStepper";
@@ -34,30 +36,31 @@ export default function App() {
       return;
     }
 
-    const html2pdf = (await import("html2pdf.js")).default;
-    const pageWidth = 794;
-    const pageHeight = 1122;
+    const exportWidth = 794;
+    const exportHeight = 1123;
     const fileName = `${resume.header.firstName}-${resume.header.lastName || "curriculo"}`
       .trim()
       .replace(/\s+/g, "-")
       .toLowerCase();
-    const sourceNode = printRef.current;
+    const sourceNode = (printRef.current.firstElementChild as HTMLElement | null) ?? printRef.current;
     const exportNode = sourceNode.cloneNode(true) as HTMLDivElement;
     const sandbox = document.createElement("div");
 
     sandbox.style.position = "fixed";
     sandbox.style.left = "-99999px";
     sandbox.style.top = "0";
-    sandbox.style.width = `${pageWidth}px`;
-    sandbox.style.height = `${pageHeight}px`;
+    sandbox.style.width = `${exportWidth}px`;
+    sandbox.style.height = `${exportHeight}px`;
     sandbox.style.background = "#ffffff";
     sandbox.style.padding = "0";
     sandbox.style.margin = "0";
     sandbox.style.overflow = "hidden";
 
-    exportNode.style.width = `${pageWidth}px`;
-    exportNode.style.minHeight = `${pageHeight}px`;
-    exportNode.style.height = `${pageHeight}px`;
+    exportNode.style.width = `${exportWidth}px`;
+    exportNode.style.minWidth = `${exportWidth}px`;
+    exportNode.style.maxWidth = `${exportWidth}px`;
+    exportNode.style.height = `${exportHeight}px`;
+    exportNode.style.minHeight = `${exportHeight}px`;
     exportNode.style.background = "#ffffff";
     exportNode.style.margin = "0";
     exportNode.style.padding = "0";
@@ -65,47 +68,50 @@ export default function App() {
     exportNode.style.borderRadius = "0";
     exportNode.style.boxShadow = "none";
 
-    const exportRoot = exportNode.firstElementChild as HTMLElement | null;
-    if (exportRoot) {
-      exportRoot.style.borderRadius = "0";
-      exportRoot.style.boxShadow = "none";
-      exportRoot.style.margin = "0";
-      exportRoot.style.width = `${pageWidth}px`;
-      exportRoot.style.minHeight = `${pageHeight}px`;
-      exportRoot.style.height = `${pageHeight}px`;
-    }
-
     exportNode.querySelectorAll("*").forEach((element) => {
       const htmlElement = element as HTMLElement;
       htmlElement.style.boxShadow = "none";
       htmlElement.style.filter = "none";
+      htmlElement.style.printColorAdjust = "exact";
+      htmlElement.style.webkitPrintColorAdjust = "exact";
     });
+
+    const exportRoot = exportNode as HTMLElement;
+    exportRoot.style.transform = "none";
+    exportRoot.style.maxWidth = "none";
 
     sandbox.appendChild(exportNode);
     document.body.appendChild(sandbox);
 
     try {
-      await html2pdf()
-        .set({
-          margin: [0, 0, 0, 0],
-          filename: `${fileName}.pdf`,
-          image: { type: "jpeg", quality: 1 },
-          html2canvas: {
-            scale: 2,
-            useCORS: true,
-            backgroundColor: "#ffffff",
-            width: pageWidth,
-            height: pageHeight,
-          },
-          jsPDF: {
-            unit: "px",
-            format: [pageWidth, pageHeight],
-            orientation: "portrait",
-          },
-          pagebreak: { mode: ["avoid-all"] },
-        })
-        .from(exportNode)
-        .save();
+      const canvas = await html2canvas(exportNode, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        width: exportWidth,
+        height: exportHeight,
+        windowWidth: exportWidth,
+        windowHeight: exportHeight,
+      });
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: true,
+      });
+
+      pdf.addImage(
+        canvas.toDataURL("image/png"),
+        "PNG",
+        0,
+        0,
+        210,
+        297,
+        undefined,
+        "FAST",
+      );
+      pdf.save(`${fileName}.pdf`);
     } finally {
       document.body.removeChild(sandbox);
     }
