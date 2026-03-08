@@ -213,8 +213,8 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
 );
 
 const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
-  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden rounded-[22px] bg-white shadow-paper md:grid-cols-[0.3fr_0.7fr]">
-    <aside className="h-full bg-sky-700 px-8 py-10 text-white">
+  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden rounded-[22px] bg-white shadow-paper grid-cols-[242px_552px]">
+    <aside className="flex h-full flex-col bg-sky-700 px-8 py-10 text-white">
       <img
         src={data.photoUrl}
         alt={data.personal.fullName}
@@ -240,13 +240,21 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
         <h2 className="text-xs uppercase tracking-[0.3em] text-sky-100">Dados Pessoais</h2>
         <p className="mt-4 text-sm leading-7 text-sky-50">{data.sidebarNote}</p>
       </section>
+      <section className="mt-auto pt-8">
+        <h2 className="text-xs uppercase tracking-[0.3em] text-sky-100">Idiomas</h2>
+        <div className="mt-4 space-y-2 text-sm text-sky-50">
+          {data.languages.map((item) => (
+            <p key={`${item.name}-${item.level}`}>{item.name} - {item.level}</p>
+          ))}
+        </div>
+      </section>
     </aside>
-    <main className="px-8 py-10">
+    <main className="flex h-full w-full flex-col px-8 py-10">
       <section>
         <SectionTitle>Resumo / Objetivo</SectionTitle>
         <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
       </section>
-      <section className="mt-8">
+      <section className="mt-8 flex-1">
         <SectionTitle>Experiencia Profissional</SectionTitle>
         <div className="mt-4 space-y-6 text-sm leading-7 text-slate-700">
           {data.experience.map((item) => (
@@ -258,18 +266,28 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
           ))}
         </div>
       </section>
-      <section className="mt-8">
-        <SectionTitle>Formacao Academica</SectionTitle>
-        <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
-          {data.education.map((item) => (
-            <div key={`${item.degree}-${item.institution}`}>
-              <p className="font-bold text-slate-950">{item.degree}</p>
-              <p>{item.institution}</p>
-              <p>Conclusao: {item.conclusion}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <section>
+          <SectionTitle>Formacao Academica</SectionTitle>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+            {data.education.map((item) => (
+              <div key={`${item.degree}-${item.institution}`}>
+                <p className="font-bold text-slate-950">{item.degree}</p>
+                <p>{item.institution}</p>
+                <p>Conclusao: {item.conclusion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section>
+          <SectionTitle>Certificacoes</SectionTitle>
+          <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+            <p>Gestao de Frota e Roteirizacao</p>
+            <p>NR-11 Transporte e Movimentacao</p>
+            <p>Produtos Perigosos e Procedimentos</p>
+          </div>
+        </section>
+      </div>
     </main>
   </div>
 );
@@ -501,8 +519,8 @@ function createPhotoVariantPreview(config: {
 }) {
   return function PhotoVariantPreview({ data }: { data: PhotoResumeData }) {
     return (
-      <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden bg-white md:grid-cols-[0.32fr_0.68fr]">
-        <aside className={`h-full px-8 py-10 text-white ${config.asideClass}`}>
+      <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full overflow-hidden bg-white grid-cols-[248px_546px]">
+        <aside className={`flex h-full flex-col px-8 py-10 text-white ${config.asideClass}`}>
           <div className={`inline-flex rounded-full p-1 ${config.pillClass ?? "bg-white/20"}`}>
             <img
               src={data.photoUrl}
@@ -521,21 +539,29 @@ function createPhotoVariantPreview(config: {
           <section className="mt-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/70">Competencias</h2>
             <ul className="mt-4 space-y-2 text-sm text-white/90">
-              {data.skills.map((item) => (
+              {data.skills.slice(0, 6).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </section>
+          <section className="mt-auto pt-8">
+            <h2 className="text-xs uppercase tracking-[0.3em] text-white/70">Idiomas</h2>
+            <div className="mt-4 space-y-2 text-sm text-white/90">
+              {data.languages.map((item) => (
+                <p key={`${item.name}-${item.level}`}>{item.name} - {item.level}</p>
+              ))}
+            </div>
+          </section>
         </aside>
-        <main className={`px-8 py-10 ${config.bodyClass}`}>
+        <main className={`flex h-full w-full flex-col px-8 py-10 ${config.bodyClass}`}>
           <section>
             <SectionTitle>Resumo / Objetivo</SectionTitle>
             <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
           </section>
-          <section className="mt-8">
+          <section className="mt-8 flex-1">
             <SectionTitle>Experiencia Profissional</SectionTitle>
             <div className="mt-4 space-y-6 text-sm leading-7 text-slate-700">
-              {data.experience.map((item) => (
+              {data.experience.slice(0, 2).map((item) => (
                 <article key={`${item.role}-${item.company}`}>
                   <h3 className="font-bold text-slate-950">{item.role}</h3>
                   <p className="text-slate-500">{item.company} | {item.period}</p>
@@ -544,18 +570,28 @@ function createPhotoVariantPreview(config: {
               ))}
             </div>
           </section>
-          <section className="mt-8">
-            <SectionTitle>Formacao Academica</SectionTitle>
-            <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
-              {data.education.map((item) => (
-                <div key={`${item.degree}-${item.institution}`}>
-                  <p className="font-bold text-slate-950">{item.degree}</p>
-                  <p>{item.institution}</p>
-                  <p>Conclusao: {item.conclusion}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <section>
+              <SectionTitle>Formacao Academica</SectionTitle>
+              <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+                {data.education.slice(0, 2).map((item) => (
+                  <div key={`${item.degree}-${item.institution}`}>
+                    <p className="font-bold text-slate-950">{item.degree}</p>
+                    <p>{item.institution}</p>
+                    <p>Conclusao: {item.conclusion}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section>
+              <SectionTitle>Destaques</SectionTitle>
+              <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+                <p>Supervisao de equipe operacional.</p>
+                <p>Controle de frota e roteirizacao.</p>
+                <p>Seguranca e disciplina de execucao.</p>
+              </div>
+            </section>
+          </div>
         </main>
       </div>
     );

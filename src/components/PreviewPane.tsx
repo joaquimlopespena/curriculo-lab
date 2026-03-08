@@ -11,8 +11,8 @@ export function PreviewPane({ data, template, printRef }: PreviewPaneProps) {
   const SelectedTemplate = template.Preview as ComponentType<{ data: ResumeData }>;
 
   return (
-    <section className="rounded-3xl border border-stone-200 bg-[#e9e7d5] p-4 shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-300 pb-4">
+    <section className="overflow-hidden rounded-3xl border border-stone-200 bg-[#e9e7d5] shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-300 px-4 py-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-stone-500">Preview / PDF</p>
           <h2 className="mt-2 text-xl font-semibold text-slate-900">{template.name}</h2>
@@ -24,8 +24,8 @@ export function PreviewPane({ data, template, printRef }: PreviewPaneProps) {
           Print
         </div>
       </div>
-      <div className="mt-4 overflow-auto rounded-2xl bg-[#e9e7d5] p-4">
-        <div ref={printRef} className="mx-auto min-h-[1123px] w-[794px] bg-white">
+      <div className="overflow-auto bg-[#d9d7c8]">
+        <div ref={printRef} className="mx-auto min-h-[1122px] w-[794px] bg-white">
           <SelectedTemplate data={data} />
         </div>
       </div>
