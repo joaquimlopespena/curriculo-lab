@@ -1247,7 +1247,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "curriculo-joao-roberto": {
     ...coreTemplates["foto-compacto"],
     id: "curriculo-joao-roberto",
-    name: "Joao Roberto",
+    name: "Perfil Personalizado",
     category: "Personalizado",
     description: "Modelo personalizado preservado como template selecionavel.",
     sourceModel: "modelos/curriculo_joao_roberto.html",

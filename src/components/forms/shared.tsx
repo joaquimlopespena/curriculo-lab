@@ -15,9 +15,12 @@ export function FormSectionShell({
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm lg:p-8">
-      <h2 className="text-3xl font-semibold text-slate-900">{title}</h2>
-      <p className="mt-2 text-sm text-slate-500">{subtitle}</p>
+    <section className="rounded-[28px] border border-slate-200 bg-white p-6 text-slate-900 shadow-sm lg:p-8">
+      <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+        Etapa do formulario
+      </span>
+      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-slate-900">{title}</h2>
+      <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">{subtitle}</p>
       <div className="mt-8">{children}</div>
     </section>
   );
@@ -25,7 +28,6 @@ export function FormSectionShell({
 
 export function FloatingLabelInput({
   label,
-  valid,
   className = "",
   ...props
 }: InputHTMLAttributes<HTMLInputElement> & {
@@ -34,15 +36,14 @@ export function FloatingLabelInput({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-2 block text-sm font-medium text-slate-700">{label}</span>
-      <div className="relative">
+      <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </span>
+      <div className="relative rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 transition focus-within:border-slate-500 focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(15,23,42,0.05)]">
         <input
           {...props}
-          className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
+          className="w-full border-0 bg-transparent px-0 py-0.5 text-[15px] text-slate-900 outline-none placeholder:text-slate-300"
         />
-        {valid ? (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-emerald-600">✓</span>
-        ) : null}
       </div>
     </label>
   );
@@ -57,11 +58,13 @@ export function FloatingLabelTextarea({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-2 block text-sm font-medium text-slate-700">{label}</span>
-      <div className="relative">
+      <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </span>
+      <div className="relative rounded-[24px] border border-slate-300 bg-slate-50 px-4 py-3 transition focus-within:border-slate-500 focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(15,23,42,0.05)]">
         <textarea
           {...props}
-          className="min-h-40 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
+          className="min-h-40 w-full resize-none border-0 bg-transparent px-0 py-0.5 text-[15px] leading-7 text-slate-900 outline-none placeholder:text-slate-300"
         />
       </div>
     </label>
@@ -81,7 +84,7 @@ export function PillButton({
       className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${
         active
           ? "border-slate-900 bg-slate-900 text-white"
-          : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+          : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
       } ${props.className ?? ""}`}
     >
       {children}

@@ -1,7 +1,7 @@
 import { useMemo, type ComponentType } from "react";
 import { templateList } from "../../data/templates";
 import { toTemplateResumeData } from "../../domain/resume.adapter";
-import { createInitialResume } from "../../domain/resume.factory";
+import { createCatalogResume } from "../../domain/resume.factory";
 import type { ResumeData, TemplateDefinition, TemplateId } from "../../types/resume";
 
 interface TemplateCatalogProps {
@@ -10,7 +10,7 @@ interface TemplateCatalogProps {
 
 function TemplateThumbnail({ template }: { template: TemplateDefinition<any> }) {
   const SelectedTemplate = template.Preview as ComponentType<{ data: ResumeData }>;
-  const previewData = useMemo(() => toTemplateResumeData(createInitialResume(template.id)), [template.id]);
+  const previewData = useMemo(() => toTemplateResumeData(createCatalogResume(template.id)), [template.id]);
 
   return (
     <div className="flex h-[280px] items-center justify-center overflow-hidden rounded-2xl border border-stone-200 bg-[#dfddd7] p-6">
