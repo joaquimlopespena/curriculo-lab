@@ -73,14 +73,14 @@ function TemplatePreviewModal({
 }) {
   const SelectedTemplate = template.Preview as ComponentType<{ data: ResumeData }>;
   const previewData = useMemo(() => toTemplateResumeData(createCatalogResume(template.id)), [template.id]);
-  const previewScale = 0.78;
+  const previewScale = 0.9;
   const previewWidth = 794 * previewScale;
   const previewHeight = 1123 * previewScale;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-6" onClick={onClose}>
       <div
-        className="relative w-full max-w-6xl overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.28)]"
+        className="relative w-full max-w-[1320px] overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.28)]"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-6 border-b border-slate-200 px-6 py-5">
@@ -107,8 +107,8 @@ function TemplatePreviewModal({
           </div>
         </div>
 
-        <div className="flex justify-center bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-6">
-          <div className="max-h-[80vh] overflow-auto rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+        <div className="flex justify-center bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-4">
+          <div className="max-h-[82vh] overflow-auto rounded-[24px] border border-slate-200 bg-white p-3 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
             <div
               className="relative origin-top-left"
               style={{ width: `${previewWidth}px`, height: `${previewHeight}px` }}
