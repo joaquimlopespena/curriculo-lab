@@ -1032,7 +1032,7 @@ const creativeInitialData = (): CreativeCardsResumeData => ({
 const coreTemplates = {
   "ats-clean": {
     id: "ats-clean",
-    name: "ATS Clean",
+    name: "ATS Direto",
     category: "Compatibilidade",
     description: "Modelo enxuto, linear e com foco em leitura por recrutadores e ATS.",
     sourceModel: "modelos/modelo-ats-clean.html",
@@ -1071,7 +1071,7 @@ const coreTemplates = {
   },
   "executive-clean": {
     id: "executive-clean",
-    name: "Executive Clean",
+    name: "Executivo Essencial",
     category: "Executivo",
     description: "Estrutura corporativa com area lateral para qualificacoes e sinais de lideranca.",
     sourceModel: "modelos/executive-clean.html",
@@ -1110,7 +1110,7 @@ const coreTemplates = {
   },
   "academico-serif": {
     id: "academico-serif",
-    name: "Academico Serif",
+    name: "Academico Formal",
     category: "Academico",
     description: "Visual formal com blocos de pesquisa, publicacoes e trajetoria docente.",
     sourceModel: "modelos/modelo-academico-serif.html",
@@ -1190,7 +1190,7 @@ const coreTemplates = {
   },
   "minimalista-premios": {
     id: "minimalista-premios",
-    name: "Minimalista Premios",
+    name: "Editorial Reconhecimentos",
     category: "Branding",
     description: "Layout editorial com grande area de respiro e secao dedicada a premios.",
     sourceModel: "modelos/modelo-minimalista-premios.html",
@@ -1227,7 +1227,7 @@ const coreTemplates = {
   },
   "criativo-cards": {
     id: "criativo-cards",
-    name: "Criativo Cards",
+    name: "Criativo Modular",
     category: "Criativo",
     description: "Blocos coloridos para conteudo, comunicacao e portfolios autorais.",
     sourceModel: "modelos/modelo-criativo-cards.html",
@@ -1278,7 +1278,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "modelo-1": {
     ...coreTemplates["ats-clean"],
     id: "modelo-1",
-    name: "Modelo 1",
+    name: "Base Profissional",
     category: "Essencial",
     description: "Versao base para curriculos diretos e montagem inicial.",
     sourceModel: "modelos/modelo-1.html",
@@ -1291,7 +1291,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "split-professional": {
     ...coreTemplates["ats-clean"],
     id: "split-professional",
-    name: "Split Professional",
+    name: "Profissional Equilibrado",
     category: "Profissional",
     description: "Estrutura objetiva com leitura clara e ritmo corporativo.",
     sourceModel: "modelos/split-professional.html",
@@ -1304,7 +1304,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "service-classic": {
     ...coreTemplates["ats-clean"],
     id: "service-classic",
-    name: "Service Classic",
+    name: "Servicos Classico",
     category: "Servicos",
     description: "Modelo funcional para atendimento, saude e operacoes.",
     sourceModel: "modelos/service-classic.html",
@@ -1317,7 +1317,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "chronological-elegant": {
     ...coreTemplates["executive-clean"],
     id: "chronological-elegant",
-    name: "Chronological Elegant",
+    name: "Cronologico Elegante",
     category: "Executivo",
     description: "Linha cronologica refinada para trajetorias longas.",
     sourceModel: "modelos/chronological-elegant.html",
@@ -1385,7 +1385,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "visual-modern": {
     ...coreTemplates["foto-compacto"],
     id: "visual-modern",
-    name: "Visual Modern",
+    name: "Visual Contemporaneo",
     category: "Visual",
     description: "Destaque visual com foto e leitura lateral de competencias.",
     sourceModel: "modelos/visual-modern.html",
@@ -1411,7 +1411,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "modelo-premium-sidebar": {
     ...coreTemplates["foto-compacto"],
     id: "modelo-premium-sidebar",
-    name: "Premium Sidebar",
+    name: "Sidebar Premium",
     category: "Premium",
     description: "Layout premium com coluna lateral marcante.",
     sourceModel: "modelos/modelo-premium-sidebar.html",
@@ -1450,7 +1450,7 @@ export const templates: { [K in TemplateId]: TemplateDefinition<K> } = {
   "creative-compact": {
     ...coreTemplates["criativo-cards"],
     id: "creative-compact",
-    name: "Creative Compact",
+    name: "Criativo Compacto",
     category: "Criativo",
     description: "Versao compacta para conteudo, marca pessoal e portfolio.",
     sourceModel: "modelos/creative-compact.html",
