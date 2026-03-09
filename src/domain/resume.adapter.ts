@@ -29,7 +29,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
   const base = {
     templateId: resume.templateId,
     personal: {
-      fullName: `${resume.header.firstName} ${resume.header.lastName}`.trim(),
+      fullName: [resume.header.firstName, resume.header.lastName].filter(Boolean).join(" ").trim(),
       title: resume.header.title,
       city: resume.header.city,
       state: resume.header.state,

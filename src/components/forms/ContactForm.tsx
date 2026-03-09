@@ -27,6 +27,7 @@ function isFilled(value: string) {
 export function ContactForm({ resume, onChange }: StepComponentProps) {
   const { header } = resume;
   const hasPhoto = PHOTO_TEMPLATE_IDS.has(resume.templateId);
+  const fullName = header.firstName;
 
   const updateHeader =
     <K extends keyof Resume["header"]>(key: K) =>
@@ -48,6 +49,17 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
           ...current.header.optionalFields,
           [field]: value,
         },
+      },
+    }));
+  };
+
+  const updateFullName = (value: string) => {
+    onChange((current) => ({
+      ...current,
+      header: {
+        ...current.header,
+        firstName: value,
+        lastName: "",
       },
     }));
   };
@@ -83,22 +95,13 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
       title="Forneca suas informacoes de contato"
       subtitle="Sugerimos incluir um e-mail e um numero de telefone."
     >
-      <div className="grid gap-6 md:grid-cols-2">
-        <FloatingLabelInput
-          label="Nome"
-          placeholder=" "
-          value={header.firstName}
-          valid={isFilled(header.firstName)}
-          onChange={(event) => updateHeader("firstName")(event.target.value)}
-        />
-        <FloatingLabelInput
-          label="Sobrenome"
-          placeholder=" "
-          value={header.lastName}
-          valid={isFilled(header.lastName)}
-          onChange={(event) => updateHeader("lastName")(event.target.value)}
-        />
-      </div>
+      <FloatingLabelInput
+        label="Nome completo"
+        placeholder=" "
+        value={fullName}
+        valid={isFilled(fullName)}
+        onChange={(event) => updateFullName(event.target.value)}
+      />
 
       <div className="mt-6">
         <FloatingLabelInput
@@ -158,7 +161,7 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
           <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center">
             <img
               src={header.photoUrl}
-              alt={`${header.firstName} ${header.lastName}`}
+              alt={fullName || "Foto do perfil"}
               className="h-28 w-28 rounded-2xl object-cover shadow-sm"
             />
             <div className="space-y-3">

@@ -49,7 +49,7 @@ export const STEP_ORDER: StepMeta[] = [
   },
 ];
 
-export function createInitialResume(templateId: TemplateId): Resume {
+function createFilledResume(templateId: TemplateId): Resume {
   return {
     templateId,
     header: {
@@ -176,8 +176,66 @@ export function createInitialResume(templateId: TemplateId): Resume {
   };
 }
 
+export function createInitialResume(templateId: TemplateId): Resume {
+  return {
+    ...createFilledResume(templateId),
+    header: {
+      ...createFilledResume(templateId).header,
+      firstName: "",
+      lastName: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      phone: "",
+      email: "",
+      linkedin: "",
+      title: "",
+      optionalFields: {
+        birthDate: undefined,
+        nationality: undefined,
+        driverLicense: undefined,
+      },
+    },
+    history: [
+      {
+        id: "job-1",
+        role: "",
+        employer: "",
+        city: "",
+        state: "",
+        startDate: { month: "Mes", year: "" },
+        endDate: { month: "Mes", year: "" },
+        current: false,
+        description: "",
+      },
+    ],
+    education: [
+      {
+        id: "edu-1",
+        course: "",
+        institution: "",
+        city: "",
+        state: "",
+        conclusionYear: "",
+        current: false,
+        details: "",
+      },
+    ],
+    skills: [],
+    objective: {
+      text: "",
+    },
+    extras: {
+      certifications: [],
+      languages: [],
+      customSections: [],
+    },
+  };
+}
+
 export function createCatalogResume(templateId: TemplateId): Resume {
-  const resume = createInitialResume(templateId);
+  const resume = createFilledResume(templateId);
 
   const variants: Record<
     TemplateId,
