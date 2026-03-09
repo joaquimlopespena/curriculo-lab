@@ -2,12 +2,10 @@ import type { StepComponentProps } from "../../domain/resume.types";
 import { FloatingLabelInput, FormSectionShell, PillButton } from "./shared";
 
 export function EducationForm({ resume, onChange }: StepComponentProps) {
-  const item = resume.education[0];
-
-  const update = (key: keyof typeof item, value: unknown) => {
+  const update = (itemId: string, key: keyof (typeof resume.education)[number], value: unknown) => {
     onChange((current) => ({
       ...current,
-      education: current.education.map((entry, index) => (index === 0 ? { ...entry, [key]: value } : entry)),
+      education: current.education.map((entry) => (entry.id === itemId ? { ...entry, [key]: value } : entry)),
     }));
   };
 
@@ -16,22 +14,49 @@ export function EducationForm({ resume, onChange }: StepComponentProps) {
       title="Informe sua formacao academica"
       subtitle="Priorize o curso mais relevante para o modelo selecionado."
     >
-      <div className="grid gap-6 md:grid-cols-2">
-        <FloatingLabelInput label="Curso" placeholder=" " value={item.course} onChange={(e) => update("course", e.target.value)} />
-        <FloatingLabelInput
-          label="Instituicao"
-          placeholder=" "
-          value={item.institution}
-          onChange={(e) => update("institution", e.target.value)}
-        />
-        <FloatingLabelInput label="Cidade" placeholder=" " value={item.city} onChange={(e) => update("city", e.target.value)} />
-        <FloatingLabelInput label="Estado" placeholder=" " value={item.state} onChange={(e) => update("state", e.target.value)} />
-        <FloatingLabelInput
-          label="Conclusao"
-          placeholder=" "
-          value={item.conclusionYear}
-          onChange={(e) => update("conclusionYear", e.target.value)}
-        />
+      <div className="space-y-8">
+        {resume.education.map((item, index) => (
+          <div key={item.id} className="rounded-3xl border border-slate-200 bg-slate-50/60 p-5">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Formacao {index + 1}
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <FloatingLabelInput
+                label="Curso"
+                placeholder=" "
+                value={item.course}
+                onChange={(e) => update(item.id, "course", e.target.value)}
+              />
+              <FloatingLabelInput
+                label="Instituicao"
+                placeholder=" "
+                value={item.institution}
+                onChange={(e) => update(item.id, "institution", e.target.value)}
+              />
+              <FloatingLabelInput
+                label="Cidade"
+                placeholder=" "
+                value={item.city}
+                onChange={(e) => update(item.id, "city", e.target.value)}
+              />
+              <FloatingLabelInput
+                label="Estado"
+                placeholder=" "
+                value={item.state}
+                onChange={(e) => update(item.id, "state", e.target.value)}
+              />
+              <FloatingLabelInput
+                label="Conclusao"
+                placeholder=" "
+                value={item.conclusionYear}
+                onChange={(e) => update(item.id, "conclusionYear", e.target.value)}
+              />
+            </div>
+          </div>
+        ))}
       </div>
       <div className="mt-6">
         <PillButton
@@ -54,7 +79,7 @@ export function EducationForm({ resume, onChange }: StepComponentProps) {
             }))
           }
         >
-          Add More +
+          Add Formacao
         </PillButton>
       </div>
     </FormSectionShell>
