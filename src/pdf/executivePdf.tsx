@@ -68,13 +68,14 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   main: {
-    width: "65%",
+    width: "63%",
     flexDirection: "column",
+    flex: 1,
   },
   aside: {
-    width: "35%",
+    width: "37%",
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     gap: 10,
   },
   section: {
@@ -85,9 +86,12 @@ const styles = StyleSheet.create({
   },
   experienceSection: {
     flexDirection: "column",
+    flex: 1,
   },
   experienceList: {
     flexDirection: "column",
+    flex: 1,
+    justifyContent: "space-between",
   },
   sectionTitle: {
     fontSize: 9.5,
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
   experienceItem: {
     borderLeftWidth: 3,
     paddingLeft: 10,
-    marginBottom: 30,
+    marginBottom: 0,
   },
   experienceHeader: {
     flexDirection: "row",

@@ -6,7 +6,6 @@ import { toTemplateResumeData } from "./domain/resume.adapter";
 import { createInitialResume } from "./domain/resume.factory";
 import type { Resume } from "./domain/resume.types";
 import { templates } from "./data/templates";
-import { exportReactPdf, supportsReactPdf } from "./pdf/templates";
 import type { TemplateDefinition, TemplateId } from "./types/resume";
 
 export default function App() {
@@ -28,20 +27,11 @@ export default function App() {
     contentRef: printRef,
     documentTitle: `${resume.header.firstName}-${resume.header.lastName}-${currentTemplateId}`,
     pageStyle:
-      "@page { size: A4; margin: 0; } html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #ffffff; }",
+      "@page { size: A4; margin: 0; } html, body { width: 210mm; height: 297mm; margin: 0; padding: 0; overflow: hidden; -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #ffffff; }",
   });
 
   const handleExportPdf = async () => {
-    const fileName = `${resume.header.firstName}-${resume.header.lastName || "curriculo"}`
-      .trim()
-      .replace(/\s+/g, "-")
-      .toLowerCase();
-
-    if (!supportsReactPdf(currentTemplateId)) {
-      throw new Error(`Template ${currentTemplateId} sem renderer de PDF configurado.`);
-    }
-
-    await exportReactPdf(currentTemplateId, previewData, fileName);
+    handlePrint();
   };
 
   return (

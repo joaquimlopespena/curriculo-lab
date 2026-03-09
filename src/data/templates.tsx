@@ -32,7 +32,7 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
     <header className="border-b border-zinc-300 pb-6">
       <h1 className="text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
       <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
-      <div className="mt-4 grid gap-2 text-sm text-zinc-600 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-zinc-600">
         <p>{data.personal.city}, {data.personal.state}</p>
         <p>{data.personal.phone}</p>
         <p>{data.personal.email}</p>
@@ -55,7 +55,7 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
         ))}
       </div>
     </section>
-    <div className="mt-6 grid gap-6 md:grid-cols-2">
+    <div className="mt-6 grid grid-cols-2 gap-6">
       <section>
         <SectionTitle>Formacao Academica</SectionTitle>
         <div className="mt-3 space-y-3 text-sm leading-7 text-zinc-700">
@@ -76,7 +76,7 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
           ))}
         </div>
       </section>
-      <section className="md:col-span-2">
+      <section className="col-span-2">
         <SectionTitle>Competencias</SectionTitle>
         <p className="mt-3 text-sm leading-7 text-zinc-700">{data.skills.join(", ")}.</p>
       </section>
@@ -87,13 +87,13 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
 const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
   <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col rounded-[30px] bg-white shadow-paper">
     <header className="bg-sky-700 px-8 py-10 text-white">
-      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-row items-end justify-between gap-5">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-sky-100">Perfil Profissional</p>
           <h1 className="mt-3 text-5xl font-black">{data.personal.fullName}</h1>
           <p className="mt-2 text-lg font-semibold text-sky-100">{data.personal.title}</p>
         </div>
-        <div className="grid gap-2 text-sm text-sky-50 md:text-right">
+        <div className="grid gap-2 text-right text-sm text-sky-50">
           <p>{data.personal.phone}</p>
           <p>{data.personal.email}</p>
           <p>{data.personal.linkedin}</p>
@@ -101,7 +101,7 @@ const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
         </div>
       </div>
     </header>
-    <main className="grid flex-1 gap-8 px-8 py-8 md:grid-cols-[1.15fr_0.85fr]">
+    <main className="grid flex-1 grid-cols-[1.15fr_0.85fr] gap-8 px-8 py-8">
       <div>
         <section>
           <SectionTitle>Resumo / Objetivo</SectionTitle>
@@ -112,7 +112,7 @@ const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
           <div className="mt-5 space-y-6">
             {data.experience.map((item) => (
               <article key={`${item.role}-${item.company}`} className="border-l-4 border-sky-700 pl-5">
-                <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                <div className="flex flex-row justify-between gap-2">
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">{item.role}</h3>
                     <p className="text-sm font-semibold text-sky-700">{item.company}</p>
@@ -195,7 +195,7 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
         ))}
       </div>
     </section>
-    <div className="mt-8 grid gap-6 md:grid-cols-2">
+    <div className="mt-8 grid grid-cols-2 gap-6">
       <section>
         <h2 className="font-serif text-2xl text-stone-950">Linhas de Pesquisa</h2>
         <p className="mt-3 text-sm leading-7 text-stone-700">{data.researchLines.join(", ")}.</p>
@@ -266,7 +266,7 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
           ))}
         </div>
       </section>
-      <div className="mt-8 grid gap-6 md:grid-cols-2">
+      <div className="mt-8 grid grid-cols-2 gap-6">
         <section>
           <SectionTitle>Formacao Academica</SectionTitle>
           <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
@@ -293,7 +293,7 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
 );
 
 const MinimalAwardsPreview = ({ data }: { data: MinimalAwardsResumeData }) => (
-  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full gap-10 rounded-[20px] bg-zinc-100 px-10 py-10 shadow-paper md:grid-cols-[0.34fr_0.66fr]">
+  <div className="mx-auto grid min-h-[1123px] w-[794px] max-w-full grid-cols-[0.34fr_0.66fr] gap-10 rounded-[20px] bg-zinc-100 px-10 py-10 shadow-paper">
     <aside>
       <h1 className="text-5xl font-black leading-none text-zinc-950">{data.personal.fullName}</h1>
       <p className="mt-4 text-3xl font-semibold text-orange-500">{data.personal.title}</p>
@@ -341,7 +341,7 @@ const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
         <p>{data.personal.linkedin}</p>
       </div>
     </header>
-    <section className="mt-8 grid gap-6 md:grid-cols-2">
+    <section className="mt-8 grid grid-cols-2 gap-6">
       <article className="rounded-[24px] bg-rose-50 p-6">
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-rose-500">Resumo / Objetivo</h2>
         <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
@@ -350,7 +350,7 @@ const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-amber-600">Competencias</h2>
         <p className="mt-3 text-sm leading-7 text-slate-700">{data.skills.join(", ")}.</p>
       </article>
-      <article className="rounded-[24px] bg-orange-50 p-6 md:col-span-2">
+      <article className="col-span-2 rounded-[24px] bg-orange-50 p-6">
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-orange-600">Projetos em Destaque</h2>
         <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
           {data.featuredProjects.map((item) => (
@@ -358,7 +358,7 @@ const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
           ))}
         </ul>
       </article>
-      <article className="rounded-[24px] bg-amber-50 p-6 md:col-span-2">
+      <article className="col-span-2 rounded-[24px] bg-amber-50 p-6">
         <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-amber-600">Experiencia Profissional</h2>
         <div className="mt-3 space-y-4 text-sm leading-7 text-slate-700">
           {data.experience.map((item) => (
@@ -384,14 +384,14 @@ function createAtsVariantPreview(config: {
           <div className={`h-2 w-28 rounded-full ${config.headerAccent}`} />
           <h1 className="mt-5 text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
           <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
-          <div className="mt-4 grid gap-2 text-sm text-zinc-600 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-zinc-600">
             <p>{data.personal.city}, {data.personal.state}</p>
             <p>{data.personal.phone}</p>
             <p>{data.personal.email}</p>
             <p>{data.personal.linkedin}</p>
           </div>
         </header>
-        <div className="mt-8 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+        <div className="mt-8 grid grid-cols-[1.2fr_0.8fr] gap-8">
           <div className="space-y-8">
             <section>
               <SectionTitle>Resumo / Objetivo</SectionTitle>
@@ -444,13 +444,13 @@ function createExecutiveVariantPreview(config: {
     return (
       <div className="mx-auto flex min-h-[1123px] w-[794px] max-w-full flex-col bg-white">
         <header className={`px-8 py-10 text-white ${config.headerClass}`}>
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-row items-end justify-between gap-5">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-white/80">Perfil Profissional</p>
               <h1 className={`mt-3 text-5xl font-black ${config.titleClass ?? ""}`}>{data.personal.fullName}</h1>
               <p className="mt-2 text-lg font-semibold text-white/85">{data.personal.title}</p>
             </div>
-            <div className="grid gap-2 text-sm text-white/90 md:text-right">
+            <div className="grid gap-2 text-right text-sm text-white/90">
               <p>{data.personal.phone}</p>
               <p>{data.personal.email}</p>
               <p>{data.personal.linkedin}</p>
@@ -458,7 +458,7 @@ function createExecutiveVariantPreview(config: {
             </div>
           </div>
         </header>
-        <main className="grid flex-1 gap-8 px-8 py-8 md:grid-cols-[1.15fr_0.85fr]">
+        <main className="grid flex-1 grid-cols-[1.15fr_0.85fr] gap-8 px-8 py-8">
           <div>
             <section>
               <SectionTitle>Resumo / Objetivo</SectionTitle>
@@ -469,7 +469,7 @@ function createExecutiveVariantPreview(config: {
               <div className="mt-5 space-y-6">
                 {data.experience.map((item) => (
                   <article key={`${item.role}-${item.company}`} className={`border-l-4 pl-5 ${config.accentClass}`}>
-                    <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+                    <div className="flex flex-row justify-between gap-2">
                       <div>
                         <h3 className="text-xl font-bold text-slate-900">{item.role}</h3>
                         <p className={`text-sm font-semibold ${config.accentClass.replace("border-", "text-")}`}>
@@ -570,7 +570,7 @@ function createPhotoVariantPreview(config: {
               ))}
             </div>
           </section>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-2 gap-6">
             <section>
               <SectionTitle>Formacao Academica</SectionTitle>
               <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700">
@@ -616,7 +616,7 @@ function createCreativeVariantPreview(config: {
             <p>{data.personal.email}</p>
           </div>
         </header>
-        <section className="mt-8 grid gap-6 md:grid-cols-2">
+        <section className="mt-8 grid grid-cols-2 gap-6">
           <article className={`rounded-[24px] p-6 ${config.blockA}`}>
             <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Resumo / Objetivo</h2>
             <p className="mt-3 text-sm leading-7 text-slate-700">{data.summary}</p>
@@ -625,7 +625,7 @@ function createCreativeVariantPreview(config: {
             <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Competencias</h2>
             <p className="mt-3 text-sm leading-7 text-slate-700">{data.skills.join(", ")}.</p>
           </article>
-          <article className={`rounded-[24px] p-6 md:col-span-2 ${config.blockC}`}>
+          <article className={`col-span-2 rounded-[24px] p-6 ${config.blockC}`}>
             <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-700">Projetos em Destaque</h2>
             <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
               {data.featuredProjects.map((item) => (
