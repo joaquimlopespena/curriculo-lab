@@ -31,6 +31,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
     personal: {
       fullName: [resume.header.firstName, resume.header.lastName].filter(Boolean).join(" ").trim(),
       title: resume.header.title,
+      address: resume.header.address,
       city: resume.header.city,
       state: resume.header.state,
       phone: resume.header.phone,

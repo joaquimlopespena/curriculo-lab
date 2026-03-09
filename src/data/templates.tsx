@@ -33,6 +33,7 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
       <h1 className="text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
       <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
       <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-zinc-600">
+        <p>{data.personal.address}</p>
         <p>{data.personal.city}, {data.personal.state}</p>
         <p>{data.personal.phone}</p>
         <p>{data.personal.email}</p>
@@ -94,6 +95,7 @@ const ExecutivePreview = ({ data }: { data: ExecutiveResumeData }) => (
           <p className="mt-2 text-lg font-semibold text-sky-100">{data.personal.title}</p>
         </div>
         <div className="grid gap-2 text-right text-sm text-sky-50">
+          <p>{data.personal.address}</p>
           <p>{data.personal.phone}</p>
           <p>{data.personal.email}</p>
           <p>{data.personal.linkedin}</p>
@@ -165,6 +167,7 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
       <h1 className="font-serif text-5xl text-stone-950">{data.personal.fullName}</h1>
       <p className="mt-2 font-serif text-xl text-stone-700">{data.personal.title}</p>
       <div className="mt-4 space-y-1 text-sm text-stone-600">
+        <p>{data.personal.address}</p>
         <p>{data.personal.city}, {data.personal.state} | {data.personal.phone}</p>
         <p>{data.personal.email} | {data.personal.linkedin}</p>
       </div>
@@ -223,6 +226,7 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
       <h1 className="mt-6 text-3xl font-black">{data.personal.fullName}</h1>
       <p className="mt-2 text-sky-100">{data.personal.title}</p>
       <div className="mt-6 space-y-2 text-sm text-sky-50">
+        <p>{data.personal.address}</p>
         <p>{data.personal.phone}</p>
         <p>{data.personal.email}</p>
         <p>{data.personal.city}, {data.personal.state}</p>
@@ -335,6 +339,7 @@ const CreativeCardsPreview = ({ data }: { data: CreativeCardsResumeData }) => (
       <h1 className="text-5xl font-black">{data.personal.fullName}</h1>
       <p className="mt-2 text-xl font-semibold">{data.personal.title}</p>
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <p>{data.personal.address}</p>
         <p>{data.personal.city}, {data.personal.state}</p>
         <p>{data.personal.phone}</p>
         <p>{data.personal.email}</p>
@@ -384,7 +389,8 @@ function createAtsVariantPreview(config: {
           <div className={`h-2 w-28 rounded-full ${config.headerAccent}`} />
           <h1 className="mt-5 text-4xl font-extrabold text-zinc-950">{data.personal.fullName}</h1>
           <p className="mt-2 text-lg font-semibold text-zinc-700">{data.personal.title}</p>
-      <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-zinc-600">
+          <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-zinc-600">
+            <p>{data.personal.address}</p>
             <p>{data.personal.city}, {data.personal.state}</p>
             <p>{data.personal.phone}</p>
             <p>{data.personal.email}</p>
@@ -451,6 +457,7 @@ function createExecutiveVariantPreview(config: {
               <p className="mt-2 text-lg font-semibold text-white/85">{data.personal.title}</p>
             </div>
             <div className="grid gap-2 text-right text-sm text-white/90">
+              <p>{data.personal.address}</p>
               <p>{data.personal.phone}</p>
               <p>{data.personal.email}</p>
               <p>{data.personal.linkedin}</p>
@@ -531,6 +538,7 @@ function createPhotoVariantPreview(config: {
           <h1 className="mt-6 text-3xl font-black">{data.personal.fullName}</h1>
           <p className="mt-2 text-white/85">{data.personal.title}</p>
           <div className="mt-6 space-y-2 text-sm text-white/90">
+            <p>{data.personal.address}</p>
             <p>{data.personal.phone}</p>
             <p>{data.personal.email}</p>
             <p>{data.personal.city}, {data.personal.state}</p>
@@ -611,6 +619,7 @@ function createCreativeVariantPreview(config: {
           <h1 className="text-5xl font-black">{data.personal.fullName}</h1>
           <p className="mt-2 text-xl font-semibold">{data.personal.title}</p>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <p>{data.personal.address}</p>
             <p>{data.personal.city}, {data.personal.state}</p>
             <p>{data.personal.phone}</p>
             <p>{data.personal.email}</p>

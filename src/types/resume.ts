@@ -26,6 +26,7 @@ export type TemplateId =
 export interface PersonalInfo {
   fullName: string;
   title: string;
+  address: string;
   city: string;
   state: string;
   phone: string;
