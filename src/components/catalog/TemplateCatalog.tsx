@@ -1,4 +1,4 @@
-import { useMemo, type ComponentType } from "react";
+import { useMemo, useState, type ComponentType } from "react";
 import { templateList } from "../../data/templates";
 import { toTemplateResumeData } from "../../domain/resume.adapter";
 import { createCatalogResume } from "../../domain/resume.factory";
@@ -62,6 +62,71 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition<any> }) 
   );
 }
 
+function TemplatePreviewModal({
+  template,
+  onClose,
+  onSelect,
+}: {
+  template: TemplateDefinition<any>;
+  onClose: () => void;
+  onSelect: (templateId: TemplateId) => void;
+}) {
+  const SelectedTemplate = template.Preview as ComponentType<{ data: ResumeData }>;
+  const previewData = useMemo(() => toTemplateResumeData(createCatalogResume(template.id)), [template.id]);
+  const previewScale = 0.78;
+  const previewWidth = 794 * previewScale;
+  const previewHeight = 1123 * previewScale;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-6" onClick={onClose}>
+      <div
+        className="relative w-full max-w-6xl overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.28)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-6 border-b border-slate-200 px-6 py-5">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-500">Preview do template</p>
+            <h3 className="mt-2 text-3xl font-semibold text-slate-950">{template.name}</h3>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">{template.description}</p>
+          </div>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+            >
+              Fechar
+            </button>
+            <button
+              type="button"
+              onClick={() => onSelect(template.id)}
+              className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
+            >
+              Usar este modelo
+            </button>
+          </div>
+        </div>
+
+        <div className="flex justify-center bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-6">
+          <div className="max-h-[80vh] overflow-auto rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+            <div
+              className="relative origin-top-left"
+              style={{ width: `${previewWidth}px`, height: `${previewHeight}px` }}
+            >
+              <div
+                className="absolute left-0 top-0 origin-top-left"
+                style={{ transform: `scale(${previewScale})` }}
+              >
+                <SelectedTemplate data={previewData} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function BlankTemplateCard({ onSelect }: { onSelect: () => void }) {
   return (
     <button
@@ -94,9 +159,12 @@ function BlankTemplateCard({ onSelect }: { onSelect: () => void }) {
 
 export function TemplateCatalog({ onSelect }: TemplateCatalogProps) {
   const filteredTemplates = templateList;
+  const [previewingTemplateId, setPreviewingTemplateId] = useState<TemplateId | null>(null);
+  const previewingTemplate = previewingTemplateId ? filteredTemplates.find((item) => item.id === previewingTemplateId) : null;
 
   return (
-    <div className="space-y-6">
+    <>
+      <div className="space-y-6">
       <section className="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm">
         <label className="block">
           <span className="sr-only">Buscar modelos</span>
@@ -118,20 +186,40 @@ export function TemplateCatalog({ onSelect }: TemplateCatalogProps) {
         <BlankTemplateCard onSelect={() => onSelect("ats-clean")} />
 
         {filteredTemplates.map((template) => (
-          <button
-            key={template.id}
-            type="button"
-            onClick={() => onSelect(template.id)}
-            className="text-left transition hover:-translate-y-0.5"
-          >
+          <article key={template.id} className="text-left transition hover:-translate-y-0.5">
             <TemplateThumbnail template={template} />
             <div className="mt-4 px-1">
               <h3 className="text-xl font-semibold text-slate-900">{template.name}</h3>
               <p className="mt-1 text-sm text-slate-500">{template.category}</p>
+              <div className="mt-4 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setPreviewingTemplateId(template.id)}
+                  className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                >
+                  Ver preview
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onSelect(template.id)}
+                  className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
+                >
+                  Usar modelo
+                </button>
+              </div>
             </div>
-          </button>
+          </article>
         ))}
       </section>
-    </div>
+      </div>
+
+      {previewingTemplate ? (
+        <TemplatePreviewModal
+          template={previewingTemplate}
+          onClose={() => setPreviewingTemplateId(null)}
+          onSelect={onSelect}
+        />
+      ) : null}
+    </>
   );
 }
