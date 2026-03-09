@@ -19,12 +19,11 @@ function CatalogPage() {
       <header className="mb-8">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Curriculo Lab</p>
         <h1 className="mt-3 max-w-5xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-          Escolha um modelo antes de entrar no editor
+          Escolha o modelo ideal para montar seu curriculo
         </h1>
         <p className="mt-4 max-w-4xl text-base leading-8 text-slate-600">
-          O projeto agora separa descoberta e edicao: a `index` funciona como galeria de modelos e
-          o editor abre em workspace proprio, evitando concentrar catalogo, formulario e preview na
-          mesma tela.
+          Compare os estilos disponiveis, visualize a estrutura de cada template e entre no editor
+          quando encontrar o layout que faz mais sentido para o seu perfil.
         </p>
       </header>
 
@@ -70,12 +69,11 @@ function EditorPage() {
       <header className="mb-8">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Curriculo Lab</p>
         <h1 className="mt-3 max-w-5xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-          Editor modular com preview fixo e impressao fiel ao template
+          Preencha seu curriculo com visualizacao em tempo real
         </h1>
         <p className="mt-4 max-w-4xl text-base leading-8 text-slate-600">
-          O projeto agora separa descoberta e edicao: a `index` funciona como galeria de modelos e
-          o editor abre em workspace proprio, evitando concentrar catalogo, formulario e preview na
-          mesma tela.
+          Edite as informacoes por etapa, acompanhe o resultado no preview ao lado e gere o PDF com
+          o mesmo layout do modelo selecionado.
         </p>
       </header>
 
