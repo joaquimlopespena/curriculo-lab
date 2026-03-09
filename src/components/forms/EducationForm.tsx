@@ -1,6 +1,14 @@
 import type { StepComponentProps } from "../../domain/resume.types";
 import { FloatingLabelInput, FormSectionShell, PillButton } from "./shared";
 
+function formatState(value: string) {
+  return value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);
+}
+
+function formatYear(value: string) {
+  return value.replace(/\D/g, "").slice(0, 4);
+}
+
 export function EducationForm({ resume, onChange }: StepComponentProps) {
   const update = (itemId: string, key: keyof (typeof resume.education)[number], value: unknown) => {
     onChange((current) => ({
@@ -46,13 +54,13 @@ export function EducationForm({ resume, onChange }: StepComponentProps) {
                 label="Estado"
                 placeholder=" "
                 value={item.state}
-                onChange={(e) => update(item.id, "state", e.target.value)}
+                onChange={(e) => update(item.id, "state", formatState(e.target.value))}
               />
               <FloatingLabelInput
                 label="Conclusao"
                 placeholder=" "
                 value={item.conclusionYear}
-                onChange={(e) => update(item.id, "conclusionYear", e.target.value)}
+                onChange={(e) => update(item.id, "conclusionYear", formatYear(e.target.value))}
               />
             </div>
           </div>

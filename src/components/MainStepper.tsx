@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ComponentType, RefObject } from "react";
 import type { Resume, ResumeStepId, StepComponentProps } from "../domain/resume.types";
 import { STEP_ORDER, getStepIndex } from "../domain/resume.factory";
+import { getVisibleSteps } from "../domain/template-visibility";
 import { ContactForm } from "./forms/ContactForm";
 import { EducationForm } from "./forms/EducationForm";
 import { ExperienceForm } from "./forms/ExperienceForm";
@@ -45,14 +46,22 @@ export function MainStepper({
   const [currentStep, setCurrentStep] = useState<ResumeStepId>("CONTACT");
   const [focusArea, setFocusArea] = useState<"SKILLS" | "OBJECTIVE" | null>(null);
 
-  const currentIndex = getStepIndex(currentStep);
+  const visibleSteps = useMemo(() => getVisibleSteps(resume.templateId), [resume.templateId]);
+
+  useEffect(() => {
+    if (!visibleSteps.includes(currentStep)) {
+      setCurrentStep(visibleSteps[0] ?? "CONTACT");
+    }
+  }, [currentStep, visibleSteps]);
+
+  const currentIndex = visibleSteps.indexOf(currentStep);
   const progress = useMemo(
-    () => Math.round(((currentIndex + 1) / STEP_ORDER.length) * 100),
-    [currentIndex],
+    () => Math.round(((Math.max(currentIndex, 0) + 1) / visibleSteps.length) * 100),
+    [currentIndex, visibleSteps.length],
   );
 
-  const nextStep = STEP_ORDER[Math.min(currentIndex + 1, STEP_ORDER.length - 1)]!;
-  const previousStep = STEP_ORDER[Math.max(currentIndex - 1, 0)]!;
+  const nextStep = visibleSteps[Math.min(Math.max(currentIndex, 0) + 1, visibleSteps.length - 1)]!;
+  const previousStep = visibleSteps[Math.max(Math.max(currentIndex, 0) - 1, 0)]!;
 
   return (
     <section className="mt-8 space-y-6">
@@ -108,13 +117,14 @@ export function MainStepper({
                   <div className="h-full rounded-full bg-slate-900 transition-all" style={{ width: `${progress}%` }} />
                 </div>
                 <p className="mt-2 text-sm text-slate-500">
-                  {progress}% concluido • {STEP_ORDER[currentIndex]!.title}
+                  {progress}% concluido • {STEP_ORDER.find((step) => step.id === currentStep)!.title}
                 </p>
               </div>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {STEP_ORDER.map((step, index) => {
+              {visibleSteps.map((stepId, index) => {
+                const step = STEP_ORDER.find((entry) => entry.id === stepId)!;
                 const active = step.id === currentStep;
                 return (
                   <button
@@ -152,14 +162,14 @@ export function MainStepper({
           <footer className="flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
             <button
               type="button"
-              onClick={() => setCurrentStep(previousStep.id)}
+              onClick={() => setCurrentStep(previousStep)}
               className="rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700"
             >
               Anterior
             </button>
             <button
               type="button"
-              onClick={() => (currentStep === "FINALIZE" ? onExportPdf() : setCurrentStep(nextStep.id))}
+              onClick={() => (currentStep === "FINALIZE" ? onExportPdf() : setCurrentStep(nextStep))}
               className="rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white"
             >
               {currentStep === "FINALIZE" ? "Baixar PDF" : `Proxima`}

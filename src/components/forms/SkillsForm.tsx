@@ -1,4 +1,5 @@
 import type { StepComponentProps } from "../../domain/resume.types";
+import { templateHasField } from "../../domain/template-visibility";
 import { FloatingLabelTextarea, FormSectionShell } from "./shared";
 
 const SUGGESTIONS = [
@@ -10,13 +11,21 @@ const SUGGESTIONS = [
 ];
 
 export function SkillsForm({ resume, onChange, onFocusAreaChange }: StepComponentProps) {
+  const hasQualifications = templateHasField(resume.templateId, "qualifications");
+  const hasResearchLines = templateHasField(resume.templateId, "researchLines");
+  const label = hasResearchLines
+    ? "Linhas de pesquisa"
+    : hasQualifications
+      ? "Resumo de qualificacoes"
+      : "Competencias";
+
   return (
     <FormSectionShell
-      title="Escolha as qualificacoes que deseja destacar"
-      subtitle='Se precisar, use as recomendacoes dos nossos especialistas. E so clicar em "Dicas".'
+      title={hasResearchLines ? "Defina as linhas de pesquisa em destaque" : "Escolha as qualificacoes que deseja destacar"}
+      subtitle="Adicione apenas o que faz sentido para o template selecionado."
     >
       <FloatingLabelTextarea
-        label="Competencias"
+        label={label}
         placeholder=" "
         value={resume.skills.map((item) => `• ${item.name}`).join("\n")}
         onFocus={() => onFocusAreaChange?.("SKILLS")}

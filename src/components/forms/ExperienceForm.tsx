@@ -3,6 +3,14 @@ import { FloatingLabelInput, FloatingLabelTextarea, FormSectionShell, PillButton
 
 const MONTHS = ["Mes", "Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho"];
 
+function formatState(value: string) {
+  return value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);
+}
+
+function formatYear(value: string) {
+  return value.replace(/\D/g, "").slice(0, 4);
+}
+
 export function ExperienceForm({ resume, onChange }: StepComponentProps) {
   const updateJob = (jobId: string, key: keyof (typeof resume.history)[number], value: unknown) => {
     onChange((current) => ({
@@ -48,7 +56,7 @@ export function ExperienceForm({ resume, onChange }: StepComponentProps) {
                 label="Estado"
                 placeholder=" "
                 value={job.state}
-                onChange={(event) => updateJob(job.id, "state", event.target.value)}
+                onChange={(event) => updateJob(job.id, "state", formatState(event.target.value))}
               />
             </div>
 
@@ -75,7 +83,7 @@ export function ExperienceForm({ resume, onChange }: StepComponentProps) {
                   placeholder=" "
                   value={job.startDate.year}
                   onChange={(event) =>
-                    updateJob(job.id, "startDate", { ...job.startDate, year: event.target.value })
+                    updateJob(job.id, "startDate", { ...job.startDate, year: formatYear(event.target.value) })
                   }
                 />
               </div>
@@ -106,7 +114,7 @@ export function ExperienceForm({ resume, onChange }: StepComponentProps) {
                   onChange={(event) =>
                     updateJob(job.id, "endDate", {
                       month: job.endDate?.month ?? "Mes",
-                      year: event.target.value,
+                      year: formatYear(event.target.value),
                     })
                   }
                 />

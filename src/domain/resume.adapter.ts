@@ -5,6 +5,7 @@ const experience = (resume: Resume) =>
   resume.history.map((job) => ({
     role: job.role,
     company: job.employer,
+    location: [job.city, job.state].filter(Boolean).join(", "),
     period: job.current
       ? `${job.startDate.month} ${job.startDate.year} - Atual`
       : `${job.startDate.month} ${job.startDate.year} - ${job.endDate?.month ?? ""} ${job.endDate?.year ?? ""}`.trim(),

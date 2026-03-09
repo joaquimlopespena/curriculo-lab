@@ -37,6 +37,7 @@ export interface PersonalInfo {
 export interface ExperienceItem {
   role: string;
   company: string;
+  location: string;
   period: string;
   description: string;
 }

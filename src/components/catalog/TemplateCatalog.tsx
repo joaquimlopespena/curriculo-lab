@@ -34,32 +34,18 @@ export function TemplateCatalog({ onSelect }: TemplateCatalogProps) {
   return (
     <div className="space-y-6">
       <section className="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm">
-        <div className="flex flex-col gap-4 xl:flex-row xl:items-center">
-          <label className="flex-1">
-            <span className="sr-only">Buscar modelos</span>
-            <div className="flex items-center rounded-xl border border-stone-300 bg-stone-50 px-4">
-              <span className="text-xl text-stone-500">⌕</span>
-              <input
-                value=""
-                readOnly
-                placeholder="Busque entre milhares de modelos"
-                className="w-full bg-transparent px-3 py-3 text-sm text-slate-700 outline-none"
-              />
-            </div>
-          </label>
-
-          <div className="flex flex-wrap gap-2">
-            {["Todos os filtros", "Formato", "Estilo", "Tema", "Preco", "Cor"].map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                className="rounded-xl border border-stone-300 bg-white px-4 py-3 text-sm font-medium text-slate-700"
-              >
-                {filter}
-              </button>
-            ))}
+        <label className="block">
+          <span className="sr-only">Buscar modelos</span>
+          <div className="flex items-center rounded-xl border border-stone-300 bg-stone-50 px-4">
+            <span className="text-xl text-stone-500">⌕</span>
+            <input
+              value=""
+              readOnly
+              placeholder="Busque entre milhares de modelos"
+              className="w-full bg-transparent px-3 py-3 text-sm text-slate-700 outline-none"
+            />
           </div>
-        </div>
+        </label>
 
         <p className="mt-4 text-sm text-slate-500">{filteredTemplates.length} modelos</p>
       </section>

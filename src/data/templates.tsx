@@ -50,7 +50,12 @@ const AtsPreview = ({ data }: { data: AtsResumeData }) => (
         {data.experience.map((item) => (
           <article key={`${item.role}-${item.company}`}>
             <h3 className="font-bold text-zinc-950">{item.role}</h3>
-            <p className="text-zinc-500">{item.company} | {item.period}</p>
+            <p className="text-zinc-500">
+              {item.company}
+              {item.location ? ` - ${item.location}` : ""}
+              {" | "}
+              {item.period}
+            </p>
             <p>{item.description}</p>
           </article>
         ))}
@@ -182,7 +187,12 @@ const AcademicPreview = ({ data }: { data: AcademicResumeData }) => (
         {data.experience.map((item) => (
           <article key={`${item.role}-${item.company}`}>
             <h3 className="font-semibold text-stone-950">{item.role}</h3>
-            <p className="text-stone-500">{item.company} | {item.period}</p>
+            <p className="text-stone-500">
+              {item.company}
+              {item.location ? ` - ${item.location}` : ""}
+              {" | "}
+              {item.period}
+            </p>
             <p>{item.description}</p>
           </article>
         ))}
@@ -264,7 +274,12 @@ const PhotoPreview = ({ data }: { data: PhotoResumeData }) => (
           {data.experience.map((item) => (
             <article key={`${item.role}-${item.company}`}>
               <h3 className="font-bold text-slate-950">{item.role}</h3>
-              <p className="text-slate-500">{item.company} | {item.period}</p>
+              <p className="text-slate-500">
+                {item.company}
+                {item.location ? ` - ${item.location}` : ""}
+                {" | "}
+                {item.period}
+              </p>
               <p>{item.description}</p>
             </article>
           ))}
@@ -409,7 +424,12 @@ function createAtsVariantPreview(config: {
                 {data.experience.map((item) => (
                   <article key={`${item.role}-${item.company}`}>
                     <h3 className="font-bold text-zinc-950">{item.role}</h3>
-                    <p className="text-zinc-500">{item.company} | {item.period}</p>
+                    <p className="text-zinc-500">
+                      {item.company}
+                      {item.location ? ` - ${item.location}` : ""}
+                      {" | "}
+                      {item.period}
+                    </p>
                     <p>{item.description}</p>
                   </article>
                 ))}
@@ -572,7 +592,12 @@ function createPhotoVariantPreview(config: {
               {data.experience.slice(0, 2).map((item) => (
                 <article key={`${item.role}-${item.company}`}>
                   <h3 className="font-bold text-slate-950">{item.role}</h3>
-                  <p className="text-slate-500">{item.company} | {item.period}</p>
+                  <p className="text-slate-500">
+                    {item.company}
+                    {item.location ? ` - ${item.location}` : ""}
+                    {" | "}
+                    {item.period}
+                  </p>
                   <p>{item.description}</p>
                 </article>
               ))}

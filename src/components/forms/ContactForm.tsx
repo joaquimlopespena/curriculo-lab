@@ -1,5 +1,6 @@
 import { useRef, useState, type ChangeEvent } from "react";
 import type { Resume, StepComponentProps } from "../../domain/resume.types";
+import { templateHasField } from "../../domain/template-visibility";
 import { FloatingLabelInput, FormSectionShell, PillButton } from "./shared";
 
 const OPTIONAL_FIELD_CONFIG = {
@@ -30,6 +31,46 @@ function normalizeZipCode(value: string) {
   return value.replace(/\D/g, "");
 }
 
+function formatZipCode(value: string) {
+  const digits = normalizeZipCode(value).slice(0, 8);
+  if (digits.length <= 5) {
+    return digits;
+  }
+
+  return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+}
+
+function formatPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) {
+    return digits ? `(${digits}` : "";
+  }
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  }
+  if (digits.length <= 10) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  }
+
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
+function formatBirthDate(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 8);
+  if (digits.length <= 2) {
+    return digits;
+  }
+  if (digits.length <= 4) {
+    return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  }
+
+  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+}
+
+function formatState(value: string) {
+  return value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);
+}
+
 interface BrasilApiCepResponse {
   cep: string;
   state: string;
@@ -44,6 +85,11 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
   const hasPhoto = PHOTO_TEMPLATE_IDS.has(resume.templateId);
   const supportsOptionalContactFields = OPTIONAL_CONTACT_TEMPLATE_IDS.has(resume.templateId);
   const fullName = header.firstName;
+  const showTitle = templateHasField(resume.templateId, "personal.title");
+  const showPhone = templateHasField(resume.templateId, "personal.phone");
+  const showEmail = templateHasField(resume.templateId, "personal.email");
+  const showLinkedin = templateHasField(resume.templateId, "personal.linkedin");
+  const showPhotoUpload = templateHasField(resume.templateId, "photoUrl") && hasPhoto;
   const [zipLookupMessage, setZipLookupMessage] = useState("");
   const [zipLookupLoading, setZipLookupLoading] = useState(false);
   const lastFetchedZipRef = useRef("");
@@ -157,23 +203,53 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
         onChange={(event) => updateFullName(event.target.value)}
       />
 
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <FloatingLabelInput
-          label="Telefone"
-          placeholder=" "
-          value={header.phone}
-          valid={isFilled(header.phone)}
-          onChange={(event) => updateHeader("phone")(event.target.value)}
-        />
-        <FloatingLabelInput
-          label="E-mail"
-          placeholder=" "
-          type="email"
-          value={header.email}
-          valid={header.email.includes("@")}
-          onChange={(event) => updateHeader("email")(event.target.value)}
-        />
-      </div>
+      {showTitle ? (
+        <div className="mt-6">
+          <FloatingLabelInput
+            label="Cargo alvo"
+            placeholder=" "
+            value={header.title}
+            valid={isFilled(header.title)}
+            onChange={(event) => updateHeader("title")(event.target.value)}
+          />
+        </div>
+      ) : null}
+
+      {showPhone || showEmail ? (
+        <div className={`mt-6 grid gap-6 ${showPhone && showEmail ? "md:grid-cols-2" : ""}`}>
+          {showPhone ? (
+            <FloatingLabelInput
+              label="Telefone"
+              placeholder=" "
+              value={header.phone}
+              valid={isFilled(header.phone)}
+              onChange={(event) => updateHeader("phone")(formatPhone(event.target.value))}
+            />
+          ) : null}
+          {showEmail ? (
+            <FloatingLabelInput
+              label="E-mail"
+              placeholder=" "
+              type="email"
+              value={header.email}
+              valid={header.email.includes("@")}
+              onChange={(event) => updateHeader("email")(event.target.value)}
+            />
+          ) : null}
+        </div>
+      ) : null}
+
+      {showLinkedin ? (
+        <div className="mt-6">
+          <FloatingLabelInput
+            label="LinkedIn"
+            placeholder=" "
+            value={header.linkedin}
+            valid={isFilled(header.linkedin)}
+            onChange={(event) => updateHeader("linkedin")(event.target.value)}
+          />
+        </div>
+      ) : null}
 
       <div className="mt-6 grid gap-6 md:grid-cols-[1.15fr_1.15fr_1fr]">
         <FloatingLabelInput
@@ -182,7 +258,7 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
           value={header.zipCode}
           valid={isFilled(header.zipCode)}
           onChange={(event) => {
-            const nextZipCode = event.target.value;
+            const nextZipCode = formatZipCode(event.target.value);
             if (normalizeZipCode(nextZipCode).length < 8) {
               lastFetchedZipRef.current = "";
               setZipLookupMessage("");
@@ -203,7 +279,7 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
           placeholder=" "
           value={header.state}
           valid={isFilled(header.state)}
-          onChange={(event) => updateHeader("state")(event.target.value)}
+          onChange={(event) => updateHeader("state")(formatState(event.target.value))}
         />
       </div>
 
@@ -223,7 +299,7 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
         />
       </div>
 
-      {hasPhoto ? (
+      {showPhotoUpload ? (
         <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
           <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Foto do curriculo</p>
           <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center">
@@ -273,7 +349,12 @@ export function ContactForm({ resume, onChange }: StepComponentProps) {
                   placeholder=" "
                   value={value}
                   valid={isFilled(value)}
-                  onChange={(event) => updateOptionalField(field, event.target.value)}
+                  onChange={(event) =>
+                    updateOptionalField(
+                      field,
+                      field === "birthDate" ? formatBirthDate(event.target.value) : event.target.value,
+                    )
+                  }
                 />
               ) : null,
             )}
