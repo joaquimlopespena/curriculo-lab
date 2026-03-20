@@ -1,7 +1,21 @@
 import type { StepComponentProps } from "../../domain/resume.types";
 import { FloatingLabelInput, FloatingLabelTextarea, FormSectionShell, PillButton } from "./shared";
 
-const MONTHS = ["Mes", "Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho"];
+const MONTHS = [
+  "Mes",
+  "Janeiro",
+  "Fevereiro",
+  "Marco",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
+];
 
 function formatState(value: string) {
   return value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2);

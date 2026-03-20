@@ -24,15 +24,15 @@ export function PreviewPane({ data, template, printRef }: PreviewPaneProps) {
           Print
         </div>
       </div>
-      <div className="overflow-auto bg-[#d9d7c8] p-4">
-        <div className="flex min-w-fit justify-center">
-          <div className="origin-top scale-[0.62] sm:scale-[0.72] lg:scale-[0.82] xl:scale-[0.72] 2xl:scale-[0.84]">
-            <div
-              ref={printRef}
-              className="resume-sheet resume-sheet--screen w-[210mm] h-[297mm] min-w-[210mm] min-h-[297mm] overflow-hidden bg-white p-0 m-0"
-            >
-              <SelectedTemplate data={data} />
-            </div>
+      <div className="overflow-x-hidden overflow-y-auto bg-[#d9d7c8] p-4">
+        <div
+          className="relative mx-auto shrink-0 overflow-hidden rounded-sm shadow-[0_12px_40px_rgba(0,0,0,0.08)] w-[calc(210mm*0.62)] h-[calc(297mm*0.62)] sm:w-[calc(210mm*0.72)] sm:h-[calc(297mm*0.72)] lg:w-[calc(210mm*0.82)] lg:h-[calc(297mm*0.82)] xl:w-[calc(210mm*0.72)] xl:h-[calc(297mm*0.72)] 2xl:w-[calc(210mm*0.84)] 2xl:h-[calc(297mm*0.84)]"
+        >
+          <div
+            ref={printRef}
+            className="resume-sheet resume-sheet--screen absolute left-0 top-0 m-0 h-[297mm] min-h-[297mm] w-[210mm] min-w-[210mm] origin-top-left scale-[0.62] overflow-hidden bg-white p-0 sm:scale-[0.72] lg:scale-[0.82] xl:scale-[0.72] 2xl:scale-[0.84]"
+          >
+            <SelectedTemplate data={data} />
           </div>
         </div>
       </div>
