@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
+import { SiteLayout } from "./components/layout/SiteLayout";
 import { TemplateCatalog } from "./components/catalog/TemplateCatalog";
 import { MainStepper } from "./components/MainStepper";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import { TermsOfUsePage } from "./pages/TermsOfUsePage";
 import { toTemplateResumeData } from "./domain/resume.adapter";
 import { createInitialResume } from "./domain/resume.factory";
 import type { Resume } from "./domain/resume.types";
@@ -94,8 +97,12 @@ function EditorPage() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<CatalogPage />} />
-      <Route path="/editor/:templateId" element={<EditorPage />} />
+      <Route element={<SiteLayout />}>
+        <Route path="/" element={<CatalogPage />} />
+        <Route path="/editor/:templateId" element={<EditorPage />} />
+        <Route path="/privacidade" element={<PrivacyPolicyPage />} />
+        <Route path="/termos" element={<TermsOfUsePage />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

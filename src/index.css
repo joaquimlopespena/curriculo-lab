@@ -19,6 +19,26 @@
 }
 
 @layer components {
+  .legal-doc {
+    @apply mt-10 space-y-5 text-[15px] leading-7 text-slate-600;
+  }
+
+  .legal-doc h2 {
+    @apply scroll-mt-24 pt-2 text-lg font-semibold text-slate-900;
+  }
+
+  .legal-doc ul {
+    @apply list-disc space-y-2 pl-5;
+  }
+
+  .legal-doc li strong {
+    @apply text-slate-800;
+  }
+
+  .legal-doc a {
+    @apply text-slate-900 underline decoration-slate-400 underline-offset-2 transition hover:decoration-slate-600;
+  }
+
   .resume-sheet {
     @apply relative box-border;
   }
