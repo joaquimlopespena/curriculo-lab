@@ -135,8 +135,21 @@ function BlankTemplateCard({ onSelect }: { onSelect: () => void }) {
       className="group flex min-h-[380px] flex-col overflow-hidden rounded-[28px] border border-dashed border-slate-300 bg-white text-left transition hover:-translate-y-0.5 hover:border-slate-500"
     >
       <div className="flex h-24 items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.18),_transparent_65%)]">
-        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-slate-300 text-4xl text-slate-500 transition group-hover:border-slate-500 group-hover:text-slate-700">
-          +
+        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-slate-300 text-slate-500 transition group-hover:border-slate-500 group-hover:text-slate-700">
+          <svg
+            className="h-7 w-7 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden
+          >
+            <path
+              d="M12 5v14M5 12h14"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+            />
+          </svg>
         </span>
       </div>
       <div className="flex flex-1 flex-col justify-between p-6">

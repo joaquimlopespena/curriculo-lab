@@ -29,6 +29,8 @@ export function FormSectionShell({
 export function FloatingLabelInput({
   label,
   className = "",
+  valid,
+  "aria-invalid": ariaInvalidFromProps,
   ...props
 }: InputHTMLAttributes<HTMLInputElement> & {
   label: string;
@@ -39,9 +41,16 @@ export function FloatingLabelInput({
       <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
         {label}
       </span>
-      <div className="relative rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 transition focus-within:border-slate-500 focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(15,23,42,0.05)]">
+      <div
+        className={`relative rounded-2xl border bg-slate-50 px-4 py-3 transition focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(15,23,42,0.05)] ${
+          valid === false
+            ? "border-amber-400 focus-within:border-amber-500"
+            : "border-slate-300 focus-within:border-slate-500"
+        }`}
+      >
         <input
           {...props}
+          aria-invalid={valid === false ? true : ariaInvalidFromProps}
           className="w-full border-0 bg-transparent px-0 py-0.5 text-[15px] text-slate-900 outline-none placeholder:text-slate-300"
         />
       </div>
