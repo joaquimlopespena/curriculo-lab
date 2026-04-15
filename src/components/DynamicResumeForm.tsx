@@ -130,7 +130,7 @@ function renderExperienceList(
         <button
           type="button"
           onClick={() =>
-            onChange([...value, { role: "", company: "", period: "", description: "" }])
+            onChange([...value, { role: "", company: "", location: "", period: "", description: "" }])
           }
           className="rounded-full bg-slate-950 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white"
         >

@@ -14,6 +14,7 @@ import type {
 const makePersonal = (name: string, title: string, city: string, state: string) => ({
   fullName: name,
   title,
+  address: "",
   city,
   state,
   phone: "(11) 99999-0000",
@@ -838,12 +839,14 @@ const atsInitialData = (): AtsResumeData => ({
     {
       role: "Analista Financeira Senior",
       company: "Grupo Vesper",
+      location: "",
       period: "2022 - Atual",
       description: "Fluxo de caixa, orcamento, DRE gerencial e relatorios de performance para diretorias.",
     },
     {
       role: "Analista de Controladoria",
       company: "Orbe Servicos",
+      location: "",
       period: "2018 - 2022",
       description: "Consolidacao de indicadores, previsoes mensais e apoio ao fechamento.",
     },
@@ -871,12 +874,14 @@ const executiveInitialData = (): ExecutiveResumeData => ({
     {
       role: "Supervisora Comercial",
       company: "Distribuidora SulPrime",
+      location: "",
       period: "Mai 2022 - Atual",
       description: "Supervisao de equipe, expansao da carteira ativa e implantacao de acompanhamento semanal de indicadores.",
     },
     {
       role: "Executiva de Contas",
       company: "BioOffice Solucoes",
+      location: "",
       period: "Jul 2018 - Abr 2022",
       description: "Negociacao, manutencao de contratos corporativos e recuperacao de contas inativas.",
     },
@@ -909,12 +914,14 @@ const academicInitialData = (): AcademicResumeData => ({
     {
       role: "Coordenadora Academica",
       company: "Instituto Saber",
+      location: "",
       period: "2019 - Atual",
       description: "Planejamento academico, supervisao docente e avaliacoes institucionais.",
     },
     {
       role: "Professora Universitaria",
       company: "Centro Universitario Delta",
+      location: "",
       period: "2013 - 2019",
       description: "Docencia em metodologia da pesquisa, orientacao de trabalhos e comissoes academicas.",
     },
@@ -944,12 +951,14 @@ const photoInitialData = (): PhotoResumeData => ({
     {
       role: "Assistente Administrativa",
       company: "Clinica Nova Vida",
+      location: "",
       period: "2021 - Atual",
       description: "Controle de agenda, recepcao, prontuarios e rotinas de faturamento.",
     },
     {
       role: "Auxiliar de Escritorio",
       company: "Grupo Fortaleza Servicos",
+      location: "",
       period: "2018 - 2021",
       description: "Cadastro de documentos, apoio a compras e elaboracao de relatorios simples.",
     },
@@ -976,12 +985,14 @@ const minimalInitialData = (): MinimalAwardsResumeData => ({
     {
       role: "Diretora de Branding",
       company: "Estudio Aurora",
+      location: "",
       period: "Desde janeiro de 2021, Belo Horizonte",
       description: "Lidera projetos de posicionamento, campanhas institucionais e rebranding para empresas de medio porte.",
     },
     {
       role: "Gerente de Conteudo e Marca",
       company: "Casa Viva Comunicacao",
+      location: "",
       period: "Marco de 2017 - dezembro de 2020, Sao Paulo",
       description: "Planejou campanhas sazonais e integrou times de conteudo, design e atendimento.",
     },
@@ -1007,12 +1018,14 @@ const creativeInitialData = (): CreativeCardsResumeData => ({
     {
       role: "Analista de Conteudo",
       company: "Grupo Solar Turismo",
+      location: "",
       period: "2022 - Atual",
       description: "Planejamento editorial, campanhas e governanca de conteudo.",
     },
     {
       role: "Assistente de Marketing Digital",
       company: "Revista Nordeste Viva",
+      location: "",
       period: "2019 - 2022",
       description: "Redes sociais, pauta, cobertura de eventos e relacionamento com comunidade.",
     },
