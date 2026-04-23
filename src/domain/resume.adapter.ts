@@ -1,6 +1,9 @@
 import type { Resume } from "./resume.types";
 import type { ResumeData } from "../types/resume";
 
+const skillNamesForOutput = (resume: Resume) =>
+  resume.skills.map((item) => item.name).filter((name) => name.trim().length > 0);
+
 const experience = (resume: Resume) =>
   resume.history.map((job) => ({
     role: job.role,
@@ -42,7 +45,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
     summary: resume.objective.text,
     experience: experience(resume),
     education: education(resume),
-    skills: resume.skills.map((item) => item.name),
+    skills: skillNamesForOutput(resume),
     languages: languages(resume),
   } as const;
 
@@ -56,7 +59,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
       return {
         ...base,
         templateId: "executive-clean",
-        qualifications: resume.skills.slice(0, 4).map((item) => item.name),
+        qualifications: skillNamesForOutput(resume).slice(0, 4),
       };
     case "academico-serif":
       return {
@@ -65,7 +68,7 @@ export function toTemplateResumeData(resume: Resume): ResumeData {
         publications: resume.extras.certifications.map(
           (item) => `${item.name} - ${item.issuer} (${item.year})`,
         ),
-        researchLines: resume.skills.slice(0, 3).map((item) => item.name),
+        researchLines: skillNamesForOutput(resume).slice(0, 3),
       };
     case "visual-modern":
     case "modelo-sidebar-foto":

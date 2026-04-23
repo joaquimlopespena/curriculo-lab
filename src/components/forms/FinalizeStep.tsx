@@ -15,7 +15,10 @@ export function FinalizeStep({ resume, onPrint }: FinalizeStepProps) {
         <p><strong>Nome:</strong> {[resume.header.firstName, resume.header.lastName].filter(Boolean).join(" ")}</p>
         <p><strong>Historico:</strong> {resume.history.length} item(ns)</p>
         <p><strong>Formacao:</strong> {resume.education.length} item(ns)</p>
-        <p><strong>Competencias:</strong> {resume.skills.length} item(ns)</p>
+        <p>
+          <strong>Competencias:</strong>{" "}
+          {resume.skills.filter((s) => s.name.trim().length > 0).length} item(ns)
+        </p>
         <p><strong>Certificacoes:</strong> {resume.extras.certifications.length} item(ns)</p>
       </div>
       <button

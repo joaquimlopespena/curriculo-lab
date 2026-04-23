@@ -33,10 +33,12 @@ export function SkillsForm({ resume, onChange, onFocusAreaChange }: StepComponen
         onChange={(event) =>
           onChange((current) => ({
             ...current,
-            skills: event.target.value
-              .split("\n")
-              .map((line, index) => ({ id: `skill-${index + 1}`, name: line.replace(/^•\s*/, "").trim() }))
-              .filter((item) => item.name.length > 0),
+            skills: event.target.value.split("\n").map((line, index) => ({
+              id: `skill-${index + 1}`,
+              // Sem .trim() no nome (preserva espaço no fim). Sem filtrar linhas vazias aqui — senão Enter
+              // some porque a linha nova ainda está vazia. Linhas vazias são ignoradas só no preview/PDF.
+              name: line.replace(/^•\s*/, ""),
+            })),
           }))
         }
       />

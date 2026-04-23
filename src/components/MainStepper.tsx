@@ -64,10 +64,10 @@ export function MainStepper({
   const previousStep = visibleSteps[Math.max(Math.max(currentIndex, 0) - 1, 0)]!;
 
   return (
-    <section className="mt-8 space-y-6">
-      <header className="rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-        <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
-          <div>
+    <section className="mt-8 min-w-0 space-y-6">
+      <header className="min-w-0 rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+        <div className="flex min-w-0 flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Editor</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-900">
               {template.name} <span className="font-normal text-slate-500">em modo de edicao</span>
@@ -108,11 +108,11 @@ export function MainStepper({
         </div>
       </header>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(360px,44%)]">
-        <div className="space-y-4">
-          <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex-1">
+      <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(360px,44%)]">
+        <div className="min-w-0 space-y-4">
+          <section className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex min-w-0 items-center justify-between gap-4">
+              <div className="min-w-0 flex-1">
                 <div className="h-2 overflow-hidden rounded-full bg-slate-100">
                   <div className="h-full rounded-full bg-slate-900 transition-all" style={{ width: `${progress}%` }} />
                 </div>
@@ -159,7 +159,7 @@ export function MainStepper({
             })()
           )}
 
-          <footer className="flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+          <footer className="flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
             <button
               type="button"
               onClick={() => setCurrentStep(previousStep)}
@@ -177,7 +177,7 @@ export function MainStepper({
           </footer>
         </div>
 
-        <div className="xl:sticky xl:top-6 xl:self-start">
+        <div className="min-w-0 xl:sticky xl:top-6 xl:self-start">
           <PreviewPane data={previewData} template={template} printRef={printRef} />
         </div>
       </div>

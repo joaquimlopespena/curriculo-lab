@@ -18,10 +18,10 @@ function CatalogPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6">
-      <header className="mb-8">
+    <div className="mx-auto min-w-0 max-w-[1800px] px-4 py-8 sm:px-6">
+      <header className="mb-8 min-w-0">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Curriculo Lab</p>
-        <h1 className="mt-3 max-w-5xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+        <h1 className="mt-3 max-w-5xl break-words text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
           Escolha o modelo ideal para montar seu curriculo
         </h1>
         <p className="mt-4 max-w-4xl text-base leading-8 text-slate-600">
@@ -68,10 +68,10 @@ function EditorPage() {
   }
 
   return (
-    <div className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6">
-      <header className="mb-8">
+    <div className="mx-auto min-w-0 max-w-[1800px] px-4 py-8 sm:px-6">
+      <header className="mb-8 min-w-0">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">Curriculo Lab</p>
-        <h1 className="mt-3 max-w-5xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+        <h1 className="mt-3 max-w-5xl break-words text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
           Preencha seu curriculo com visualizacao em tempo real
         </h1>
         <p className="mt-4 max-w-4xl text-base leading-8 text-slate-600">

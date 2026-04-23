@@ -1,4 +1,4 @@
-import { useMemo, useState, type ComponentType } from "react";
+import { useLayoutEffect, useMemo, useState, type ComponentType } from "react";
 import { templateList } from "../../data/templates";
 import { toTemplateResumeData } from "../../domain/resume.adapter";
 import { createCatalogResume } from "../../domain/resume.factory";
@@ -62,6 +62,39 @@ function TemplateThumbnail({ template }: { template: TemplateDefinition<any> }) 
   );
 }
 
+const PREVIEW_BASE_W = 794;
+const PREVIEW_BASE_H = 1123;
+const MAX_PREVIEW_SCALE = 0.9;
+const MIN_PREVIEW_SCALE = 0.32;
+
+function computePreviewScale() {
+  if (typeof window === "undefined") return MAX_PREVIEW_SCALE;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const reserveX = 56;
+  const reserveY = 220;
+  const maxW = Math.max(160, vw - reserveX);
+  const maxH = Math.max(200, vh - reserveY);
+  const scaleW = maxW / PREVIEW_BASE_W;
+  const scaleH = maxH / PREVIEW_BASE_H;
+  const next = Math.min(MAX_PREVIEW_SCALE, scaleW, scaleH);
+  return Math.max(MIN_PREVIEW_SCALE, next);
+}
+
+function useModalPreviewScale() {
+  const [scale, setScale] = useState(computePreviewScale);
+
+  useLayoutEffect(() => {
+    const compute = () => setScale(computePreviewScale());
+
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
+
+  return scale;
+}
+
 function TemplatePreviewModal({
   template,
   onClose,
@@ -73,23 +106,26 @@ function TemplatePreviewModal({
 }) {
   const SelectedTemplate = template.Preview as ComponentType<{ data: ResumeData }>;
   const previewData = useMemo(() => toTemplateResumeData(createCatalogResume(template.id)), [template.id]);
-  const previewScale = 0.9;
-  const previewWidth = 794 * previewScale;
-  const previewHeight = 1123 * previewScale;
+  const previewScale = useModalPreviewScale();
+  const previewWidth = PREVIEW_BASE_W * previewScale;
+  const previewHeight = PREVIEW_BASE_H * previewScale;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-6" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-slate-950/55 p-3 sm:p-6"
+      onClick={onClose}
+    >
       <div
-        className="relative w-full max-w-[1320px] overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.28)]"
+        className="relative my-auto w-full min-w-0 max-w-[1320px] max-h-[min(100dvh-1rem,100vh-1rem)] overflow-x-hidden overflow-y-auto rounded-[24px] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.28)] sm:rounded-[32px]"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-6 border-b border-slate-200 px-6 py-5">
-          <div>
+        <div className="flex flex-col gap-4 border-b border-slate-200 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 sm:py-5">
+          <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-500">Preview do template</p>
-            <h3 className="mt-2 text-3xl font-semibold text-slate-950">{template.name}</h3>
+            <h3 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">{template.name}</h3>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">{template.description}</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:gap-3">
             <button
               type="button"
               onClick={onClose}
@@ -107,17 +143,19 @@ function TemplatePreviewModal({
           </div>
         </div>
 
-        <div className="flex justify-center bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-4">
-          <div className="max-h-[82vh] overflow-auto rounded-[24px] border border-slate-200 bg-white p-3 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
-            <div
-              className="relative origin-top-left"
-              style={{ width: `${previewWidth}px`, height: `${previewHeight}px` }}
-            >
+        <div className="flex justify-center bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-2 sm:p-4">
+          <div className="max-h-[min(70dvh,82vh)] w-full max-w-full overflow-x-hidden overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_18px_45px_rgba(15,23,42,0.12)] sm:max-h-[82vh] sm:rounded-[24px] sm:p-3">
+            <div className="mx-auto flex w-max max-w-full justify-center">
               <div
-                className="absolute left-0 top-0 origin-top-left"
-                style={{ transform: `scale(${previewScale})` }}
+                className="relative shrink-0 overflow-hidden"
+                style={{ width: `${previewWidth}px`, height: `${previewHeight}px` }}
               >
-                <SelectedTemplate data={previewData} />
+                <div
+                  className="absolute left-0 top-0 origin-top-left"
+                  style={{ transform: `scale(${previewScale})` }}
+                >
+                  <SelectedTemplate data={previewData} />
+                </div>
               </div>
             </div>
           </div>

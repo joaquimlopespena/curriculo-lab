@@ -15,11 +15,11 @@ export function FormSectionShell({
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-[28px] border border-slate-200 bg-white p-6 text-slate-900 shadow-sm lg:p-8">
+    <section className="min-w-0 overflow-x-hidden rounded-[28px] border border-slate-200 bg-white p-6 text-slate-900 shadow-sm lg:p-8">
       <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
         Etapa do formulario
       </span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-slate-900">{title}</h2>
+      <h2 className="mt-4 break-words text-3xl font-semibold tracking-[-0.03em] text-slate-900">{title}</h2>
       <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">{subtitle}</p>
       <div className="mt-8">{children}</div>
     </section>
