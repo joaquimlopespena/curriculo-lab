@@ -11,6 +11,7 @@ import { createInitialResume } from "./domain/resume.factory";
 import type { Resume } from "./domain/resume.types";
 import { templates } from "./data/templates";
 import type { TemplateDefinition, TemplateId } from "./types/resume";
+import { AdBanner } from "./components/ads/AdBanner";
 
 const DEFAULT_TEMPLATE_ID: TemplateId = "executive-clean";
 
@@ -29,6 +30,11 @@ function CatalogPage() {
           quando encontrar o layout que faz mais sentido para o seu perfil.
         </p>
       </header>
+
+      {/* Banner de Anúncio no Catálogo */}
+      <div className="mb-8">
+        <AdBanner format="horizontal" />
+      </div>
 
       <TemplateCatalog onSelect={(templateId) => navigate(`/editor/${templateId}`)} />
     </div>
